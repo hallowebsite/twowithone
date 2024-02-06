@@ -1,0 +1,25 @@
+// 1. Import utilities from `astro:content`
+import { z, defineCollection } from "astro:content";
+// 2. Define your collection(s)
+const countriesCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    slug: z.string(),
+    countryName: z.object({
+      en: z.string(),
+    }),
+    original: z.string(),
+    meaning: z.object({
+      en: z.string(),
+    }),
+    tags: z.array(z.string()),
+    comment: z.string().optional(),
+    image: z.string().optional(),
+    flag: z.string().optional(),
+  }),
+});
+// 3. Export a single `collections` object to register your collection(s)
+//    This key should match your collection directory name in "src/content"
+export const collections = {
+  countries: countriesCollection,
+};
