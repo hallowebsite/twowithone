@@ -13,7 +13,6 @@ const countriesCollection = defineCollection({
       en: z.string(),
     }),
     tags: z.array(z.string()),
-    comment: z.string().optional(),
     image: z.string().optional(),
     flag: z.string().optional(),
   }),

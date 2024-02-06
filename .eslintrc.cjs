@@ -6,8 +6,8 @@ module.exports = {
   },
   extends: [
     "standard-with-typescript",
-    "plugin:astro/recommended",
     "plugin:prettier/recommended",
+    "plugin:astro/recommended",
   ],
   overrides: [
     {
@@ -27,7 +27,6 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
-    extraFileExtensions: [".astro"],
   },
   rules: {},
 };
