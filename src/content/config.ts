@@ -4,7 +4,6 @@ import { z, defineCollection } from "astro:content";
 const countriesCollection = defineCollection({
   type: "content",
   schema: z.object({
-    slug: z.string(),
     countryName: z.object({
       en: z.string(),
     }),
@@ -15,6 +14,7 @@ const countriesCollection = defineCollection({
     tags: z.array(z.string()),
     image: z.string().optional(),
     flag: z.string().optional(),
+    location: z.array(z.number()).optional(),
   }),
 });
 // 3. Export a single `collections` object to register your collection(s)
