@@ -1,9 +1,15 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "@/layouts/Layout.astro";
+import Search from "@/components/Search.astro";
+
+import "@/styles/globals.css";
 ---
 
 <Layout title="Two with one">
-  <main>heyho</main>
+  <main>
+    heyho
+    <Search />
+  </main>
 </Layout>
 
 <style></style>
