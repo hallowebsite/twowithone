@@ -2,12 +2,12 @@
 import { getCollection } from "astro:content";
 import Search from "@/components/Search.astro";
 
-const countries = await getCollection("countries");
+const languages = await getCollection("languages");
 
 interface Props {
   title: string;
 }
-const length = countries.length;
+const length = languages.length;
 
 const { title } = Astro.props;
 ---

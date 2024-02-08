@@ -1,18 +1,18 @@
 ---
 import { getCollection } from "astro:content";
 
-const countries = await getCollection("countries");
-const countriesToSearch = countries.map((country) => ({
-  name: country.data.countryName,
-  slug: country.slug,
+const languages = await getCollection("languages");
+const languagesToSearch = languages.map((language) => ({
+  name: language.data.languageName,
+  slug: language.slug,
 }));
 ---
 
 <select>
-  <option value="">Select a country</option>
+  <option value="">Select a language</option>
   {
-    countriesToSearch.map((country) => (
-      <option value={country.slug}>{country.name["en"]}</option>
+    languagesToSearch.map((language) => (
+      <option value={language.slug}>{language.name["en"]}</option>
     ))
   }
 </select>

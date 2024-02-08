@@ -4,8 +4,8 @@ import CountryBasic from "@/components/CountryBasic.astro";
 import Layout from "@/layouts/Layout.astro";
 
 export async function getStaticPaths() {
-  const countries = await getCollection("countries");
-  return countries.map((entry) => ({
+  const languages = await getCollection("languages");
+  return languages.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
   }));
@@ -15,6 +15,6 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<Layout title={`Two with one - ${entry.data.countryName['en']}`}>
+<Layout title={`Two with one - ${entry.data.languageName['en']}`}>
 <CountryBasic country={entry} />
 </Layout>

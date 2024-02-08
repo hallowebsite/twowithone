@@ -1,6 +1,6 @@
 ---
-countryName:
-  en: Germany
+languageName:
+  en: German
 original: Zwei Fliegen mit einer Klappe schlagen
 meaning:
   en: To hit two flies with one swatter
