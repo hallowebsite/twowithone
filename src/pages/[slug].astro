@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import CountryBasic from "@/components/CountryBasic.astro";
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
   const countries = await getCollection("countries");
@@ -14,10 +15,4 @@ const { Content } = await entry.render();
 const Flag = `flag-${entry.data.flag}`;
 ---
 
-<h1>{entry.data.countryName.en}</h1>
-<Flag />
-<Content />
-
-<script>
-  import "../scripts/elements.flagmeister.js";
-</script>
+<CountryBasic countryName={entry.data.countryName.en} original={entry.data.original} meaning={entry.data.meaning.en} slug={entry.slug} flag={entry.data.flag} />

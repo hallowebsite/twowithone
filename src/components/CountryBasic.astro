@@ -1,0 +1,35 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+interface Props {
+  countryName: string;
+  original: string;
+  meaning: string;
+  slug: string;
+  flag: string;
+}
+const { countryName, original, meaning, slug, flag } = Astro.props;
+const Flag: any = `flag-${flag}`;
+---
+
+<Layout title="Two with one">
+  <section class="container mt-8 flex flex-col gap-4 items-center">
+    <p class="withFlag text-xl flex items-center gap-2">
+      in {countryName}
+      <Flag style="height:30px; width:40px" /> we say:
+    </p>
+    <h2 class="text-4xl">{original}</h2>
+    <span>which means literally:</span>
+    <p>{meaning}</p>
+    <p>
+      <span>Permalink to this saying:</span>
+      <a href={`/${slug}`}>
+        {`/${slug}`}
+      </a>
+    </p>
+  </section>
+
+  <script>
+    import "../scripts/elements.flagmeister.js";
+  </script>
+</Layout>

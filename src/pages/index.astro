@@ -1,15 +1,15 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
-import Search from "@/components/Search.astro";
 
-import "@/styles/globals.css";
+const countries = await getCollection("countries");
+// get random country
+const randomCountry = countries[Math.floor(Math.random() * countries.length)];
 ---
 
 <Layout title="Two with one">
-  <main>
-    heyho
-    <Search />
-  </main>
+  <section>
+    <h2>{randomCountry.data.meaning["en"]}</h2>
+    <section></section>
+  </section>
 </Layout>
-
-<style></style>

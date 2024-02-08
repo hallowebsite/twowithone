@@ -1,8 +1,18 @@
 ---
 import { getCollection } from "astro:content";
-import { Button } from "@/components/ui/Button";
 
 const countries = await getCollection("countries");
+const countriesToSearch = countries.map((country) => ({
+  name: country.data.countryName,
+  slug: country.slug,
+}));
 ---
 
-<Button>Click me</Button>
+<select>
+  <option value="">Select a country</option>
+  {
+    countriesToSearch.map((country) => (
+      <option value={country.slug}>{country.name["en"]}</option>
+    ))
+  }
+</select>
