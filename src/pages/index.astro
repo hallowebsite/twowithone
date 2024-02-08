@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import CountryBasic from "@/components/CountryBasic.astro";
 import Layout from "@/layouts/Layout.astro";
 
 const countries = await getCollection("countries");
@@ -8,8 +9,5 @@ const randomCountry = countries[Math.floor(Math.random() * countries.length)];
 ---
 
 <Layout title="Two with one">
-  <section>
-    <h2>{randomCountry.data.meaning["en"]}</h2>
-    <section></section>
-  </section>
+  <CountryBasic country={randomCountry} />
 </Layout>

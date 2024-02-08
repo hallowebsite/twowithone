@@ -1,7 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 import CountryBasic from "@/components/CountryBasic.astro";
-// 1. Generate a new path for every collection entry
+import Layout from "@/layouts/Layout.astro";
+
 export async function getStaticPaths() {
   const countries = await getCollection("countries");
   return countries.map((entry) => ({
@@ -9,10 +10,11 @@ export async function getStaticPaths() {
     props: { entry },
   }));
 }
-// 2. For your template, you can get the entry directly from the prop
+
 const { entry } = Astro.props;
 const { Content } = await entry.render();
-const Flag = `flag-${entry.data.flag}`;
 ---
 
-<CountryBasic countryName={entry.data.countryName.en} original={entry.data.original} meaning={entry.data.meaning.en} slug={entry.slug} flag={entry.data.flag} />
+<Layout title={`Two with one - ${entry.data.countryName['en']}`}>
+<CountryBasic country={entry} />
+</Layout>

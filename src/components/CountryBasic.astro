@@ -1,35 +1,29 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import type { CollectionEntry } from "astro:content";
 
 interface Props {
-  countryName: string;
-  original: string;
-  meaning: string;
-  slug: string;
-  flag: string;
+  country: CollectionEntry<"countries">;
 }
-const { countryName, original, meaning, slug, flag } = Astro.props;
-const Flag: any = `flag-${flag}`;
+const { country } = Astro.props;
+const Flag: any = `flag-${country.data.flag}`;
 ---
 
-<Layout title="Two with one">
-  <section class="container mt-8 flex flex-col gap-4 items-center">
-    <p class="withFlag text-xl flex items-center gap-2">
-      in {countryName}
-      <Flag style="height:30px; width:40px" /> we say:
-    </p>
-    <h2 class="text-4xl">{original}</h2>
-    <span>which means literally:</span>
-    <p>{meaning}</p>
-    <p>
-      <span>Permalink to this saying:</span>
-      <a href={`/${slug}`}>
-        {`/${slug}`}
-      </a>
-    </p>
-  </section>
+<section class="container mt-8 flex flex-col gap-8 items-center">
+  <p class="withFlag text-xl flex items-center gap-2">
+    in {country.data.countryName["en"]}
+    <Flag style="height:30px; width:40px" /> we say:
+  </p>
+  <h2 class="text-4xl italic">"{country.data.original}"</h2>
+  <span>which means literally:</span>
+  <p class="text-2xl">{country.data.meaning["en"]}</p>
+  <p class="mt-8 text-sm">
+    <span>Permalink to this saying:</span>
+    <a href={`/${country.slug}`}>
+      {`/${country.slug}`}
+    </a>
+  </p>
+</section>
 
-  <script>
-    import "../scripts/elements.flagmeister.js";
-  </script>
-</Layout>
+<script>
+  import "../scripts/elements.flagmeister.js";
+</script>

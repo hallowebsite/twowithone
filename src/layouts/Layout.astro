@@ -1,9 +1,13 @@
 ---
+import { getCollection } from "astro:content";
 import Search from "@/components/Search.astro";
+
+const countries = await getCollection("countries");
 
 interface Props {
   title: string;
 }
+const length = countries.length;
 
 const { title } = Astro.props;
 ---
@@ -22,7 +26,7 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <header class="container navbar bg-base-100">
+    <header class="container mx-auto navbar bg-base-100">
       <div class="flex-1 flex gap-2">
         <a href="/" class="btn btn-ghost text-xl"
           ><svg
@@ -36,7 +40,9 @@ const { title } = Astro.props;
             ></path></svg
           ></a
         >
-        <h1 class="text-xl">To kill two birds with one stone in...</h1>
+        <h1 class="text-xl">
+          "To kill two birds with one stone" <span class="text-sm">in {length} languages</span>
+        </h1>
       </div>
       <div class="flex-none">
         <ul class="menu menu-horizontal px-1">
@@ -73,7 +79,7 @@ const { title } = Astro.props;
       </div>
     </header>
 
-    <main class="container">
+    <main class="container mx-auto">
       <slot />
     </main>
   </body>

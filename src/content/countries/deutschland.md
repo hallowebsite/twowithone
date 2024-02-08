@@ -3,7 +3,7 @@ countryName:
   en: Germany
 original: Zwei Fliegen mit einer Klappe schlagen
 meaning:
-  en: To hit two flies with one swater
+  en: To hit two flies with one swatter
 flag: de
 tags:
   - insects
