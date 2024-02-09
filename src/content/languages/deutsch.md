@@ -6,6 +6,8 @@ meaning:
   en: To hit two flies with one swatter
 flags:
   - de
+  - at
+  - ch
 tags:
   - insects
   - flies
