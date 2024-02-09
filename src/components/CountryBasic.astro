@@ -9,7 +9,7 @@ const Flags: any = country.data.flags.map((flag: string) => `flag-${flag}`);
 ---
 
 <section class="container mt-8 flex flex-col gap-8 items-center">
-  <div class="flex items-center justify-center">
+  <div class="flex gap-2 items-center justify-center">
     {
       Flags.map((Flag: any) => {
         return <Flag style="height: 30px;width:40px" />;
