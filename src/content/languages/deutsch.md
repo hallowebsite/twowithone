@@ -4,7 +4,8 @@ languageName:
 original: Zwei Fliegen mit einer Klappe schlagen
 meaning:
   en: To hit two flies with one swatter
-flag: de
+flags:
+  - de
 tags:
   - insects
   - flies

@@ -5,25 +5,31 @@ interface Props {
   country: CollectionEntry<"languages">;
 }
 const { country } = Astro.props;
-const Flag: any = `flag-${country.data.flag}`;
+const Flags: any = country.data.flags.map((flag: string) => `flag-${flag}`);
 ---
 
 <section class="container mt-8 flex flex-col gap-8 items-center">
+  <div class="flex items-center justify-center">
+    {
+      Flags.map((Flag: any) => {
+        return <Flag style="height: 30px;width:40px" />;
+      })
+    }
+  </div>
   <p class="withFlag text-xl flex items-center gap-2">
-    in {country.data.languageName["en"]}
-    <Flag style="height:30px; width:40px" /> we say:
+    in {country.data.languageName["en"]} we say:
+    <h2 class="text-4xl italic">"{country.data.original}"</h2>
+    <span>which means literally:</span>
+    <p class="text-2xl">{country.data.meaning["en"]}</p>
+    <p class="mt-8 text-sm">
+      <span>Permalink to this saying:</span>
+      <a href={`/${country.slug}`}>
+        {`/${country.slug}`}
+      </a>
+    </p>
   </p>
-  <h2 class="text-4xl italic">"{country.data.original}"</h2>
-  <span>which means literally:</span>
-  <p class="text-2xl">{country.data.meaning["en"]}</p>
-  <p class="mt-8 text-sm">
-    <span>Permalink to this saying:</span>
-    <a href={`/${country.slug}`}>
-      {`/${country.slug}`}
-    </a>
-  </p>
-</section>
 
-<script>
-  import "../scripts/elements.flagmeister.js";
-</script>
+  <script>
+    import "../scripts/elements.flagmeister.js";
+  </script>
+</section>

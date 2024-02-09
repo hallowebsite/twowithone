@@ -4,7 +4,8 @@ languageName:
 original: Upiec dwie pieczenie na jednym ogniu
 meaning:
   en: To roast two meats in one fire
-flag: pl
+flags:
+  - pl
 tags:
   - meat
   - food

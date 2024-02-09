@@ -13,7 +13,7 @@ const languagesCollection = defineCollection({
     }),
     tags: z.array(z.string()),
     image: z.string().optional(),
-    flag: z.string().optional(),
+    flags: z.array(z.string()),
     location: z.array(z.number()).optional(),
   }),
 });
