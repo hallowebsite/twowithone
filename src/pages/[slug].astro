@@ -1,20 +1,21 @@
 ---
-import { getCollection } from "astro:content";
+import { getEntry } from "astro:content";
 import CountryBasic from "@/components/CountryBasic.astro";
 import Layout from "@/layouts/Layout.astro";
 
-export async function getStaticPaths() {
-  const languages = await getCollection("languages");
-  return languages.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
-  }));
+const { slug } = Astro.params;
+if (slug === undefined) {
+  throw new Error("Slug is required");
+}
+// 2. Query for the entry directly using the request slug
+const entry = await getEntry("languages", slug);
+// 3. Redirect if the entry does not exist
+if (entry === undefined) {
+  return Astro.redirect("/404");
 }
 
-const { entry } = Astro.props;
-const { Content } = await entry.render();
 ---
 
-<Layout title={`Two with one - ${entry.data.languageName['en']}`}>
-<CountryBasic country={entry} />
+<Layout title={`Two with one - ${entry.data.languageName["en"]}`}>
+  <CountryBasic country={entry} />
 </Layout>
