@@ -18,7 +18,7 @@ const Flags: any = country.data.flags
 const image = images["/src/images/" + country.slug + ".jpg"];
 ---
 
-<section class="container mt-8 flex flex-col gap-8 items-center">
+<section class="container my-8 flex flex-col gap-8 items-center">
   <div class="flex gap-2 items-center justify-center">
     {
       Flags.map((Flag: any) => {
@@ -33,17 +33,29 @@ const image = images["/src/images/" + country.slug + ".jpg"];
   <span>which means literally:</span>
   <p class="text-2xl">{country.data.meaning["en"]}</p>
 
-  <a role="button" class="btn btn-primary" href="/"
+  <a role="button" class="btn mb-4 mt-2 btn-primary" href="/"
     >Go to other random langugage</a
   >
   {
     image && (
       <Image
+        class="max-w-lg"
         src={image()}
         alt={`Dall-e generated image illustrating a prompt: ${country.data.meaning["en"]}`}
       />
     )
   }
+</section>
+<section class="container max-w-screen-md mx-auto my-12 flex flex-col gap-8">
+  {
+    country.body.length > 10 && (
+      <>
+        <h3 class="text-2xl mb-2">More about this saying</h3>
+        <prose>{country.body}</prose>
+      </>
+    )
+  }
+
   <p class="mt-8 text-sm">
     <span>Permalink to this saying:</span>
     <a href={`/${country.slug}`}>

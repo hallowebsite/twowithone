@@ -21,15 +21,17 @@ const languages = await getCollection("languages");
       <p>ACME Industries Ltd.<br />Made with love in Aachen, Germany</p>
     </aside>
     <nav>
-      <h6 class="footer-title">See:</h6>
-      <a class="link link-hover">Map</a>
+      <h6 class="footer-title">Languages:</h6>
+      <a class="link link-hover">Explore on a map</a>
+      <a class="link link-hover">List of langages</a>
+      <a class="link link-hover">Add your language</a>
+      <a class="link link-hover">Code</a>
+    </nav>
+    <nav>
+      <h6 class="footer-title">About:</h6>
       <a class="link link-hover">About</a>
       <a class="link link-hover">Impressum</a>
       <a class="link link-hover">Data protection and cookies</a>
-    </nav>
-    <nav>
-      <h6 class="footer-title">Languages:</h6>
-      {languages.map((language) => <a class="link link-hover" href=`/${language.slug}` class="link link-hover">{language.data.languageName['en']}</a>)}
     </nav>
     <div>
       <h6 class="footer-title">Dark/Light mode:</h6>

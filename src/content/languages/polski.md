@@ -12,5 +12,3 @@ tags:
   - fire
   - cooking
 ---
-
-This is an optional comment
