@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { ViewTransitions } from "astro:transitions";
 import Search from "@/components/Search.astro";
 import Footer from "@/components/Footer.astro";
 
@@ -45,6 +46,7 @@ const { title } = Astro.props;
       </style>
     </noscript>
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body class="min-h-screen flex flex-col">
     <header class="container mx-auto navbar bg-base-100">
