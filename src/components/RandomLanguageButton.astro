@@ -11,34 +11,32 @@ const allLanguagesSlugs = languages.map((entry) => entry.slug);
     class="btn mb-4 mt-2 btn-primary"
     href="/">Go to other random langugage</a
   >
+  <input type="checkbox" hidden />
 </random-language-button>
 
 <script>
   // define the custom element
   class RandomLanguageButton extends HTMLElement {
+    private allowLocalStorage = false;
+    private slugs: string[] = [];
+
     constructor() {
       super();
-      const localStorageSlugs = localStorage.getItem("notVisitedLanguages");
-      if (!localStorageSlugs) {
-        localStorage.setItem("notVisitedLanguages", this.dataset.slugs);
-      }
       const button = this.querySelector("#randomLanguage");
+      const input = this.querySelector("input");
+      input?.removeAttribute("hidden");
+      this.slugs = this.getAttribute("data-slugs")?.split(",") || [];
+      if (!button) {
+        return;
+      }
       button.addEventListener("click", (e) => {
         e.preventDefault();
-        const localStorageSlugs = localStorage
-          .getItem("notVisitedLanguages")
-          .split(",");
-        console.log(localStorageSlugs);
-        const randomLanguage =
-          localStorageSlugs[
-            Math.floor(Math.random(), localStorageSlugs.length)
-          ];
-        const newSlugs = localStorageSlugs.filter(
-          (slug) => slug !== randomLanguage,
-        );
-        localStorage.setItem("notVisitedLanguages", newSlugs.join(","));
-        window.location.href = `/${randomLanguage}`;
+        const randomSlug = this.getRandomSlug(this.slugs);
+        window.location.href = `/${randomSlug}`;
       });
+    }
+    getRandomSlug(slugs: string[]) {
+      return slugs[Math.floor(Math.random() * slugs.length)];
     }
   }
   customElements.define("random-language-button", RandomLanguageButton);
