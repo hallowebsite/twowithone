@@ -1,0 +1,45 @@
+---
+import { getCollection } from "astro:content";
+const languages = await getCollection("languages");
+const allLanguagesSlugs = languages.map((entry) => entry.slug);
+---
+
+<random-language-button data-slugs={allLanguagesSlugs}>
+  <a
+    role="button"
+    id="randomLanguage"
+    class="btn mb-4 mt-2 btn-primary"
+    href="/">Go to other random langugage</a
+  >
+</random-language-button>
+
+<script>
+  // define the custom element
+  class RandomLanguageButton extends HTMLElement {
+    constructor() {
+      super();
+      const localStorageSlugs = localStorage.getItem("notVisitedLanguages");
+      if (!localStorageSlugs) {
+        localStorage.setItem("notVisitedLanguages", this.dataset.slugs);
+      }
+      const button = this.querySelector("#randomLanguage");
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        const localStorageSlugs = localStorage
+          .getItem("notVisitedLanguages")
+          .split(",");
+        console.log(localStorageSlugs);
+        const randomLanguage =
+          localStorageSlugs[
+            Math.floor(Math.random(), localStorageSlugs.length)
+          ];
+        const newSlugs = localStorageSlugs.filter(
+          (slug) => slug !== randomLanguage,
+        );
+        localStorage.setItem("notVisitedLanguages", newSlugs.join(","));
+        window.location.href = `/${randomLanguage}`;
+      });
+    }
+  }
+  customElements.define("random-language-button", RandomLanguageButton);
+</script>
