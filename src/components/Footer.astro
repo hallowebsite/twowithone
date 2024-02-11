@@ -32,7 +32,7 @@ import { getCollection } from "astro:content";
       <a class="link link-hover">Impressum</a>
       <a class="link link-hover">Data protection and cookies</a>
     </nav>
-    <div>
+    <div class="js-only">
       <h6 class="footer-title">Dark/Light mode:</h6>
       <label class="swap swap-rotate">
         <!-- this hidden checkbox controls the state -->
@@ -58,6 +58,7 @@ import { getCollection } from "astro:content";
           ></path></svg
         >
       </label>
+      <span class="text-sm text-gray-500 max-w-40">If you change this option, we will store information about your choice on your device</span>
     </div>
   </div>
 </footer>
