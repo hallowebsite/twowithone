@@ -29,6 +29,7 @@ const { currentSlug } = Astro.props;
     </span>
   </label>
   <script>
+    import { navigate } from "astro:transitions/client";
     class RandomLanguageButton extends HTMLElement {
       private slugs: string[] = [];
       private visitedSlugs: string[] | null = null;
@@ -58,7 +59,7 @@ const { currentSlug } = Astro.props;
               JSON.stringify(this.visitedSlugs),
             );
           }
-          window.location.href = `/${randomSlug}`;
+          navigate(`/${randomSlug}`);
         });
 
         input?.addEventListener("change", (e) => {
