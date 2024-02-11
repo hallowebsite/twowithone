@@ -21,11 +21,11 @@ const image = images["/src/images/" + language.slug + ".jpg"];
 ---
 
 <section class="container my-8 flex flex-col gap-8 items-center">
-  <div class="card lg:card-side bg-base-100 shadow-xl">
+  <div class="card lg:card-side lg:grid lg:grid-cols-2 bg-base-100 shadow-xl">
     {
       image && (
         <Image
-          class="max-w-lg w-full"
+          class="w-full"
           src={image()}
           alt={`Dall-e generated image illustrating a prompt: ${language.data.meaning["en"]}`}
         />
@@ -33,7 +33,7 @@ const image = images["/src/images/" + language.slug + ".jpg"];
     }
 
     <div class="card-body bg-success-content">
-      <div class="flex gap-2 items-center">
+      <div class="flex flex-wrap gap-2 items-center">
         {
           Flags.map((Flag: any) => {
             return <Flag style="height: 30px;width:40px" />;
