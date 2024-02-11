@@ -8,6 +8,7 @@ const languagesCollection = defineCollection({
       en: z.string(),
     }),
     original: z.string(),
+    transliteration: z.optional(z.string()),
     meaning: z.object({
       en: z.string(),
     }),

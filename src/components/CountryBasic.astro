@@ -45,6 +45,11 @@ const image = images["/src/images/" + language.slug + ".jpg"];
       </p>
       <blockquote>
         <h2 class="card-title text-4xl italic">"{language.data.original}"</h2>
+        {
+          language.data.transliteration && (
+            <p class="text-m italic">{language.data.transliteration}</p>
+          )
+        }
       </blockquote>
       <span>which means literally:</span>
       <p class="text-2xl">{language.data.meaning["en"]}</p>
