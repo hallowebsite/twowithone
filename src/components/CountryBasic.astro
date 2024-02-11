@@ -10,13 +10,13 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 );
 
 interface Props {
-  country: CollectionEntry<"languages">;
+  language: CollectionEntry<"languages">;
 }
-const { country } = Astro.props;
-const Flags: any = country.data.flags
+const { language } = Astro.props;
+const Flags: any = language.data.flags
   .map((flag: string) => `flag-${flag}`)
   .sort(randomSorting);
-const image = images["/src/images/" + country.slug + ".jpg"];
+const image = images["/src/images/" + language.slug + ".jpg"];
 ---
 
 <section class="container my-8 flex flex-col gap-8 items-center">
@@ -28,39 +28,39 @@ const image = images["/src/images/" + country.slug + ".jpg"];
     }
   </div>
   <p class="withFlag text-xl flex items-center gap-2">
-    in {country.data.languageName["en"]} we say:
+    in {language.data.languageName["en"]} we say:
   </p>
   <blockquote>
-    <h2 class="text-4xl italic">"{country.data.original}"</h2>
+    <h2 class="text-4xl italic">"{language.data.original}"</h2>
   </blockquote>
   <span>which means literally:</span>
-  <p class="text-2xl">{country.data.meaning["en"]}</p>
-  <RandomLanguageButton />
+  <p class="text-2xl">{language.data.meaning["en"]}</p>
+  <RandomLanguageButton currentSlug={language.slug} />
 
   {
     image && (
       <Image
         class="max-w-lg"
         src={image()}
-        alt={`Dall-e generated image illustrating a prompt: ${country.data.meaning["en"]}`}
+        alt={`Dall-e generated image illustrating a prompt: ${language.data.meaning["en"]}`}
       />
     )
   }
 </section>
 <section class="container max-w-screen-md mx-auto my-12 flex flex-col gap-8">
   {
-    country.body.length > 10 && (
+    language.body.length > 10 && (
       <>
         <h3 class="text-2xl mb-2">More about this saying</h3>
-        <article class="prose">{country.body}</article>
+        <article class="prose">{language.body}</article>
       </>
     )
   }
 
   <p class="mt-8 text-sm">
     <span>Permalink to this saying:</span>
-    <a href={`/${country.slug}`}>
-      {`/${country.slug}`}
+    <a href={`/${language.slug}`}>
+      {`/${language.slug}`}
     </a>
   </p>
 </section>

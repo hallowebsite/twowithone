@@ -1,43 +1,103 @@
 ---
 import { getCollection } from "astro:content";
+
 const languages = await getCollection("languages");
 const allLanguagesSlugs = languages.map((entry) => entry.slug);
+
+const { currentSlug } = Astro.props;
 ---
 
-<random-language-button data-slugs={allLanguagesSlugs}>
+<random-language-button
+  data-slugs={allLanguagesSlugs}
+  data-currentSlug={currentSlug}
+>
   <a
     role="button"
     id="randomLanguage"
     class="btn mb-4 mt-2 btn-primary"
     href="/">Go to other random langugage</a
   >
-  <input type="checkbox" hidden />
+  <label class="flex gap-2 items-center">
+    <input type="checkbox" id="allowLocalStorage" />
+    <span class="text-sm text-gray-500"
+      >Avoid duplicates (we will need to store information about languages you
+      visited on your device)
+    </span>
+  </label>
+  <script>
+    class RandomLanguageButton extends HTMLElement {
+      private slugs: string[] = [];
+      private visitedSlugs: string[] | null = null;
+
+      constructor() {
+        super();
+        const button = this.querySelector("#randomLanguage");
+        const input = this.querySelector("input");
+        this.slugs = this.getAttribute("data-slugs")?.split(",") || [];
+        const currentSlug = this.getAttribute("data-currentSlug") || null;
+        if (!button) {
+          return;
+        }
+        const localStorageVisitedSlugs =
+          localStorage.getItem("visitedLanguages");
+        if (localStorageVisitedSlugs && input) {
+          this.visitedSlugs = JSON.parse(localStorageVisitedSlugs);
+          input.checked = true;
+        }
+        button.addEventListener("click", (e) => {
+          e.preventDefault();
+          const randomSlug = this.getRandomSlug(this.slugs);
+          if (this.visitedSlugs) {
+            this.visitedSlugs.push(randomSlug);
+            localStorage.setItem(
+              "visitedLanguages",
+              JSON.stringify(this.visitedSlugs),
+            );
+          }
+          window.location.href = `/${randomSlug}`;
+        });
+
+        input?.addEventListener("change", (e) => {
+          const checked = (e.target as HTMLInputElement).checked;
+          if (checked) {
+            this.visitedSlugs = currentSlug ? [currentSlug] : [];
+            localStorage.setItem(
+              "visitedLanguages",
+              JSON.stringify(this.visitedSlugs),
+            );
+          } else {
+            this.visitedSlugs = null;
+            localStorage.removeItem("visitedLanguages");
+          }
+        });
+      }
+
+      getRandomSlug(slugs: string[]) {
+        const slugsToChooseFrom = this.visitedSlugs
+          ? slugs.filter((slug) => !this.visitedSlugs?.includes(slug))
+          : slugs;
+        console.log(slugsToChooseFrom, this.visitedSlugs, slugs);
+        if (slugsToChooseFrom.length === 0) {
+          this.visitedSlugs = [];
+          localStorage.setItem(
+            "visitedLanguages",
+            JSON.stringify(this.visitedSlugs),
+          );
+          return slugs[Math.floor(Math.random() * slugs.length)];
+        }
+        return slugsToChooseFrom[
+          Math.floor(Math.random() * slugsToChooseFrom.length)
+        ];
+      }
+    }
+    customElements.define("random-language-button", RandomLanguageButton);
+  </script>
 </random-language-button>
 
-<script>
-  // define the custom element
-  class RandomLanguageButton extends HTMLElement {
-    private allowLocalStorage = false;
-    private slugs: string[] = [];
-
-    constructor() {
-      super();
-      const button = this.querySelector("#randomLanguage");
-      const input = this.querySelector("input");
-      input?.removeAttribute("hidden");
-      this.slugs = this.getAttribute("data-slugs")?.split(",") || [];
-      if (!button) {
-        return;
-      }
-      button.addEventListener("click", (e) => {
-        e.preventDefault();
-        const randomSlug = this.getRandomSlug(this.slugs);
-        window.location.href = `/${randomSlug}`;
-      });
-    }
-    getRandomSlug(slugs: string[]) {
-      return slugs[Math.floor(Math.random() * slugs.length)];
-    }
+<style>
+  random-language-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  customElements.define("random-language-button", RandomLanguageButton);
-</script>
+</style>
