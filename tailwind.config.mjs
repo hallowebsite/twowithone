@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/dot-notation */
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
@@ -6,7 +8,17 @@ export default {
   },
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
   daisyui: {
-    themes: ["cmyk", "forest"], // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]
+    themes: [
+      {
+        cmyk: {
+          ...require("daisyui/src/theming/themes")["cmyk"],
+        },
+        forest: {
+          ...require("daisyui/src/theming/themes")["forest"],
+          "--rounded-btn": "0.5rem",
+        },
+      },
+    ],
     darkTheme: "forest", // name of one of the included themes for dark mode
     base: true, // applies background color and foreground color for root element by default
     styled: true, // include daisyUI colors and design decisions for all components

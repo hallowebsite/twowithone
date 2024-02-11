@@ -18,7 +18,11 @@ const { currentSlug } = Astro.props;
     href="/">Go to other random langugage</a
   >
   <label class="flex gap-2 items-center">
-    <input type="checkbox" id="allowLocalStorage" />
+    <input
+      type="checkbox"
+      id="allowLocalStorage"
+      class="checkbox checkbox-primary checkbox-md"
+    />
     <span class="text-sm"
       >Avoid duplicates (we will need to store information about languages you
       visited on your device)

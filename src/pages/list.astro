@@ -1,0 +1,43 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+
+const languages = await getCollection("languages");
+---
+
+<Layout title="To kill two birds with one stone - list of all languages">
+  <section class="overflow-x-auto container mt-12 max-w-screen-md mx-auto">
+    <h1 class="text-2xl mb-8 text-center font-bold">
+      To kill two birds with one stone - list of all languages
+    </h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Language</th>
+          <th>Saying</th>
+          <th>Meaning</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          languages.map((language) => (
+            <tr class="hover">
+              <td>{language.data.languageName["en"]}</td>
+              <td class="flex flex-col">
+                {language.data.original}
+                {language.data.transliteration && (
+                  <span class="text-sm">{language.data.transliteration}</span>
+                )}
+              </td>
+              <td>{language.data.meaning["en"]}</td>
+              <td>
+                <a href={`/${language.slug}`}>link</a>
+              </td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </section>
+</Layout>
