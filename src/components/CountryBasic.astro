@@ -20,32 +20,38 @@ const image = images["/src/images/" + language.slug + ".jpg"];
 ---
 
 <section class="container my-8 flex flex-col gap-8 items-center">
-  <div class="flex gap-2 items-center justify-center">
+  <div class="card lg:card-side bg-base-100 shadow-xl">
     {
-      Flags.map((Flag: any) => {
-        return <Flag style="height: 30px;width:40px" />;
-      })
+      image && (
+        <Image
+          class="max-w-lg w-full"
+          src={image()}
+          alt={`Dall-e generated image illustrating a prompt: ${language.data.meaning["en"]}`}
+        />
+      )
     }
-  </div>
-  <p class="withFlag text-xl flex items-center gap-2">
-    in {language.data.languageName["en"]} we say:
-  </p>
-  <blockquote>
-    <h2 class="text-4xl italic">"{language.data.original}"</h2>
-  </blockquote>
-  <span>which means literally:</span>
-  <p class="text-2xl">{language.data.meaning["en"]}</p>
-  <RandomLanguageButton currentSlug={language.slug} />
 
-  {
-    image && (
-      <Image
-        class="max-w-lg"
-        src={image()}
-        alt={`Dall-e generated image illustrating a prompt: ${language.data.meaning["en"]}`}
-      />
-    )
-  }
+    <div class="card-body bg-success-content">
+      <div class="flex gap-2 items-center">
+        {
+          Flags.map((Flag: any) => {
+            return <Flag style="height: 30px;width:40px" />;
+          })
+        }
+      </div>
+      <p class="text-xl flex items-center gap-2">
+        in {language.data.languageName["en"]} we say:
+      </p>
+      <blockquote>
+        <h2 class="card-title text-4xl italic">"{language.data.original}"</h2>
+      </blockquote>
+      <span>which means literally:</span>
+      <p class="text-2xl">{language.data.meaning["en"]}</p>
+      <div class="card-actions justify-end">
+        <RandomLanguageButton currentSlug={language.slug} />
+      </div>
+    </div>
+  </div>
 </section>
 <section class="container max-w-screen-md mx-auto my-12 flex flex-col gap-8">
   {
