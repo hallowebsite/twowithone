@@ -13,6 +13,7 @@ interface Props {
   language: CollectionEntry<"languages">;
 }
 const { language } = Astro.props;
+const { Content } = await language.render();
 const Flags: any = language.data.flags
   .map((flag: string) => `flag-${flag}`)
   .sort(randomSorting);
@@ -53,12 +54,13 @@ const image = images["/src/images/" + language.slug + ".jpg"];
     </div>
   </div>
 </section>
-<section class="container max-w-screen-md mx-auto my-12 flex flex-col gap-8">
+<section class="container max-w-screen-lg mx-auto my-12 flex flex-col gap-8">
   {
     language.body.length > 10 && (
       <>
-        <h3 class="text-2xl mb-2">More about this saying</h3>
-        <article class="prose">{language.body}</article>
+        <article class="prose md:prose-lg xl:prose-xl dark:prose-invert">
+          <Content />
+        </article>
       </>
     )
   }
@@ -70,7 +72,6 @@ const image = images["/src/images/" + language.slug + ".jpg"];
     </a>
   </p>
 </section>
-
 <script>
   import "../scripts/elements.flagmeister.js";
 </script>

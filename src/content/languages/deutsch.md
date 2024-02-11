@@ -15,4 +15,5 @@ tags:
 ---
 
 This is one of the funniest
-https://de.pons.com/p/wissensecke/phrasen-und-wendungen/zwei-fliegen-mit-einer-klappe-schlagen
+
+[read more in German](https://de.pons.com/p/wissensecke/phrasen-und-wendungen/zwei-fliegen-mit-einer-klappe-schlagen)
