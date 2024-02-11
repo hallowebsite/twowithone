@@ -12,6 +12,13 @@ flags:
   - ve
   - cl
   - pe
+  - gt
+  - ec
+  - bo
+  - cu
+  - do
+  - hn
+  - py
 tags:
   - birds
   - hunting
