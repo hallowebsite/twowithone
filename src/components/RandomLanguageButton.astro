@@ -81,7 +81,6 @@ const { currentSlug } = Astro.props;
         const slugsToChooseFrom = this.visitedSlugs
           ? slugs.filter((slug) => !this.visitedSlugs?.includes(slug))
           : slugs;
-        console.log(slugsToChooseFrom, this.visitedSlugs, slugs);
         if (slugsToChooseFrom.length === 0) {
           this.visitedSlugs = [];
           localStorage.setItem(
