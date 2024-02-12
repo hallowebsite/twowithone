@@ -8,11 +8,22 @@ const languagesToSearch = languages.map((language) => ({
 }));
 ---
 
-<select>
-  <option value="">Select a language</option>
-  {
-    languagesToSearch.map((language) => (
-      <option value={language.slug}>{language.name["en"]}</option>
-    ))
-  }
-</select>
+<search class="flex flex-wrap gap-2">
+  <label class="label" for="language">Search</label>
+  <input
+    class="input"
+    placeholder="for example Spanish"
+    list="languages"
+    name="language"
+    id="language"
+  />
+  <datalist id="languages">
+    {
+      languagesToSearch.map((language) => (
+        <option value={language.slug} data-slug={language.slug} />
+      ))
+    }
+  </datalist>
+</search>
+
+<script></script>

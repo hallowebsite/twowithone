@@ -68,19 +68,12 @@ const { title } = Astro.props;
             ></path></svg
           ></a
         >
-        <h1 class="text-xl">
-          "To kill two birds with one stone" <span class="text-sm"
-            >in {length} languages</span
-          >
+        <h1 class="flex flex-col gap-1">
+          <span class="text-xl"> "To kill two birds with one stone"</span>
+          <span class="pl-2 text-sm">in {length} languages</span>
         </h1>
       </div>
-      <div class="flex-none">
-        <ul class="menu menu-horizontal px-1">
-          <li>
-            <Search />
-          </li>
-        </ul>
-      </div>
+      <Search />
     </header>
 
     <main class="container p-4 mx-auto">
