@@ -20,16 +20,21 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <script is:inline>
       if (localStorage.getItem("theme") === null) {
-        document.documentElement.setAttribute("data-theme", "light");
+        document.documentElement.setAttribute("data-theme", "cmyk");
       } else
         document.documentElement.setAttribute(
           "data-theme",
           localStorage.getItem("theme"),
         );
-    </script>
-    <script>
-      import { themeChange } from "theme-change";
-      themeChange();
+      document.addEventListener("astro:after-swap", () => {
+        if (localStorage.getItem("theme") === null) {
+          document.documentElement.setAttribute("data-theme", "cmyk");
+        } else
+          document.documentElement.setAttribute(
+            "data-theme",
+            localStorage.getItem("theme"),
+          );
+      });
     </script>
     <meta
       name="description"
