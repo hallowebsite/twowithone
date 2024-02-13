@@ -8,22 +8,25 @@ const languagesToSearch = languages.map((language) => ({
 }));
 ---
 
-<search class="flex flex-wrap gap-2">
-  <label class="label" for="language">Search</label>
-  <input
-    class="input"
-    placeholder="for example Spanish"
-    list="languages"
-    name="language"
-    id="language"
-  />
-  <datalist id="languages">
-    {
-      languagesToSearch.map((language) => (
-        <option value={language.slug} data-slug={language.slug} />
-      ))
-    }
-  </datalist>
+<search>
+  <form method="POST" action="/search" class="flex flex-wrap gap-2">
+    <label class="label" for="language">Search</label>
+    <input
+      class="input"
+      placeholder="for example Spanish"
+      list="languages"
+      name="language"
+      id="language"
+    />
+    <datalist id="languages">
+      {
+        languagesToSearch.map((language) => (
+          <option value={language.slug} data-slug={language.slug} />
+        ))
+      }
+    </datalist>
+    <button type="submit" class="btn btn-small">Go</button>
+  </form>
 </search>
 
 <script></script>
