@@ -6,7 +6,7 @@ if (Astro.request.method === "POST") {
     const slugs = languages.map((lang: any) => lang.slug);
     const data = await Astro.request.formData();
     const language = data.get("language");
-    if (slugs.include(language as (typeof slugs)[number])) {
+    if (slugs.includes(language as (typeof slugs)[number])) {
       return Astro.redirect(`/${language}`);
     }
   } catch (error) {
