@@ -30,12 +30,13 @@
 
 <script>
   class ThemeSwap extends HTMLElement {
-    private currentTheme: string;
-
     constructor() {
       super();
       const input = this.querySelector("input");
       const currentTheme = document.documentElement.getAttribute("data-theme");
+      if (!input) {
+        return;
+      }
 
       if (currentTheme === "forest") {
         input.checked = true;
