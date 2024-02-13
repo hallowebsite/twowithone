@@ -3,10 +3,10 @@ import { getCollection } from "astro:content";
 if (Astro.request.method === "POST") {
   try {
     const languages = await getCollection("languages");
-    const slugs = languages.map((lang) => lang.slug);
+    const slugs = languages.map((lang: any) => lang.slug);
     const data = await Astro.request.formData();
     const language = data.get("language");
-    if (slugs.includes(language)) {
+    if (slugs.include(language as (typeof slugs)[number])) {
       return Astro.redirect(`/${language}`);
     }
   } catch (error) {
@@ -16,3 +16,5 @@ if (Astro.request.method === "POST") {
   }
 }
 ---
+
+<span>Search for a language:</span>
