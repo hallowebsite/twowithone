@@ -17,7 +17,8 @@ const { Content } = await language.render();
 const Flags: any = language.data.flags
   .map((flag: string) => `flag-${flag}`)
   .sort(randomSorting);
-const image = images["/src/images/" + language.slug + ".jpg"];
+const slugWithoutPath = language.slug.split("/")[1];
+const image = images["/src/images/" + slugWithoutPath + ".jpg"];
 ---
 
 <section class="container my-8 flex flex-col gap-8 items-center">
@@ -27,14 +28,14 @@ const image = images["/src/images/" + language.slug + ".jpg"];
         <Image
           class="w-full"
           src={image()}
-          alt={`Dall-e generated image illustrating a prompt: ${language.data.meaning["en"]}`}
+          alt={`Dall-e generated image illustrating a prompt: ${language.data.meaning}`}
         />
       )
     }
 
     <div class="card-body bg-success-content">
       <p class="text-xl">
-        in {language.data.languageName["en"]} we say:
+        in {language.data.languageName} we say:
       </p>
       <blockquote>
         <h2 class="card-title text-4xl italic">"{language.data.original}"</h2>
@@ -45,7 +46,7 @@ const image = images["/src/images/" + language.slug + ".jpg"];
         }
       </blockquote>
       <span>which means literally:</span>
-      <p class="text-2xl">{language.data.meaning["en"]}</p>
+      <p class="text-2xl">{language.data.meaning}</p>
       <div class="card-actions">
         <RandomLanguageButton currentSlug={language.slug} />
       </div>

@@ -4,14 +4,10 @@ import { z, defineCollection } from "astro:content";
 const languagesCollection = defineCollection({
   type: "content",
   schema: z.object({
-    languageName: z.object({
-      en: z.string(),
-    }),
+    languageName: z.string(),
     original: z.string(),
     transliteration: z.optional(z.string()),
-    meaning: z.object({
-      en: z.string(),
-    }),
+    meaning: z.string(),
     tags: z.array(z.string()),
     image: z.string().optional(),
     flags: z.array(z.string()),

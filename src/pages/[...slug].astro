@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import CountryBasic from "@/components/CountryBasic.astro";
+import Layout from "@/layouts/Layout.astro";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const languages = await getCollection("languages");
+
+  const paths = languages.map((page) => {
+    const [lang, ...slug] = page.slug.split("/");
+    return { params: { lang, slug: slug.join("/") || undefined }, props: page };
+  });
+
+  return paths;
+}
+const page = Astro.props;
+---
+
+<Layout title={`Two with one - ${page.data.languageName}`}>
+  <CountryBasic language={page} />
+</Layout>

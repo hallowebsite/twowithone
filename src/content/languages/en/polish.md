@@ -1,9 +1,7 @@
 ---
-languageName:
-  en: Polish
+languageName: polski
 original: Upiec dwie pieczenie na jednym ogniu
-meaning:
-  en: To roast two meats in one fire
+meaning: To roast two meats in one fire
 flags:
   - pl
 tags:

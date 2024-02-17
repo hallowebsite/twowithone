@@ -8,4 +8,12 @@ export default defineConfig({
   output: "server",
   adapter: cloudflare(),
   integrations: [tailwind()],
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "de"],
+    redirectToDefaultLocale: false,
+    fallback: {
+      de: "en",
+    },
+  },
 });

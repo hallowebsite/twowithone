@@ -1,9 +1,7 @@
 ---
-languageName:
-  en: Spanish
+languageName: espanol
 original: Matar dos pajaros con un tiro
-meaning:
-  en: To kill two birds with one shot
+meaning: Zwei Vögel mit einem Schuss zu töten
 flags:
   - es
   - mx
@@ -20,6 +18,6 @@ flags:
   - hn
   - py
 tags:
-  - birds
-  - hunting
+  - Vögel
+  - Jagen
 ---

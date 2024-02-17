@@ -1,15 +1,28 @@
 ---
+import { Locales } from "@/i18n/ui";
+import { getMatchingLocale } from "@/i18n/utils";
 import { getCollection } from "astro:content";
 
-const languages = await getCollection("languages");
+const englishLanguages = await getCollection("languages", ({ id }) => {
+  return id.startsWith("en/");
+});
+const germanLanguages = await getCollection("languages", ({ id }) => {
+  return id.startsWith("de/");
+});
+
+const localesList = Astro.preferredLocaleList;
+const localeToUse = getMatchingLocale(localesList);
+const languages =
+  localeToUse === Locales.en ? englishLanguages : germanLanguages;
 const allLanguagesSlugs = languages.map((entry) => entry.slug);
 
-const { currentSlug } = Astro.props;
+const { currentSlug, lang } = Astro.props;
 ---
 
 <random-language-button
   data-slugs={allLanguagesSlugs}
   data-currentSlug={currentSlug}
+  data-lang={lang}
 >
   <a
     role="button"
@@ -30,15 +43,18 @@ const { currentSlug } = Astro.props;
   </label>
   <script>
     import { navigate } from "astro:transitions/client";
+    import { getRelativeLocaleUrl } from "astro:i18n";
     class RandomLanguageButton extends HTMLElement {
       private slugs: string[] = [];
       private visitedSlugs: string[] | null = null;
+      private locale: string = "en";
 
       constructor() {
         super();
         const button = this.querySelector("#randomLanguage");
         const input = this.querySelector("input");
         this.slugs = this.getAttribute("data-slugs")?.split(",") || [];
+        this.locale = this.getAttribute("data-lang") || "en";
         const currentSlug = this.getAttribute("data-currentSlug") || null;
         if (!button) {
           return;
@@ -59,7 +75,8 @@ const { currentSlug } = Astro.props;
               JSON.stringify(this.visitedSlugs),
             );
           }
-          navigate(`/${randomSlug}`);
+          const path = getRelativeLocaleUrl(this.locale, randomSlug);
+          navigate(path);
         });
 
         input?.addEventListener("change", (e) => {

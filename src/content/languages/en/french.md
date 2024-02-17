@@ -1,9 +1,7 @@
 ---
-languageName:
-  en: French
+languageName: francais
 original: Faire d'une pierre deux coups
-meaning:
-  en: To make two shots with one stone
+meaning: To make two shots with one stone
 flags:
   - bj
   - cg

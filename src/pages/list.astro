@@ -23,14 +23,14 @@ const languages = await getCollection("languages");
         {
           languages.map((language) => (
             <tr class="hover">
-              <td>{language.data.languageName["en"]}</td>
+              <td>{language.data.languageName}</td>
               <td class="flex flex-col">
                 {language.data.original}
                 {language.data.transliteration && (
                   <span class="text-sm">{language.data.transliteration}</span>
                 )}
               </td>
-              <td>{language.data.meaning["en"]}</td>
+              <td>{language.data.meaning}</td>
               <td>
                 <a href={`/${language.slug}`}>link</a>
               </td>

@@ -1,5 +1,7 @@
 ---
 import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+
 if (Astro.request.method === "POST") {
   try {
     const languages = await getCollection("languages");
@@ -17,4 +19,6 @@ if (Astro.request.method === "POST") {
 }
 ---
 
-<span>Search for a language:</span>
+<Layout title="To kill two birds with one stone - list of all languages">
+  <h1 class="text-2xl">Search</h1>
+</Layout>

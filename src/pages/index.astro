@@ -2,8 +2,20 @@
 import { getCollection } from "astro:content";
 import CountryBasic from "@/components/CountryBasic.astro";
 import Layout from "@/layouts/Layout.astro";
+import { getMatchingLocale } from "@/i18n/utils";
+import { Locales } from "@/i18n/ui";
 
-const languages = await getCollection("languages");
+const englishLanguages = await getCollection("languages", ({ id }) => {
+  return id.startsWith("en/");
+});
+const germanLanguages = await getCollection("languages", ({ id }) => {
+  return id.startsWith("de/");
+});
+
+const localesList = Astro.preferredLocaleList;
+const localeToUse = getMatchingLocale(localesList);
+const languages =
+  localeToUse === Locales.en ? englishLanguages : germanLanguages;
 const randomLanguage = languages[Math.floor(Math.random() * languages.length)];
 ---
 

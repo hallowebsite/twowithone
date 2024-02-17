@@ -1,9 +1,7 @@
 ---
-languageName:
-  en: German
+languageName: Deutsch
 original: Zwei Fliegen mit einer Klappe schlagen
-meaning:
-  en: To hit two flies with one swatter
+meaning: To hit two flies with one swatter
 flags:
   - de
   - at
