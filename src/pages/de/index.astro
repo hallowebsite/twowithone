@@ -1,0 +1,16 @@
+---
+import { getCollection } from "astro:content";
+import CountryBasic from "@/components/CountryBasic.astro";
+import Layout from "@/layouts/Layout.astro";
+
+const germanLanguages = await getCollection("languages", ({ id }) => {
+  return id.startsWith("de/");
+});
+
+const randomLanguage =
+  germanLanguages[Math.floor(Math.random() * germanLanguages.length)];
+---
+
+<Layout title="Two with one">
+  <CountryBasic language={randomLanguage} />
+</Layout>

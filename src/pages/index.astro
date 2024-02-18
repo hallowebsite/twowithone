@@ -8,15 +8,14 @@ import { Locales } from "@/i18n/ui";
 const englishLanguages = await getCollection("languages", ({ id }) => {
   return id.startsWith("en/");
 });
-const germanLanguages = await getCollection("languages", ({ id }) => {
-  return id.startsWith("de/");
-});
-
 const localesList = Astro.preferredLocaleList;
 const localeToUse = getMatchingLocale(localesList);
-const languages =
-  localeToUse === Locales.en ? englishLanguages : germanLanguages;
-const randomLanguage = languages[Math.floor(Math.random() * languages.length)];
+if (localeToUse === Locales.de) {
+  return Astro.redirect("/de");
+}
+
+const randomLanguage =
+  englishLanguages[Math.floor(Math.random() * englishLanguages.length)];
 ---
 
 <Layout title="Two with one">
