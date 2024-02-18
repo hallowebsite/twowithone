@@ -3,6 +3,8 @@ import { getCollection } from "astro:content";
 import CountryBasic from "@/components/CountryBasic.astro";
 import Layout from "@/layouts/Layout.astro";
 
+Astro.response.headers.delete("Last-Modified");
+
 const germanLanguages = await getCollection("languages", ({ id }) => {
   return id.startsWith("de/");
 });
