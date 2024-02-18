@@ -2,7 +2,9 @@
 import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 
-const languages = await getCollection("languages");
+const englishLanguages = await getCollection("languages", ({ id }) => {
+  return id.startsWith("en/");
+});
 ---
 
 <Layout title="To kill two birds with one stone - list of all languages">
@@ -21,7 +23,7 @@ const languages = await getCollection("languages");
       </thead>
       <tbody>
         {
-          languages.map((language) => (
+          englishLanguages.map((language) => (
             <tr class="hover">
               <td>{language.data.languageName}</td>
               <td class="flex flex-col">
