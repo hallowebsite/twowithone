@@ -11,7 +11,7 @@ const englishLanguages = await getCollection("languages", ({ id }) => {
 const localesList = Astro.preferredLocaleList;
 const localeToUse = getMatchingLocale(localesList);
 if (localeToUse === Locales.de) {
-  return Astro.redirect("/de");
+  return Astro.redirect("/de", 303);
 }
 
 const randomLanguage =
