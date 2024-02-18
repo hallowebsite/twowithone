@@ -3,19 +3,28 @@ import { getCollection } from "astro:content";
 import { ViewTransitions } from "astro:transitions";
 import Search from "@/components/Search.astro";
 import Footer from "@/components/Footer.astro";
-
-const languages = await getCollection("languages");
+import { Locales } from "@/i18n/ui";
 
 interface Props {
   title: string;
 }
+const locale = Astro.currentLocale;
+
+const englishLanguages = await getCollection("languages", ({ id }) => {
+  return id.startsWith("en/");
+});
+const germanLanguages = await getCollection("languages", ({ id }) => {
+  return id.startsWith("de/");
+});
+
+const languages = locale === Locales.de ? germanLanguages : englishLanguages;
 const length = languages.length;
 
 const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <script is:inline>
