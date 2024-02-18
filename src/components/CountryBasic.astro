@@ -38,7 +38,9 @@ const image = images["/src/images/" + slugWithoutPath + ".jpg"];
         in {language.data.languageName} we say:
       </p>
       <blockquote>
-        <h2 class="card-title text-4xl italic">"{language.data.original}"</h2>
+        <h2 class="card-title text-4xl font-serif">
+          "{language.data.original}"
+        </h2>
         {
           language.data.transliteration && (
             <p class="text-m italic">{language.data.transliteration}</p>
