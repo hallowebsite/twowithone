@@ -1,15 +1,19 @@
 ---
 import { getCollection } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 const languages = await getCollection("languages");
 const languagesToSearch = languages.map((language) => ({
   name: language.data.languageName,
   slug: language.slug,
 }));
+
+const { locale } = Astro.props;
+const searchUrl = getRelativeLocaleUrl(locale, "search");
 ---
 
 <search>
-  <form method="POST" action="/search" class="flex flex-wrap gap-2">
+  <form method="POST" action={searchUrl} class="flex flex-wrap gap-2">
     <label class="label" for="language">Search</label>
     <input
       class="input"

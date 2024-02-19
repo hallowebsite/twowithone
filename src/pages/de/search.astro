@@ -4,25 +4,24 @@ import Layout from "@/layouts/Layout.astro";
 import type { CollectionEntry } from "astro:content";
 import Fuse, { type FuseResult } from "fuse.js";
 
-// array of collection items
 type SearchResult = FuseResult<CollectionEntry<"languages">>;
 const searchResults: SearchResult[] = [];
 if (Astro.request.method === "POST") {
   try {
-    const englishLanguages = await getCollection("languages", ({ id }) => {
-      return id.startsWith("en/");
+    const germanLanguages = await getCollection("languages", ({ id }) => {
+      return id.startsWith("de/");
     });
-    const slugs = englishLanguages.map((lang: any) => lang.slug);
-    const names = englishLanguages.map((lang: any) => lang.data.languageName);
+    const slugs = germanLanguages.map((lang: any) => lang.slug);
+    const names = germanLanguages.map((lang: any) => lang.data.languageName);
     const data = await Astro.request.formData();
     const language = data.get("language");
-    if (slugs.includes(`en/${language as (typeof slugs)[number]}`)) {
-      console.log("redirecting, slug");
-      return Astro.redirect(`/${language}`, 303);
+    if (slugs.includes(`de/${language as (typeof slugs)[number]}`)) {
+      console.log("redirecting, slug", `/de/${language}`);
+      return Astro.redirect(`/de/${language}`, 303);
     } else if (names.includes(language as (typeof names)[number])) {
       console.log("redirecting, name");
       const index = names.indexOf(language as (typeof names)[number]);
-      return Astro.redirect(`/${slugs[index].replace("en/", "")}`, 303);
+      return Astro.redirect(`/${slugs[index]}`, 303);
     } else {
       const fuseOptions = {
         keys: [
@@ -33,7 +32,7 @@ if (Astro.request.method === "POST") {
           "slug",
         ],
       };
-      const fuse = new Fuse(englishLanguages, fuseOptions);
+      const fuse = new Fuse(germanLanguages, fuseOptions);
 
       if (!language) {
         return;
