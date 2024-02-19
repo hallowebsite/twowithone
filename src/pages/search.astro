@@ -1,15 +1,43 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
+import type { CollectionEntry } from "astro:content";
+import Fuse, { type FuseResult } from "fuse.js";
 
+// array of collection items
+type SearchResult = FuseResult<CollectionEntry<"languages">>;
+const searchResults: SearchResult[] = [];
 if (Astro.request.method === "POST") {
   try {
-    const languages = await getCollection("languages");
-    const slugs = languages.map((lang: any) => lang.slug);
+    const englishLanguages = await getCollection("languages", ({ id }) => {
+      return id.startsWith("en/");
+    });
+    const slugs = englishLanguages.map((lang: any) => lang.slug);
+    const names = englishLanguages.map((lang: any) => lang.data.languageName);
     const data = await Astro.request.formData();
     const language = data.get("language");
-    if (slugs.includes(language as (typeof slugs)[number])) {
+    if (slugs.includes(`en/${language as (typeof slugs)[number]}`)) {
       return Astro.redirect(`/${language}`);
+    } else if (names.includes(language as (typeof names)[number])) {
+      const index = names.indexOf(language as (typeof names)[number]);
+      return Astro.redirect(`/${slugs[index].replace("en/", "")}`);
+    } else {
+      const fuseOptions = {
+        keys: [
+          "data.languageName",
+          "data.original",
+          "data.meaning",
+          "data.tags",
+          "slug",
+        ],
+      };
+      const fuse = new Fuse(englishLanguages, fuseOptions);
+
+      if (!language) {
+        return;
+      }
+      const result = fuse.search(language as string);
+      searchResults.push(...result);
     }
   } catch (error) {
     if (error instanceof Error) {
@@ -20,5 +48,10 @@ if (Astro.request.method === "POST") {
 ---
 
 <Layout title="To kill two birds with one stone - list of all languages">
-  <h1 class="text-2xl">Search</h1>
+  <section class="overflow-x-auto container mt-12 max-w-screen-md mx-auto">
+    <h1 class="text-2xl mb-8 text-center font-bold">Search</h1>
+    <ul>
+      {searchResults.map((result: SearchResult) => <li>{result.item.slug}</li>)}
+    </ul>
+  </section>
 </Layout>
