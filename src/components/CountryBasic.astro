@@ -19,6 +19,8 @@ const Flags: any = language.data.flags
   .sort(randomSorting);
 const slugWithoutPath = language.slug.split("/")[1];
 const image = images["/src/images/" + slugWithoutPath + ".jpg"];
+const realisedImage = await image();
+const imageSource = `url(${realisedImage.default.src})`;
 ---
 
 <section class="container my-8 flex flex-col gap-8 items-center">
@@ -55,32 +57,45 @@ const image = images["/src/images/" + slugWithoutPath + ".jpg"];
     </div>
   </div>
 </section>
-<section class="container max-w-screen-md mx-auto my-24">
-  <div class="bg-success-content p-4 shadow-xl flex flex-col gap-8">
-    {
-      language.body.length > 10 && (
-        <>
-          <article class="prose md:prose-lg xl:prose-xl dark:prose-invert">
-            <Content />
-          </article>
-        </>
-      )
-    }
-    <div class="flex flex-wrap gap-2 items-center">
+<section class="container w-full mx-auto my-24">
+  <div style={`background-image: ${imageSource}`} class="image-bg shadow-xl">
+    <div
+      class="p-8 max-w-screen-md shadow-xl bg-success-content mx-auto flex flex-col gap-8"
+    >
       {
-        Flags.map((Flag: any) => {
-          return <Flag style="height: 30px;width:40px" />;
-        })
+        language.body.length > 10 && (
+          <>
+            <article class="mx-auto prose md:prose-lg xl:prose-xl dark:prose-invert">
+              <Content />
+            </article>
+          </>
+        )
       }
+      <p class="text-sm">
+        <span>Permalink to this saying:</span>
+        <a href={`/${language.slug}`}>
+          {`/${language.slug}`}
+        </a>
+      </p>
+      <div class="flex flex-wrap gap-2 items-center">
+        {
+          Flags.map((Flag: any) => {
+            return <Flag style="height: 30px;width:40px" />;
+          })
+        }
+      </div>
     </div>
-    <p class="text-sm">
-      <span>Permalink to this saying:</span>
-      <a href={`/${language.slug}`}>
-        {`/${language.slug}`}
-      </a>
-    </p>
   </div>
 </section>
+
+<style>
+  .image-bg {
+    padding: 2rem;
+    background-size: cover;
+    background-position: center;
+  }
+</style>
+
 <script>
   import "../scripts/elements.flagmeister.js";
 </script>
