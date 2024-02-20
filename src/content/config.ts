@@ -12,6 +12,8 @@ const languagesCollection = defineCollection({
     image: z.string().optional(),
     flags: z.array(z.string()),
     location: z.array(z.number()).optional(),
+    pubDate: z.date(),
+    modifiedDate: z.date(),
   }),
 });
 //    This key should match your collection directory name in "src/content"
