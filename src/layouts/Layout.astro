@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
 import { ViewTransitions } from "astro:transitions";
 import Search from "@/components/Search.astro";
 import Footer from "@/components/Footer.astro";
@@ -8,7 +9,7 @@ import { Locales } from "@/i18n/ui";
 interface Props {
   title: string;
 }
-const locale = Astro.currentLocale;
+const locale = Astro.currentLocale || "en";
 
 const englishLanguages = await getCollection("languages", ({ id }) => {
   return id.startsWith("en/");
@@ -65,7 +66,10 @@ const { title } = Astro.props;
   <body class="min-h-screen flex flex-col">
     <header class="container mx-auto navbar bg-base-100">
       <div class="flex-1 flex gap-2">
-        <a href="/" aria-label="Go to homepage" class="btn btn-ghost text-xl"
+        <a
+          href={getRelativeLocaleUrl(locale)}
+          aria-label="Go to homepage"
+          class="btn btn-ghost text-xl"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
             width="1em"

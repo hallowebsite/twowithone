@@ -2,8 +2,6 @@
 languageName: italiano
 original: Due piccioni con una fava
 meaning: Two pigeons with one broad bean
-flags:
-  - it
 tags:
   - birds
   - feeding

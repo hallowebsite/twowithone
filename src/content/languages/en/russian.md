@@ -3,11 +3,6 @@ languageName: russkiy
 original: убить двух зайцев одним выстрелом.
 transliteration: ubit' dvukh zaytsev odnim vystrelom
 meaning: To kill two hares with one shot
-flags:
-  - kz
-  - kg
-  - tj
-  - ua
 tags:
   - hunting
   - shooting

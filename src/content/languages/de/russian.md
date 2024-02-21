@@ -3,11 +3,6 @@ languageName: russkiy
 original: убить двух зайцев одним выстрелом.
 transliteration: ubit' dvukh zaytsev odnim vystrelom
 meaning: Zwei Hasen mit einem Schuss zu töten
-flags:
-  - kz
-  - kg
-  - tj
-  - ua
 tags:
   - Jagen
   - Schießen

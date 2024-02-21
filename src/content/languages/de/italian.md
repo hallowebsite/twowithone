@@ -2,8 +2,6 @@
 languageName: italiano
 original: Due piccioni con una fava
 meaning: Zwei Tauben mit einer Saubohne
-flags:
-  - it
 tags:
   - Vögel
   - Fütterung

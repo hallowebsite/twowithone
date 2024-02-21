@@ -2,10 +2,6 @@
 languageName: Deutsch
 original: Zwei Fliegen mit einer Klappe schlagen
 meaning: To hit two flies with one swatter
-flags:
-  - de
-  - at
-  - ch
 tags:
   - insects
   - flies
