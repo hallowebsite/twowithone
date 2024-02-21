@@ -64,7 +64,7 @@ const { title } = Astro.props;
     <ViewTransitions />
   </head>
   <body class="min-h-screen flex flex-col">
-    <header class="container mx-auto navbar bg-base-100">
+    <header class="container mx-auto navbar bg-base-100 flex flex-wrap gap-1">
       <div class="flex-1 flex gap-2">
         <a
           href={getRelativeLocaleUrl(locale)}
@@ -86,7 +86,9 @@ const { title } = Astro.props;
           <span class="pl-2 text-sm">in {length} languages</span>
         </h1>
       </div>
-      <Search locale={locale} />
+      <div class="hidden md:block">
+        <Search locale={locale} />
+      </div>
     </header>
 
     <main class="container p-4 mx-auto">
