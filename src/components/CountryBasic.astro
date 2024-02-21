@@ -49,7 +49,7 @@ const t = useTranslations(locale);
           <Image
             class="h-full object-cover object-center w-full"
             src={images[imagePath]()}
-            alt={`Dall-e generated image illustrating a prompt: ${language.data.meaning}`}
+            alt={language.data.imageAlt || ""}
           />
         )
       }
@@ -70,7 +70,14 @@ const t = useTranslations(locale);
       </h2>
       {
         language.data.transliteration && (
-          <p class="text-m italic">{language.data.transliteration}</p>
+          <p
+            class:list={[
+              "text-m italic",
+              { "text-right": language.data.textDirection === "rtl" },
+            ]}
+          >
+            {language.data.transliteration}
+          </p>
         )
       }
       <span>{t("card.literally")}</span>
@@ -98,6 +105,14 @@ const t = useTranslations(locale);
             <>
               <Content />
             </>
+          )
+        }
+        {
+          language.data.imageAlt && (
+            <p class="text-sm">
+              {t("card.imageAlt")}
+              {language.data.imageAlt}
+            </p>
           )
         }
         <p class="text-sm">

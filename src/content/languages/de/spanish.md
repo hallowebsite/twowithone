@@ -1,5 +1,5 @@
 ---
-languageName: espanol
+languageName: Spanisch
 original: Matar dos pajaros con un tiro
 meaning: Zwei Vögel mit einem Schuss zu töten
 tags:

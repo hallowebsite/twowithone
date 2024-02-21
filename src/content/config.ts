@@ -11,6 +11,7 @@ const languagesCollection = defineCollection({
     meaning: z.string(),
     tags: z.array(z.string()),
     image: z.string().optional(),
+    imageAlt: z.string().optional(),
     location: z.array(z.number()).optional(),
     pubDate: z.date(),
     modifiedDate: z.date(),

@@ -1,5 +1,5 @@
 ---
-languageName: francais
+languageName: Französich
 original: Faire d'une pierre deux coups
 meaning: Zwei mal mit einem Stein werfen
 tags:

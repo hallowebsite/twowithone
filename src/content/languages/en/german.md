@@ -1,5 +1,5 @@
 ---
-languageName: Deutsch
+languageName: German
 original: Zwei Fliegen mit einer Klappe schlagen
 meaning: To hit two flies with one swatter
 tags:

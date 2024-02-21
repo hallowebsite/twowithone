@@ -1,5 +1,5 @@
 ---
-languageName: polski
+languageName: Polnisch
 original: Upiec dwie pieczenie na jednym ogniu
 meaning: Zwei Vögel auf einem Feuer zu braten
 tags:

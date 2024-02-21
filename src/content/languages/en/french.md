@@ -1,5 +1,5 @@
 ---
-languageName: francais
+languageName: French
 original: Faire d'une pierre deux coups
 meaning: To make two shots with one stone
 tags:

@@ -1,5 +1,5 @@
 ---
-languageName: italiano
+languageName: Italian
 original: Due piccioni con una fava
 meaning: Two pigeons with one broad bean
 tags:

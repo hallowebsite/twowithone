@@ -40,6 +40,7 @@ export const ui = {
     "card.inXWeSay": "in [[placeholder]] we say:",
     "card.literally": "which means literally:",
     "card.publishedOn": "Published on: [[placeholder]]",
+    "card.imageAlt": "Information about the image:",
     "card.permalink": "Permalink to this saying:",
   },
   de: {
@@ -71,6 +72,7 @@ export const ui = {
     "card.inXWeSay": "auf [[placeholder]] sagt man:",
     "card.literally": "was wörtlich bedeutet:",
     "card.publishedOn": "Auf [[placeholder]] veröffentlicht",
+    "card.imageAlt": "Informationen zum Bild:",
     "card.permalink": "Link zu diesem Ausdruck:",
   },
 } as const;

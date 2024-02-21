@@ -1,5 +1,5 @@
 ---
-languageName: italiano
+languageName: Italienisch
 original: Due piccioni con una fava
 meaning: Zwei Tauben mit einer Saubohne
 tags:
