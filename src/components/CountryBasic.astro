@@ -13,7 +13,6 @@ interface Props {
   language: CollectionEntry<"languages">;
 }
 const { language } = Astro.props;
-console.log(language);
 const { Content } = await language.render();
 
 // Split the slug into locale and slugWithoutPath
@@ -37,11 +36,13 @@ if (imageExists) {
 
 <section class="container my-2 md:my-8 flex flex-col gap-8 items-center">
   <div class="card lg:card-side lg:grid lg:grid-cols-2 bg-base-100 shadow-xl">
-    <div class="bg-base-100 aspect-suqre w-full max-h-48 md:max-h-full">
+    <div
+      class="bg-base-100 aspect-square overflow-hidden flex items-center w-full max-h-48 md:max-h-56 lg:max-h-full"
+    >
       {
         imageExists && (
           <Image
-            class="w-full"
+            class="h-full object-cover object-center w-full"
             src={images[imagePath]()}
             alt={`Dall-e generated image illustrating a prompt: ${language.data.meaning}`}
           />
