@@ -1,5 +1,10 @@
 ---
 import ThemeSwap from "@/components/ThemeSwap.astro";
+import { getLangFromUrl } from "@/i18n/utils";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+const url = Astro.url;
+const locale = getLangFromUrl(url);
 ---
 
 <footer class="mt-auto bg-base-200">
@@ -22,8 +27,13 @@ import ThemeSwap from "@/components/ThemeSwap.astro";
     <nav>
       <h6 class="footer-title">Languages:</h6>
       <a class="link link-hover">Explore on a map</a>
-      <a class="link link-hover" href="/list">List of langages</a>
+      <a class="link link-hover" href={getRelativeLocaleUrl(locale, "/list")}
+        >List of langages</a
+      >
       <a class="link link-hover">Add your language</a>
+      <a class="link link-hover" href={getRelativeLocaleUrl(locale, "/rss.xml")}
+        >RSS</a
+      >
       <a class="link link-hover">Code</a>
     </nav>
     <nav>
