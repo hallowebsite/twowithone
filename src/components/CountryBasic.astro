@@ -14,39 +14,58 @@ interface Props {
 }
 const { language } = Astro.props;
 const { Content } = await language.render();
-const slugWithoutPath = language.slug.split("/")[1];
-const locale = language.slug.split("/")[0];
-const image = images["/src/images/" + slugWithoutPath + ".jpg"];
-const realisedImage = await image();
-const imageSource = `url(${realisedImage.default.src})`;
+
+// Split the slug into locale and slugWithoutPath
+const [locale, slugWithoutPath] = language.slug.split("/");
+
+// Construct the image path
+const imagePath = `/src/images/${slugWithoutPath}.jpg`;
+
+// Check if the image exists in the images object
+const imageExists = images.hasOwnProperty(imagePath);
+
+// Initialize imageSource
+let imageSource = "";
+
+// If the image exists, get its URL
+if (imageExists) {
+  const realisedImage = await images[imagePath]();
+  imageSource = `url(${realisedImage.default.src})`;
+}
 ---
 
 <section class="container my-8 flex flex-col gap-8 items-center">
   <div class="card lg:card-side lg:grid lg:grid-cols-2 bg-base-100 shadow-xl">
-    {
-      image && (
-        <Image
-          class="w-full"
-          src={image()}
-          alt={`Dall-e generated image illustrating a prompt: ${language.data.meaning}`}
-        />
-      )
-    }
+    <div class="bg-base-100 aspect-suqre w-full pattern-b">
+      {
+        imageExists && (
+          <Image
+            class="w-full"
+            src={images[imagePath]()}
+            alt={`Dall-e generated image illustrating a prompt: ${language.data.meaning}`}
+          />
+        )
+      }
+    </div>
 
     <div class="card-body bg-success-content">
       <p class="text-xl">
         in {language.data.languageName} we say:
       </p>
-      <blockquote>
-        <h2 class="card-title text-4xl font-serif">
-          "{language.data.original}"
-        </h2>
-        {
-          language.data.transliteration && (
-            <p class="text-m italic">{language.data.transliteration}</p>
-          )
-        }
-      </blockquote>
+      <h2
+        dir={language.data.textDirection === "rtl" ? "rtl" : "ltr"}
+        class:list={[
+          "card-title text-4xl font-serif",
+          { rtl: language.data.textDirection === "rtl" },
+        ]}
+      >
+        {language.data.original}
+      </h2>
+      {
+        language.data.transliteration && (
+          <p class="text-m italic">{language.data.transliteration}</p>
+        )
+      }
       <span>which means literally:</span>
       <p class="text-2xl">{language.data.meaning}</p>
       <div class="card-actions">
@@ -55,12 +74,18 @@ const imageSource = `url(${realisedImage.default.src})`;
     </div>
   </div>
 </section>
+
 <section class="container w-full mx-auto my-24">
-  <div style={`background-image: ${imageSource}`} class="image-bg shadow-xl">
+  <div
+    style={`background-image: ${imageSource}`}
+    class="image-bg shadow-xl bg-accent"
+  >
     <div
       class="p-8 max-w-screen-md shadow-xl bg-success-content mx-auto flex flex-col gap-8"
     >
-      <article class="mx-auto w-full prose md:prose-lg xl:prose-xl dark:prose-invert">
+      <article
+        class="mx-auto w-full prose md:prose-lg xl:prose-xl dark:prose-invert"
+      >
         {
           language.body.length > 10 && (
             <>
@@ -68,14 +93,14 @@ const imageSource = `url(${realisedImage.default.src})`;
             </>
           )
         }
-        <p class="text-sm"
-          >Published on: <FrontmatterDate
+        <p class="text-sm">
+          Published on: <FrontmatterDate
             date={language.data.pubDate}
             locale={locale}
-          /></p
-        >
-        <p class="text-sm"
-          >Permalink to this saying:
+          />
+        </p>
+        <p class="text-sm">
+          Permalink to this saying:
           <a href={`/${language.slug}`}>
             {`/${language.slug}`}
           </a>
@@ -90,5 +115,6 @@ const imageSource = `url(${realisedImage.default.src})`;
     padding: 2rem;
     background-size: cover;
     background-position: center;
+    background-blend-mode: difference;
   }
 </style>
