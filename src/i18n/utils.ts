@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { ui, defaultLang, Locales } from "./ui";
 
 export function getLangFromUrl(url: URL): string {
@@ -6,15 +7,14 @@ export function getLangFromUrl(url: URL): string {
   return defaultLang;
 }
 
-export function useTranslations(lang: keyof typeof ui): any {
+export function useTranslations(lang: Locales): any {
   return function t(
     key: keyof (typeof ui)[typeof defaultLang],
     interpolation?: string,
   ) {
-    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
     const string =
       ui[lang][key] || ui[defaultLang][key] || "missing translation";
-    return string.replace(/\[\[placeholder\]\]/, interpolation || "");
+    return string.replace(/\[\[placeholder\]\]/, interpolation ?? "");
   };
 }
 

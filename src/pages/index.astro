@@ -2,8 +2,8 @@
 import { getCollection } from "astro:content";
 import CountryBasic from "@/components/CountryBasic.astro";
 import Layout from "@/layouts/Layout.astro";
-import { getMatchingLocale } from "@/i18n/utils";
-import { Locales } from "@/i18n/ui";
+// import { getMatchingLocale } from "@/i18n/utils";
+// import { Locales } from "@/i18n/ui";
 
 const englishLanguages = await getCollection("languages", ({ id }) => {
   return id.startsWith("en/");

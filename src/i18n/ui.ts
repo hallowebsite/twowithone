@@ -8,9 +8,11 @@ export enum Locales {
   de = "de",
 }
 
+type LanguageStrings = Record<string, string>;
+
 export const defaultLang = "en";
 
-export const ui = {
+export const ui: Record<Locales, LanguageStrings> = {
   en: {
     "meta.description":
       "Browse the world with the variants of two stones with one bird saying",

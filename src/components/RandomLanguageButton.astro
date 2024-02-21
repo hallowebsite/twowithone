@@ -21,7 +21,6 @@ const allLanguagesSlugs = languages.map((entry) => entry.slug);
 <random-language-button
   data-slugs={allLanguagesSlugs}
   data-currentSlug={currentSlug}
-  data-locale={locale}
 >
   <a
     role="button"
@@ -42,14 +41,12 @@ const allLanguagesSlugs = languages.map((entry) => entry.slug);
     class RandomLanguageButton extends HTMLElement {
       private slugs: string[] = [];
       private visitedSlugs: string[] | null = null;
-      private locale: string = "en";
 
       constructor() {
         super();
         const button = this.querySelector("#randomLanguage");
         const input = this.querySelector("input");
         this.slugs = this.getAttribute("data-slugs")?.split(",") || [];
-        this.locale = this.getAttribute("data-locale") || "en";
         const currentSlug = this.getAttribute("data-currentSlug") || null;
         if (!button) {
           return;
