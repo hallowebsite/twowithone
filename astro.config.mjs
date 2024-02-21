@@ -8,6 +8,7 @@ export default defineConfig({
   output: "server",
   adapter: cloudflare(),
   integrations: [tailwind()],
+  site: "https://twowithwone.pages.dev",
   i18n: {
     defaultLocale: "en",
     locales: ["en", "de"],
