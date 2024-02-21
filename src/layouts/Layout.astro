@@ -12,7 +12,7 @@ interface Props {
 }
 const url = Astro.url;
 const locale = getLangFromUrl(url);
-const t = useTranslations(locale);
+const t = useTranslations(locale as Locales);
 
 const englishLanguages = await getCollection("languages", ({ id }) => {
   return id.startsWith("en/");

@@ -1,9 +1,10 @@
 ---
 import { useTranslations, getLangFromUrl } from "@/i18n/utils";
+import type { Locales } from "astro";
 
 const url = Astro.url;
 const locale = getLangFromUrl(url);
-const t = useTranslations(locale);
+const t = useTranslations(locale as Locales);
 ---
 
 <theme-swap class="flex flex-col items-start gap-2">
