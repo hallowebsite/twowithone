@@ -37,7 +37,9 @@ if (imageExists) {
 const t = useTranslations(locale);
 ---
 
-<section class="container my-2 md:my-8 flex flex-col gap-8 items-center">
+<section
+  class="container max-w-screen-xl mx-auto my-2 md:my-8 flex flex-col gap-8 items-center"
+>
   <div class="card lg:card-side lg:grid lg:grid-cols-2 bg-base-100 shadow-xl">
     <div
       class="bg-base-100 aspect-square overflow-hidden flex items-center w-full max-h-48 md:max-h-56 lg:max-h-full"
@@ -80,7 +82,7 @@ const t = useTranslations(locale);
   </div>
 </section>
 
-<section class="container w-full mx-auto my-24">
+<section class="container w-full max-w-screen-xl mx-auto my-24">
   <div
     style={`background-image: ${imageSource}`}
     class="image-bg shadow-xl bg-accent"
