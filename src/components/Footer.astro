@@ -5,6 +5,7 @@ import { getLangFromUrl } from "@/i18n/utils";
 import { getRelativeLocaleUrl } from "astro:i18n";
 
 const url = Astro.url;
+const currentPath = url.pathname;
 const locale = getLangFromUrl(url);
 ---
 
@@ -30,11 +31,15 @@ const locale = getLangFromUrl(url);
       <a class="link link-hover" href={getRelativeLocaleUrl(locale, "/")}
         >Home (shows random entry)</a
       >
-      <a class="link link-hover">Explore on a map</a>
+      <a class="link link-hover" href={getRelativeLocaleUrl(locale, "/map")}
+        >Explore on a map</a
+      >
       <a class="link link-hover" href={getRelativeLocaleUrl(locale, "/list")}
         >List of langages</a
       >
-      <a class="link link-hover">Add your language</a>
+      <a class="link link-hover" href={getRelativeLocaleUrl(locale, "/add")}
+        >Add your language</a
+      >
       <a class="link link-hover" href={getRelativeLocaleUrl(locale, "/rss.xml")}
         >RSS</a
       >
@@ -42,9 +47,18 @@ const locale = getLangFromUrl(url);
     </nav>
     <nav>
       <h6 class="footer-title">About:</h6>
-      <a class="link link-hover">About</a>
-      <a class="link link-hover">Impressum</a>
-      <a class="link link-hover">Data protection and cookies</a>
+      <a class="link link-hover" href={getRelativeLocaleUrl(locale, "/about")}
+        >About</a
+      >
+      <a
+        class="link link-hover"
+        href={getRelativeLocaleUrl(locale, "/impressum")}>Impressum</a
+      >
+      <a
+        class="link link-hover"
+        href={getRelativeLocaleUrl(locale, "/data-protection")}
+        >Data protection and cookies</a
+      >
     </nav>
     <div>
       <h6 class="footer-title">Preferences</h6>
@@ -53,14 +67,24 @@ const locale = getLangFromUrl(url);
       </div>
       {
         locale === Locales.en && (
-          <a class="link link-hover" href="/de">
+          <a
+            class="link link-hover"
+            href={currentPath ? `/de${currentPath}` : "/de"}
+          >
             Deutsche Version
           </a>
         )
       }
       {
         locale === Locales.de && (
-          <a class="link link-hover" href="/">
+          <a
+            class="link link-hover"
+            href={
+              currentPath && currentPath !== "/de"
+                ? `/${currentPath.replace("de", "")}`
+                : "/"
+            }
+          >
             English version
           </a>
         )
