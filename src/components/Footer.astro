@@ -1,5 +1,6 @@
 ---
 import ThemeSwap from "@/components/ThemeSwap.astro";
+import { Locales } from "@/i18n/ui";
 import { getLangFromUrl } from "@/i18n/utils";
 import { getRelativeLocaleUrl } from "astro:i18n";
 
@@ -26,6 +27,9 @@ const locale = getLangFromUrl(url);
     </aside>
     <nav>
       <h6 class="footer-title">Languages:</h6>
+      <a class="link link-hover" href={getRelativeLocaleUrl(locale, "/")}
+        >Home (shows random entry)</a
+      >
       <a class="link link-hover">Explore on a map</a>
       <a class="link link-hover" href={getRelativeLocaleUrl(locale, "/list")}
         >List of langages</a
@@ -34,7 +38,7 @@ const locale = getLangFromUrl(url);
       <a class="link link-hover" href={getRelativeLocaleUrl(locale, "/rss.xml")}
         >RSS</a
       >
-      <a class="link link-hover">Code</a>
+      <a class="link link-hover" href="https://github.com">Code</a>
     </nav>
     <nav>
       <h6 class="footer-title">About:</h6>
@@ -42,9 +46,25 @@ const locale = getLangFromUrl(url);
       <a class="link link-hover">Impressum</a>
       <a class="link link-hover">Data protection and cookies</a>
     </nav>
-    <div class="js-only">
-      <h6 class="footer-title">Dark/Light mode:</h6>
-      <ThemeSwap />
+    <div>
+      <h6 class="footer-title">Preferences</h6>
+      <div class="js-only">
+        <ThemeSwap />
+      </div>
+      {
+        locale === Locales.en && (
+          <a class="link link-hover" href="/de">
+            Deutsche Version
+          </a>
+        )
+      }
+      {
+        locale === Locales.de && (
+          <a class="link link-hover" href="/">
+            English version
+          </a>
+        )
+      }
     </div>
   </div>
 </footer>
