@@ -5,11 +5,14 @@ import { ViewTransitions } from "astro:transitions";
 import Search from "@/components/Search.astro";
 import Footer from "@/components/Footer.astro";
 import { Locales } from "@/i18n/ui";
+import { useTranslations, getLangFromUrl } from "@/i18n/utils";
 
 interface Props {
   title: string;
 }
-const locale = Astro.currentLocale || "en";
+const url = Astro.url;
+const locale = getLangFromUrl(url);
+const t = useTranslations(locale);
 
 const englishLanguages = await getCollection("languages", ({ id }) => {
   return id.startsWith("en/");
@@ -46,10 +49,7 @@ const { title } = Astro.props;
           );
       });
     </script>
-    <meta
-      name="description"
-      content="Two with one - browse the world with the variants of two stones with one bird saying"
-    />
+    <meta name="description" content={t("meta.description")} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
@@ -64,7 +64,7 @@ const { title } = Astro.props;
     <ViewTransitions />
   </head>
   <body class="min-h-screen flex flex-col">
-    <div class="drawer">
+    <div class="drawer min-h-screen">
       <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
       <div class="drawer-content flex flex-col">
         <!-- Navbar -->
@@ -72,7 +72,7 @@ const { title } = Astro.props;
           <div class="flex-none lg:hidden">
             <label
               for="my-drawer-3"
-              aria-label="open sidebar"
+              aria-label={t("nav.openSidebar")}
               class="btn btn-square btn-ghost"
             >
               <svg
@@ -88,11 +88,11 @@ const { title } = Astro.props;
               >
             </label>
           </div>
-          <div class="flex-1 px-2 mx-2">
+          <div class="flex-1 px-2 mx-2 gap-2">
             <div class="flex gap-2 hidden lg:block">
               <a
                 href={getRelativeLocaleUrl(locale)}
-                aria-label="Go to homepage"
+                aria-label={t("nav.home")}
                 class="btn btn-ghost text-xl"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -107,14 +107,14 @@ const { title } = Astro.props;
               >
             </div>
             <h1 class="flex flex-col gap-1">
-              <span class="text-xl"> "To kill two birds with one stone"</span>
-              <span class="pl-2 text-sm hidden md:inline"
-                >in {length} languages</span
+              <span class="text-xl bold font-serif">{t("header.title")}</span>
+              <span class="text-sm hidden md:inline"
+                >{t("header.subline", length)}</span
               >
             </h1>
           </div>
           <div class="flex-none hidden lg:block">
-            <Search locale={locale} />
+            <Search />
           </div>
         </header>
         <!-- Page content here -->
@@ -126,7 +126,7 @@ const { title } = Astro.props;
       <div class="drawer-side">
         <label
           for="my-drawer-3"
-          aria-label="close sidebar"
+          aria-label={t("nav.closeSidebar")}
           class="drawer-overlay"></label>
         <div class="menu p-4 w-80 min-h-full bg-base-200">
           <nav>
@@ -144,34 +144,34 @@ const { title } = Astro.props;
                       fill="currentColor"
                       d="M19 21H5a1 1 0 0 1-1-1v-9H1l10.327-9.388a1 1 0 0 1 1.346 0L23 11h-3v9a1 1 0 0 1-1 1M6 19h12V9.157l-6-5.454l-6 5.454z"
                     ></path></svg
-                  >Home (shows random entry)</a
+                  >{t("nav.home")}
+                  {t("nav.home.explanation")}</a
                 >
               </li>
               <li>
                 <a
                   class="link link-hover"
-                  href={getRelativeLocaleUrl(locale, "/search")}>Search</a
+                  href={getRelativeLocaleUrl(locale, "/search")}
+                  >{t("search.title")}</a
                 >
               </li>
               <li>
                 <a
                   class="link link-hover"
-                  href={getRelativeLocaleUrl(locale, "/map")}
-                  >Explore on a map</a
+                  href={getRelativeLocaleUrl(locale, "/map")}>{t("nav.map")}</a
                 >
               </li>
               <li>
                 <a
                   class="link link-hover"
                   href={getRelativeLocaleUrl(locale, "/list")}
-                  >List of langages</a
+                  >{t("nav.list")}</a
                 >
               </li>
               <li>
                 <a
                   class="link link-hover"
-                  href={getRelativeLocaleUrl(locale, "/add")}
-                  >Add your language</a
+                  href={getRelativeLocaleUrl(locale, "/add")}>{t("nav.add")}</a
                 >
               </li>
               <li>

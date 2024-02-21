@@ -7,9 +7,14 @@ export function getLangFromUrl(url: URL): string {
 }
 
 export function useTranslations(lang: keyof typeof ui): any {
-  return function t(key: keyof (typeof ui)[typeof defaultLang]) {
+  return function t(
+    key: keyof (typeof ui)[typeof defaultLang],
+    interpolation?: string,
+  ) {
     // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-    return ui[lang][key] || ui[defaultLang][key];
+    const string =
+      ui[lang][key] || ui[defaultLang][key] || "missing translation";
+    return string.replace(/\[\[placeholder\]\]/, interpolation || "");
   };
 }
 

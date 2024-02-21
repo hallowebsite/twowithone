@@ -1,9 +1,10 @@
 ---
-// import { Locales } from "@/i18n/ui";
+import { useTranslations, getLangFromUrl } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 // import { getCollection } from "astro:content";
 import { getRelativeLocaleUrl } from "astro:i18n";
-
-const { locale } = Astro.props;
 // const englishLanguages = await getCollection("languages", ({ id }) => {
 //   return id.startsWith("en/");
 // });
@@ -16,19 +17,23 @@ const { locale } = Astro.props;
 //   slug: language.slug,
 // }));
 
-const searchUrl = getRelativeLocaleUrl(locale, "search");
+const searchUrl = getRelativeLocaleUrl(lang, "search");
 ---
 
 <search>
-  <form method="POST" action={searchUrl} class="flex flex-wrap gap-2">
-    <label class="label" for="language">Search</label>
+  <form
+    method="POST"
+    action={searchUrl}
+    class="w-full flex flex-col md:flex-row items-center justify-center flex-wrap gap-2"
+  >
+    <label class="label" for="language">{t("search.title")}</label>
     <input
       class="input"
-      placeholder="for example Spanish"
+      placeholder={t("search.placeholder")}
       name="language"
       id="language"
     />
-    <button type="submit" class="btn btn-small">Go</button>
+    <button type="submit" class="btn btn-small">{t("search.go")}</button>
   </form>
 </search>
 

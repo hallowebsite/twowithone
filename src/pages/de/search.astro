@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
+import Search from "@/components/Search.astro";
 import type { CollectionEntry } from "astro:content";
 import Fuse, { type FuseResult } from "fuse.js";
 
@@ -16,10 +17,8 @@ if (Astro.request.method === "POST") {
     const data = await Astro.request.formData();
     const language = data.get("language");
     if (slugs.includes(`de/${language as (typeof slugs)[number]}`)) {
-      console.log("redirecting, slug", `/de/${language}`);
       return Astro.redirect(`/de/${language}`, 303);
     } else if (names.includes(language as (typeof names)[number])) {
-      console.log("redirecting, name");
       const index = names.indexOf(language as (typeof names)[number]);
       return Astro.redirect(`/${slugs[index]}`, 303);
     } else {
@@ -50,7 +49,7 @@ if (Astro.request.method === "POST") {
 
 <Layout title="To kill two birds with one stone - list of all languages">
   <section class="overflow-x-auto container mt-12 max-w-screen-md mx-auto">
-    <h1 class="text-2xl mb-8 text-center font-bold">Search</h1>
+    <Search />
     <ul>
       {searchResults.map((result: SearchResult) => <li>{result.item.slug}</li>)}
     </ul>

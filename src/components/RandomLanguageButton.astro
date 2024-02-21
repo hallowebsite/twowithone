@@ -1,5 +1,6 @@
 ---
 import { Locales } from "@/i18n/ui";
+import { useTranslations } from "@/i18n/utils";
 import { getCollection } from "astro:content";
 
 const englishLanguages = await getCollection("languages", ({ id }) => {
@@ -10,6 +11,8 @@ const germanLanguages = await getCollection("languages", ({ id }) => {
 });
 const { currentSlug } = Astro.props;
 const locale = currentSlug.split("/")[0];
+
+const t = useTranslations(locale);
 
 const languages = locale === Locales.de ? germanLanguages : englishLanguages;
 const allLanguagesSlugs = languages.map((entry) => entry.slug);
@@ -24,7 +27,7 @@ const allLanguagesSlugs = languages.map((entry) => entry.slug);
     role="button"
     id="randomLanguage"
     class="btn mb-4 mt-2 btn-primary btn-block btn-lg"
-    href="/">Go to other random langugage</a
+    href="/">{t("random.button")}</a
   >
   <label class="flex gap-2 items-center">
     <input
@@ -32,10 +35,7 @@ const allLanguagesSlugs = languages.map((entry) => entry.slug);
       id="allowLocalStorage"
       class="checkbox checkbox-primary checkbox-md"
     />
-    <span class="text-sm"
-      >Avoid duplicates (we will need to store information about languages you
-      visited on your device)
-    </span>
+    <span class="text-sm">{t("random.option")} </span>
   </label>
   <script>
     import { navigate } from "astro:transitions/client";
