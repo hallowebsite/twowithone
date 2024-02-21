@@ -8,11 +8,11 @@ import { Locales } from "@/i18n/ui";
 const englishLanguages = await getCollection("languages", ({ id }) => {
   return id.startsWith("en/");
 });
-const localesList = Astro.preferredLocaleList;
-const localeToUse = getMatchingLocale(localesList);
-if (localeToUse === Locales.de) {
-  return Astro.redirect("/de", 303);
-}
+// const localesList = Astro.preferredLocaleList;
+// const localeToUse = getMatchingLocale(localesList);
+// if (localeToUse === Locales.de) {
+//   return Astro.redirect("/de", 303);
+// }
 
 const randomLanguage =
   englishLanguages[Math.floor(Math.random() * englishLanguages.length)];
