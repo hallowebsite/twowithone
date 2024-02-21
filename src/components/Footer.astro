@@ -77,14 +77,7 @@ const locale = getLangFromUrl(url);
       }
       {
         locale === Locales.de && (
-          <a
-            class="link link-hover"
-            href={
-              currentPath && currentPath !== "/de"
-                ? `/${currentPath.replace("de", "")}`
-                : "/"
-            }
-          >
+          <a class="link link-hover" href={currentPath.replace("/de", "")}>
             English version
           </a>
         )
