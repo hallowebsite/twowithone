@@ -5,6 +5,8 @@ import Layout from "@/layouts/Layout.astro";
 const englishLanguages = await getCollection("languages", ({ id }) => {
   return id.startsWith("en/");
 });
+
+export const prerender = true;
 ---
 
 <Layout title="To kill two birds with one stone - list of all languages">

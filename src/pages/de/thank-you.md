@@ -3,6 +3,8 @@ layout: "@/layouts/LayoutMD.astro"
 title: "Vielen Dank für Ihre Nachricht"
 ---
 
+export const prerender = true;
+
 # Danke
 
 Ihre Nachricht wurde gesendet, danke für Ihre Kontaktaufnahme.

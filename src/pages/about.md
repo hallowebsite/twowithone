@@ -3,6 +3,8 @@ layout: "@/layouts/LayoutMD.astro"
 title: "To kill two birds with one stone - About"
 ---
 
+export const prerender = true;
+
 # About
 
 Piotr, one of our collaborators, being a Polish immigrant in Germany had a good laugh when

@@ -3,6 +3,8 @@ layout: "@/layouts/LayoutMD.astro"
 title: "Zwei Fliegen mit einer Klappe schlagen - Über"
 ---
 
+export const prerender = true;
+
 # Über
 
 Piotr, einer unserer Mitarbeiter, der ein polnischer Einwanderer in Deutschland ist, hatte einen guten Lacher, als er entdeckte
