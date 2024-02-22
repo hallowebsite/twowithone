@@ -16,3 +16,7 @@ modifiedDate: 2024-02-20
 Don't forget to fight and boycot russian imperialism, go support Ukraine's fight for life at:
 
 [United24](https://u24.gov.ua/)
+
+_Information about the image:_
+
+Two Jack Russell terriers chasing a rabbit into a burrow. Process print after Harrington Bird, 1904., [Wellcomecollection](https://wellcomecollection.org/works/up3a4yx9)
