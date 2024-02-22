@@ -8,13 +8,13 @@ import mdx from "@astrojs/mdx";
 export default defineConfig({
   output: "server",
   adapter: cloudflare({
-    imageService: "cloudflare",
+    imageService: "compile"
   }),
   integrations: [tailwind(), mdx()],
   site: "https://twowithwone.pages.dev",
   i18n: {
     defaultLocale: "en",
     locales: ["en", "de"],
-    prefixDefault: false,
-  },
+    prefixDefault: false
+  }
 });
