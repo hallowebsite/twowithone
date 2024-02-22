@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { ui, defaultLang, Locales } from "./ui";
 
-export function getLangFromUrl(url: URL): string {
+export function getLangFromUrl(url: URL): Locales {
   const [, lang] = url.pathname.split("/");
   if (lang in ui) return lang as keyof typeof ui;
   return defaultLang;
