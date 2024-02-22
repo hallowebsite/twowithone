@@ -1,17 +1,28 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { useTranslations, getLangFromUrl } from "@/i18n/utils";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 const url = Astro.url;
 const locale = getLangFromUrl(url);
 const t = useTranslations(locale);
+if (Astro.request.method === "POST") {
+  const data = await Astro.request.formData();
+  console.log(data);
+  const thankYouUrl = getRelativeLocaleUrl(locale, "/thank-you");
+  return Astro.redirect(thankYouUrl, 303);
+}
 ---
 
 <Layout title="Zwei Fliegen mit einer Klappe schlagen - Kontakt">
   <section class="overflow-x-auto container mt-12 max-w-screen-md mx-auto">
     <h1 class="text-2xl mb-8 text-center font-bold">{t("form.title")}</h1>
     <span class="text-xl">{t("form.explanation")}</span>
-    <form class="mt-8" action="/form" method="POST">
+    <form
+      class="mt-8"
+      action={getRelativeLocaleUrl(locale, "/add")}
+      method="POST"
+    >
       <div class="flex flex-col mb-4">
         <label for="name" class="form-control">
           <div class="label flex flex-col items-start">
