@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { Picture } from "astro:assets";
+import { Picture, getImage } from "astro:assets";
 import { Locales } from "@/i18n/ui";
 import { useTranslations } from "@/i18n/utils";
 import type { ImageMetadata } from "astro";
@@ -19,20 +19,15 @@ const { Content } = await language.render();
 // Split the slug into locale and slugWithoutPath
 const [locale, slugWithoutPath] = language.slug.split("/");
 
-// Construct the image path
 const imagePath = `/src/images/${slugWithoutPath}.jpg`;
 
 // Check if the image exists in the images object
 const imageExists = images.hasOwnProperty(imagePath);
-
-// Initialize imageSource
-let imageSource = "";
-
-// If the image exists, get its URL
-if (imageExists) {
-  const realisedImage = await images[imagePath]();
-  imageSource = `url(${realisedImage.default.src})`;
-}
+const backgorundImageUrl = await getImage({
+  src: images[imagePath](),
+  width: 1000,
+  height: 1000,
+});
 
 const t = useTranslations(locale as Locales);
 ---
@@ -95,7 +90,7 @@ const t = useTranslations(locale as Locales);
 
 <section class="container w-full max-w-screen-xl mx-auto my-24">
   <div
-    style={`background-image: ${imageSource}`}
+    style={`background-image: url(${backgorundImageUrl.src})`}
     class="image-bg shadow-xl bg-accent"
   >
     <div
