@@ -7,7 +7,8 @@ const englishLanguages = await getCollection("languages", ({ id }) => {
 
 const randomLanguage =
   englishLanguages[Math.floor(Math.random() * englishLanguages.length)];
-return Astro.redirect("/" + randomLanguage.slug.replace("en/", "")
+
+return Astro.redirect("/" + randomLanguage.slug.replace("en/", ""));
 ---
 
 You should not see this
