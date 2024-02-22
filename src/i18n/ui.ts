@@ -13,7 +13,7 @@ type LanguageStrings = Record<string, string>;
 export const defaultLang = "en";
 
 export const ui: Record<Locales, LanguageStrings> = {
-  en: {
+  [Locales.en]: {
     "meta.description":
       "Browse the world with the variants of two stones with one bird saying",
     "header.title": "To kill two birds with one stone",
@@ -44,8 +44,19 @@ export const ui: Record<Locales, LanguageStrings> = {
     "card.publishedOn": "Published on: [[placeholder]]",
     "card.imageAlt": "Information about the image:",
     "card.permalink": "Permalink to this saying:",
+    "form.title": "Contact us",
+    "form.explanation":
+      "You did not find a saying in your language? You noticed an error or want to suggest a change?",
+    "form.name": "Your name",
+    "form.email": "Your email",
+    "form.email.explanation":
+      "We will not share it with anyone nor send you any emails, fill it in only if you expect an answer from us",
+    "form.message": "Your message",
+    "form.message.explanation":
+      "If you want to suggest a saying, please provide links to examples of usage or explanations, thank you :)",
+    "form.send": "Send",
   },
-  de: {
+  [Locales.de]: {
     "meta.description":
       "Durchsuche die Welt mit den Varianten des Sprichworts 'Zwei Fliegen mit einer Klappe schlagen'",
     "header.title": "Zwei Fliegen mit einer Klappe schlagen",
@@ -76,5 +87,16 @@ export const ui: Record<Locales, LanguageStrings> = {
     "card.publishedOn": "Auf [[placeholder]] veröffentlicht",
     "card.imageAlt": "Informationen zum Bild:",
     "card.permalink": "Link zu diesem Ausdruck:",
+    "form.title": "Kontaktiere uns",
+    "form.explanation":
+      "Hast du keinen Ausdruck in deiner Sprache gefunden? Du hast einen Fehler bemerkt oder möchtest eine Änderung vorschlagen?",
+    "form.name": "Dein Name",
+    "form.email": "Deine E-Mail-Adresse",
+    "form.email.explanation":
+      "Wir werden sie mit niemandem teilen und dir auch keine E-Mails senden, fülle sie nur aus, wenn du eine Antwort von uns erwartest",
+    "form.message": "Deine Nachricht",
+    "form.message.explanation":
+      "Wenn du einen Ausdruck vorschlagen möchtest, gib bitte Links zu Beispielen oder Erklärungen an, danke :)",
+    "form.send": "Senden",
   },
 } as const;
