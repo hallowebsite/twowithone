@@ -1,0 +1,12 @@
+---
+import Layout from "@/layouts/Layout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+  <section
+    class="container my-12 mx-auto prose md:prose-lg xl:prose-xl dark:prose-invert"
+  >
+    <slot />
+  </section>
+</Layout>
