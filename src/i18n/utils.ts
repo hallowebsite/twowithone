@@ -4,7 +4,7 @@ import { ui, defaultLang, Locales } from "./ui";
 export function getLangFromUrl(url: URL): Locales {
   const [, lang] = url.pathname.split("/");
   if (lang in ui) return lang as keyof typeof ui;
-  return defaultLang;
+  return defaultLang as Locales;
 }
 
 export function useTranslations(lang: Locales): any {
