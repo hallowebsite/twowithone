@@ -28,7 +28,7 @@ const allLanguagesSlugs = languages.map((entry) => entry.slug);
     class="btn mb-4 mt-2 btn-primary btn-block btn-lg"
     href="/">{t("random.button")}</a
   >
-  <label class="flex gap-2 items-center">
+  <label class="flex gap-2 items-center js-only">
     <input
       type="checkbox"
       id="allowLocalStorage"
@@ -110,5 +110,6 @@ const allLanguagesSlugs = languages.map((entry) => entry.slug);
   random-language-button {
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
 </style>
