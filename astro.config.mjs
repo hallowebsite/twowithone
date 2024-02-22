@@ -1,19 +1,20 @@
 import { defineConfig } from "astro/config";
 import cloudflare from "@astrojs/cloudflare";
-
 import tailwind from "@astrojs/tailwind";
+
+import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
   output: "server",
   adapter: cloudflare({
-    imageService: "compile",
+    imageService: "compile"
   }),
-  integrations: [tailwind()],
+  integrations: [tailwind(), mdx()],
   site: "https://twowithwone.pages.dev",
   i18n: {
     defaultLocale: "en",
     locales: ["en", "de"],
-    prefixDefault: false,
-  },
+    prefixDefault: false
+  }
 });
