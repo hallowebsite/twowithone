@@ -14,13 +14,17 @@ if (Astro.request.method === "POST") {
       return id.startsWith("en/");
     });
     const slugs = englishLanguages.map((lang: any) => lang.slug);
-    const names = englishLanguages.map((lang: any) => lang.data.languageName);
+    const names = englishLanguages
+      .map((lang: any) => lang.data.languageName)
+      .map((name) => name.toLowerCase());
     const data = await Astro.request.formData();
-    const language = data.get("language");
-    if (slugs.includes(`en/${language as (typeof slugs)[number]}`)) {
-      return Astro.redirect(`/${language}`, 303);
-    } else if (names.includes(language as (typeof names)[number])) {
-      const index = names.indexOf(language as (typeof names)[number]);
+    const language = data.get("language")?.toString();
+    const languageSanitized = language ? language.trim().toLowerCase() : "";
+
+    if (slugs.includes(`en/${languageSanitized as (typeof slugs)[number]}`)) {
+      return Astro.redirect(`/${languageSanitized}`, 303);
+    } else if (names.includes(languageSanitized as (typeof names)[number])) {
+      const index = names.indexOf(languageSanitized as (typeof names)[number]);
       return Astro.redirect(`/${slugs[index].replace("en/", "")}`, 303);
     } else {
       const fuseOptions = {

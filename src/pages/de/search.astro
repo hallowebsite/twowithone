@@ -13,13 +13,17 @@ if (Astro.request.method === "POST") {
       return id.startsWith("de/");
     });
     const slugs = germanLanguages.map((lang: any) => lang.slug);
-    const names = germanLanguages.map((lang: any) => lang.data.languageName);
+    const names = germanLanguages
+      .map((lang: any) => lang.data.languageName)
+      .map((name: string) => name.toLowerCase());
     const data = await Astro.request.formData();
-    const language = data.get("language");
-    if (slugs.includes(`de/${language as (typeof slugs)[number]}`)) {
-      return Astro.redirect(`/de/${language}`, 303);
-    } else if (names.includes(language as (typeof names)[number])) {
-      const index = names.indexOf(language as (typeof names)[number]);
+    const language = data.get("language")?.toString();
+    const languageSanitized = language ? language.trim().toLowerCase() : "";
+
+    if (slugs.includes(`de/${languageSanitized as (typeof slugs)[number]}`)) {
+      return Astro.redirect(`/de/${languageSanitized}`, 303);
+    } else if (names.includes(languageSanitized as (typeof names)[number])) {
+      const index = names.indexOf(languageSanitized as (typeof names)[number]);
       return Astro.redirect(`/${slugs[index]}`, 303);
     } else {
       const fuseOptions = {

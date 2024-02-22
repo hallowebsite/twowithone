@@ -31,7 +31,7 @@ export const ui: Record<Locales, LanguageStrings> = {
     "nav.languages": "Languages",
     "nav.preferences": "Preferences",
     "search.title": "Search",
-    "search.placeholder": "for example: Spain",
+    "search.placeholder": "for example: Spanish",
     "search.go": "Go",
     "themeSwap.label": "Dark/Light mode",
     "themeSwap.explanation":
@@ -74,7 +74,7 @@ export const ui: Record<Locales, LanguageStrings> = {
     "nav.languages": "Sprachen",
     "nav.preferences": "Einstellungen",
     "search.title": "Suche",
-    "search.placeholder": "zum Beispiel: Spanien",
+    "search.placeholder": "zum Beispiel: Spanisch",
     "search.go": "Los",
     "themeSwap.label": "Dunkel-/Hellmodus",
     "themeSwap.explanation":
