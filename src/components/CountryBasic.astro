@@ -47,6 +47,7 @@ const t = useTranslations(locale as Locales);
       {
         imageExists && (
           <Picture
+            pictureAttributes={{ style: "height: 100%; width:100%" }}
             class="h-full object-cover object-center w-full"
             sizes="(max-width: 600px) 100vw, 630px"
             widths={[630, 1260, 1890, 2520]}
