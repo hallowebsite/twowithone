@@ -9,8 +9,8 @@ const germanLanguages = await getCollection("languages", ({ id }) => {
 
 const randomLanguage =
   germanLanguages[Math.floor(Math.random() * germanLanguages.length)];
-
-return Astro.redirect("/" + randomLanguage.slug);
 ---
 
-You should not see this
+<Layout title="Two with one">
+  <CountryBasic language={randomLanguage} />
+</Layout>

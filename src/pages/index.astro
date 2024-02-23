@@ -1,9 +1,18 @@
 ---
 import { getCollection } from "astro:content";
+import CountryBasic from "@/components/CountryBasic.astro";
+import Layout from "@/layouts/Layout.astro";
+// import { getMatchingLocale } from "@/i18n/utils";
+// import { Locales } from "@/i18n/ui";
 
 const englishLanguages = await getCollection("languages", ({ id }) => {
   return id.startsWith("en/");
 });
+// const localesList = Astro.preferredLocaleList;
+// const localeToUse = getMatchingLocale(localesList);
+// if (localeToUse === Locales.de) {
+//   return Astro.redirect("/de", 303);
+// }
 
 const randomLanguage =
   englishLanguages[Math.floor(Math.random() * englishLanguages.length)];
@@ -11,4 +20,6 @@ const randomLanguage =
 return Astro.redirect("/" + randomLanguage.slug.replace("en/", ""));
 ---
 
-You should not see this
+<Layout title="Two with one">
+  <CountryBasic language={randomLanguage} />
+</Layout>
