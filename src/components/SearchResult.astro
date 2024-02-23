@@ -23,8 +23,10 @@ const imagePath = `/src/images/${slugWithoutPath}.jpg`;
   <figure>
     <Picture
       class="image h-full object-cover aspect-square object-center w-full"
-      sizes="100px"
-      widths={[100, 200, 400, 800]}
+      sizes="150px"
+      width="150"
+      height="150"
+      widths={[150, 300, 450]}
       formats={["webp", "avif", "jpeg"]}
       src={images[imagePath]()}
       alt={language.data.imageAlt || ""}
