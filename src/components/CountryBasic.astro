@@ -6,9 +6,14 @@ import { Locales } from "@/i18n/ui";
 import { useTranslations } from "@/i18n/utils";
 import type { ImageMetadata } from "astro";
 import RandomLanguageButton from "@/components/RandomLanguageButton.astro";
+import lqipModern from "lqip-modern";
+import { getImageAsBuffer } from "@/lib/image";
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/images/*.{jpeg,jpg,png,gif}",
+);
+const lqipImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/images/*.{jpeg,jpg,png,gif}\\?raw",
 );
 
 interface Props {
@@ -21,6 +26,7 @@ const { Content } = await language.render();
 const [locale, slugWithoutPath] = language.slug.split("/");
 
 const imagePath = `/src/images/${slugWithoutPath}.jpg`;
+const buffer = await getImageAsBuffer(images[imagePath]());
 
 // Check if the image exists in the images object
 const imageExists = images.hasOwnProperty(imagePath);
@@ -29,6 +35,7 @@ const backgorundImageUrl = await getImage({
   width: 1000,
   height: 1000,
 });
+const previewImage = await lqipModern(buffer);
 
 const t = useTranslations(locale as Locales);
 ---
@@ -50,6 +57,7 @@ const t = useTranslations(locale as Locales);
             formats={["webp", "avif", "jpeg"]}
             src={images[imagePath]()}
             alt={language.data.imageAlt || ""}
+            style={`background-image: url(${previewImage.metadata.dataURIBase64})`}
           />
         )
       }
@@ -133,6 +141,10 @@ const t = useTranslations(locale as Locales);
 </section>
 
 <style>
+  .main-image {
+    background-size: cover;
+    background-position: center;
+  }
   .image-bg {
     padding: 2rem;
     background-size: cover;
