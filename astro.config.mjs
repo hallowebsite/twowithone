@@ -11,7 +11,7 @@ export default defineConfig({
     imageService: "cloudflare",
   }),
   integrations: [tailwind(), mdx()],
-  site: "https://twowithone.pages.dev/",
+  site: "https://two-birds.hadora.xyz/",
   i18n: {
     defaultLocale: "en",
     locales: ["en", "de"],
