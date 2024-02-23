@@ -4,19 +4,8 @@ import { useTranslations, getLangFromUrl } from "@/i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang as Locales);
-// import { getCollection } from "astro:content";
+
 import { getRelativeLocaleUrl } from "astro:i18n";
-// const englishLanguages = await getCollection("languages", ({ id }) => {
-//   return id.startsWith("en/");
-// });
-// const germanLanguages = await getCollection("languages", ({ id }) => {
-//   return id.startsWith("de/");
-// });
-// const languages = locale === Locales.de ? germanLanguages : englishLanguages;
-// const languagesToSearch = languages.map((language) => ({
-//   name: language.data.languageName,
-//   slug: language.slug,
-// }));
 
 const searchUrl = getRelativeLocaleUrl(lang, "search");
 ---
