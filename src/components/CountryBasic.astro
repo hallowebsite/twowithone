@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { Picture, getImage } from "astro:assets";
+import { getAbsoluteLocaleUrl } from "astro:i18n";
 import { Locales } from "@/i18n/ui";
 import { useTranslations } from "@/i18n/utils";
 import type { ImageMetadata } from "astro";
@@ -122,8 +123,8 @@ const t = useTranslations(locale as Locales);
         </p>
         <p class="text-sm">
           {t("card.permalink")}
-          <a href={`/${language.slug}`}>
-            {`/${language.slug}`}
+          <a href={getAbsoluteLocaleUrl(locale, slugWithoutPath)}>
+            {`${getAbsoluteLocaleUrl(locale, slugWithoutPath)}`}
           </a>
         </p>
       </article>

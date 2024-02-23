@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
 import Layout from "@/layouts/Layout.astro";
 
 const englishLanguages = await getCollection("languages", ({ id }) => {
@@ -36,7 +37,12 @@ export const prerender = true;
               </td>
               <td>{language.data.meaning}</td>
               <td>
-                <a href={`/${language.slug}`}>link</a>
+                <a
+                  class="link link-hover"
+                  href={`${getRelativeLocaleUrl("en", language.slug.split("/")[1])}`}
+                >
+                  link
+                </a>
               </td>
             </tr>
           ))
