@@ -1,0 +1,50 @@
+---
+import { Picture } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import { getAbsoluteLocaleUrl } from "astro:i18n";
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/images/*.{jpeg,jpg,png,gif}",
+);
+
+interface Props {
+  language: CollectionEntry<"languages">;
+}
+const { language } = Astro.props;
+const [locale, slugWithoutPath] = language.slug.split("/");
+
+const imagePath = `/src/images/${slugWithoutPath}.jpg`;
+---
+
+<a
+  href={getAbsoluteLocaleUrl(locale, slugWithoutPath)}
+  class="card card-compact card-bordered lg:card-side bg-neutral text-neutral-content shadow-xl"
+>
+  <figure>
+    <Picture
+      class="image h-full object-cover aspect-square object-center w-full"
+      sizes="100px"
+      widths={[100, 200, 400, 800]}
+      formats={["webp", "avif", "jpeg"]}
+      src={images[imagePath]()}
+      alt={language.data.imageAlt || ""}
+    />
+  </figure>
+  <div class="card-body">
+    <p class="card-title">
+      {language.data.languageName}
+    </p>
+    <p>
+      <span class="text-xl font-serif">{language.data.original}</span>
+      {
+        language.data.transliteration && (
+          <span class="text-sm">{language.data.transliteration}</span>
+        )
+      }
+    </p>
+
+    <p class="text-lg padding-2">
+      {language.data.meaning}
+    </p>
+  </div>
+</a>
