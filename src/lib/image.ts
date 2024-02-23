@@ -13,7 +13,7 @@ export const getImageAsBuffer = async (src: LocalImageProps["src"]) => {
         ? [
             "../../dist",
             // @ts-expect-error – 'Property 'src' does not exist on type'
-            imageMetadata?.src,
+            imageMetadata?.default.src,
           ].join("")
         : [
             "../..",
