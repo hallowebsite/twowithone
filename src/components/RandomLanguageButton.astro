@@ -44,45 +44,69 @@ const allLanguagesSlugs = languages.map((entry) => entry.slug);
 
       constructor() {
         super();
+        this.initialize();
+      }
+
+      initialize() {
         const button = this.querySelector("#randomLanguage");
         const input = this.querySelector("input");
+
         this.slugs = this.getAttribute("data-slugs")?.split(",") || [];
         const currentSlug = this.getAttribute("data-currentSlug") || null;
+
         if (!button) {
           return;
         }
+
+        this.initializeVisitedSlugs(input);
+        this.addEventListeners(button, input, currentSlug);
+      }
+
+      initializeVisitedSlugs(input: HTMLInputElement | null) {
         const localStorageVisitedSlugs =
           localStorage.getItem("visitedLanguages");
         if (localStorageVisitedSlugs && input) {
           this.visitedSlugs = JSON.parse(localStorageVisitedSlugs);
           input.checked = true;
         }
-        button.addEventListener("click", (e) => {
-          e.preventDefault();
-          const randomSlug = this.getRandomSlug(this.slugs);
-          if (this.visitedSlugs) {
-            this.visitedSlugs.push(randomSlug);
-            localStorage.setItem(
-              "visitedLanguages",
-              JSON.stringify(this.visitedSlugs),
-            );
-          }
-          navigate("/" + randomSlug.replace("en/", ""));
-        });
+      }
 
-        input?.addEventListener("change", (e) => {
-          const checked = (e.target as HTMLInputElement).checked;
-          if (checked) {
-            this.visitedSlugs = currentSlug ? [currentSlug] : [];
-            localStorage.setItem(
-              "visitedLanguages",
-              JSON.stringify(this.visitedSlugs),
-            );
-          } else {
-            this.visitedSlugs = null;
-            localStorage.removeItem("visitedLanguages");
-          }
-        });
+      addEventListeners(
+        button: HTMLElement,
+        input: HTMLInputElement | null,
+        currentSlug: string | null,
+      ) {
+        button.addEventListener("click", (e) => this.handleButtonClick(e));
+        input?.addEventListener("change", (e) =>
+          this.handleInputChange(e, currentSlug),
+        );
+      }
+
+      handleButtonClick(e: Event) {
+        e.preventDefault();
+        const randomSlug = this.getRandomSlug(this.slugs);
+        if (this.visitedSlugs) {
+          this.visitedSlugs.push(randomSlug);
+          localStorage.setItem(
+            "visitedLanguages",
+            JSON.stringify(this.visitedSlugs),
+          );
+        }
+        navigate("/" + randomSlug.replace("en/", ""));
+      }
+
+      handleInputChange(e: Event, currentSlug: string | null) {
+        const checked = (e.target as HTMLInputElement).checked;
+        if (checked) {
+          this.visitedSlugs = currentSlug ? [currentSlug] : [];
+          localStorage.setItem(
+            "visitedLanguages",
+            JSON.stringify(this.visitedSlugs),
+          );
+        } else {
+          this.visitedSlugs = null;
+          localStorage.removeItem("visitedLanguages");
+        }
       }
 
       getRandomSlug(slugs: string[]) {
