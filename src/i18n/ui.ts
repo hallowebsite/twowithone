@@ -55,6 +55,7 @@ export const ui: Record<Locales, LanguageStrings> = {
     "form.message.explanation":
       "If you want to suggest a saying, please provide links to examples of usage or explanations, thank you :)",
     "form.send": "Send",
+    "motives.title": "Sayings with a motive of [[placeholder]]",
   },
   [Locales.de]: {
     "meta.description":
@@ -98,5 +99,6 @@ export const ui: Record<Locales, LanguageStrings> = {
     "form.message.explanation":
       "Wenn du einen Ausdruck vorschlagen möchtest, gib bitte Links zu Beispielen oder Erklärungen an, danke :)",
     "form.send": "Senden",
+    "motives.title": "Sprichwörter mit dem Motiv [[placeholder]]",
   },
 } as const;
