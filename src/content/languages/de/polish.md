@@ -12,8 +12,6 @@ pubDate: 2024-02-20
 modifiedDate: 2024-02-20
 ---
 
----
-
 _Informationen über das Bild:_
 
 Ibis on a wooden base, [Metropolitan Museum](https://www.metmuseum.org/art/collection/search/552995), Public Domain
@@ -21,5 +19,3 @@ Ibis on a wooden base, [Metropolitan Museum](https://www.metmuseum.org/art/colle
 [The National Museum in Krakow](https://zbiory.mnk.pl/en/search-result/catalog/155760)
 
 Public domain
-
----

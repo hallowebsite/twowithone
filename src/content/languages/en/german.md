@@ -29,5 +29,3 @@ watercolor and gouache, with oval border in gold, on vellum
 Public Domain
 
 [National Gallery of Art](https://www.nga.gov/collection/art-object-page.69734.html)
-
----

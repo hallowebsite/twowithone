@@ -7,7 +7,7 @@ imageAlt: Two Jack Russell terriers chasing a rabbit into a burrow. Process prin
 tags:
   - Jagen
   - Schießen
-  - Kaninchen
+  - Hasen
 pubDate: 2024-02-20
 modifiedDate: 2024-02-20
 ---

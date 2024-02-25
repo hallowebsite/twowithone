@@ -3,9 +3,9 @@ languageName: Deutsch
 original: Zwei Fliegen mit einer Klappe schlagen
 meaning: Zwei Fliegen mit einer Klappe schlagen
 tags:
-  - insects
-  - flies
-  - swatting
+  - Insekten
+  - Fliegen
+  - Schlagen
 pubDate: 2024-02-20
 modifiedDate: 2024-02-20
 ---
@@ -26,5 +26,3 @@ watercolor and gouache, with oval border in gold, on vellum
 Public Domain
 
 [National Gallery of Art](https://www.nga.gov/collection/art-object-page.69734.html)
-
----

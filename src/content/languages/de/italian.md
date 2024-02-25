@@ -13,6 +13,8 @@ modifiedDate: 2024-02-20
 Der Zusammenhang ist offensichtlich, dass die Vögel angelockt werden sollen, um sie zu fangen (und zu fressen), also ist es nicht ganz
 so unschuldig, wie es klingt.
 
+---
+
 _Informationen über das Bild:_
 
 A square; a large column left with figures sitting at its base; pigeons flying in the air. 1879/80 Etching

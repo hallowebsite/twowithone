@@ -25,5 +25,3 @@ _Information about the image:_
 Two Jack Russell terriers chasing a rabbit into a burrow. Process print after Harrington Bird, 1904., [Wellcomecollection](https://wellcomecollection.org/works/up3a4yx9)
 
 Public domain
-
----

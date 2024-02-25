@@ -1,0 +1,25 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+export interface Props {
+  tags: Record<string, number>;
+}
+
+const { tags } = Astro.props;
+---
+
+<ul class="flex flex-row flex-wrap gap-2 lg:px-4 xl:px-0">
+  {
+    Object.keys(tags).map((tag) => (
+      <li class="badge badge-accent badge-lg">
+        <a
+          href={getRelativeLocaleUrl("de", `/motives/${tag}`)}
+          class="link link-hover"
+        >
+          {tag}
+          {tags[tag] > 0 ? `- ${tags[tag]}` : ""}
+        </a>
+      </li>
+    ))
+  }
+</ul>
