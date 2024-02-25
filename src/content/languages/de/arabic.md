@@ -3,7 +3,7 @@ languageName: Arabisch
 original: عصفورين بحجر واحد
 transliteration: ʿṣfūrīn bḥǧr wāḥd
 textDirection: rtl
-meaning: Zwei Vögel mit einen Stein toden
+meaning: Zwei Vögel mit einen Stein töten
 tags:
   - Vögel
   - Jagen
