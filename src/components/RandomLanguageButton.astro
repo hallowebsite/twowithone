@@ -21,51 +21,9 @@ const orderOfSlugsForToday = reorderSlugs(allLanguagesSlugs);
 const nextSlug = getNextSlug(orderOfSlugsForToday, currentSlug);
 ---
 
-<random-language-button const data-next-slug={nextSlug}>
-  <a
-    role="button"
-    id="randomLanguage"
-    class="btn mb-4 mt-2 btn-primary btn-block btn-lg"
-    href="/">{t("random.button")}</a
-  >
-  <script>
-    import { navigate } from "astro:transitions/client";
-    class RandomLanguageButton extends HTMLElement {
-      private nextSlug = "";
-
-      constructor() {
-        super();
-        this.initialize();
-      }
-
-      initialize() {
-        const button = this.querySelector("#randomLanguage");
-        this.nextSlug = this.getAttribute("data-next-slug") || "";
-
-        if (!button) {
-          return;
-        }
-
-        this.addEventListeners(button);
-      }
-
-      addEventListeners(button: Element) {
-        button.addEventListener("click", (e) => this.handleButtonClick(e));
-      }
-
-      handleButtonClick(e: Event) {
-        e.preventDefault();
-        navigate(`/${this.nextSlug.replace("en/", "")}`);
-      }
-    }
-    customElements.define("random-language-button", RandomLanguageButton);
-  </script>
-</random-language-button>
-
-<style>
-  random-language-button {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-</style>
+<a
+  role="button"
+  id="randomLanguage"
+  class="btn mb-4 mt-2 btn-primary btn-block btn-lg"
+  href={`/${nextSlug}`}>{t("random.button")}</a
+>
