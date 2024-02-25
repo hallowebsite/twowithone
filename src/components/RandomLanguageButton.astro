@@ -2,6 +2,7 @@
 import { Locales } from "@/i18n/ui";
 import { useTranslations } from "@/i18n/utils";
 import { getCollection } from "astro:content";
+import { reorderSlugs, getNextSlug } from "@/helpers/languageChoiceHelpers";
 
 const englishLanguages = await getCollection("languages", ({ id }) => {
   return id.startsWith("en/");
@@ -16,31 +17,21 @@ const t = useTranslations(locale);
 
 const languages = locale === Locales.de ? germanLanguages : englishLanguages;
 const allLanguagesSlugs = languages.map((entry) => entry.slug);
+const orderOfSlugsForToday = reorderSlugs(allLanguagesSlugs);
+const nextSlug = getNextSlug(orderOfSlugsForToday, currentSlug);
 ---
 
-<random-language-button
-  data-slugs={allLanguagesSlugs}
-  data-currentSlug={currentSlug}
->
+<random-language-button const data-next-slug={nextSlug}>
   <a
     role="button"
     id="randomLanguage"
     class="btn mb-4 mt-2 btn-primary btn-block btn-lg"
     href="/">{t("random.button")}</a
   >
-  <label class="flex gap-2 items-center js-only">
-    <input
-      type="checkbox"
-      id="allowLocalStorage"
-      class="checkbox checkbox-primary checkbox-md"
-    />
-    <span class="text-sm">{t("random.option")} </span>
-  </label>
   <script>
     import { navigate } from "astro:transitions/client";
     class RandomLanguageButton extends HTMLElement {
-      private slugs: string[] = [];
-      private visitedSlugs: string[] | null = null;
+      private nextSlug = "";
 
       constructor() {
         super();
@@ -49,81 +40,22 @@ const allLanguagesSlugs = languages.map((entry) => entry.slug);
 
       initialize() {
         const button = this.querySelector("#randomLanguage");
-        const input = this.querySelector("input");
-
-        this.slugs = this.getAttribute("data-slugs")?.split(",") || [];
-        const currentSlug = this.getAttribute("data-currentSlug") || null;
+        this.nextSlug = this.getAttribute("data-next-slug") || "";
 
         if (!button) {
           return;
         }
 
-        this.initializeVisitedSlugs(input);
-        this.addEventListeners(button, input, currentSlug);
+        this.addEventListeners(button);
       }
 
-      initializeVisitedSlugs(input: HTMLInputElement | null) {
-        const localStorageVisitedSlugs =
-          localStorage.getItem("visitedLanguages");
-        if (localStorageVisitedSlugs && input) {
-          this.visitedSlugs = JSON.parse(localStorageVisitedSlugs);
-          input.checked = true;
-        }
-      }
-
-      addEventListeners(
-        button: HTMLElement,
-        input: HTMLInputElement | null,
-        currentSlug: string | null,
-      ) {
+      addEventListeners(button: Element) {
         button.addEventListener("click", (e) => this.handleButtonClick(e));
-        input?.addEventListener("change", (e) =>
-          this.handleInputChange(e, currentSlug),
-        );
       }
 
       handleButtonClick(e: Event) {
         e.preventDefault();
-        const randomSlug = this.getRandomSlug(this.slugs);
-        if (this.visitedSlugs) {
-          this.visitedSlugs.push(randomSlug);
-          localStorage.setItem(
-            "visitedLanguages",
-            JSON.stringify(this.visitedSlugs),
-          );
-        }
-        navigate("/" + randomSlug.replace("en/", ""));
-      }
-
-      handleInputChange(e: Event, currentSlug: string | null) {
-        const checked = (e.target as HTMLInputElement).checked;
-        if (checked) {
-          this.visitedSlugs = currentSlug ? [currentSlug] : [];
-          localStorage.setItem(
-            "visitedLanguages",
-            JSON.stringify(this.visitedSlugs),
-          );
-        } else {
-          this.visitedSlugs = null;
-          localStorage.removeItem("visitedLanguages");
-        }
-      }
-
-      getRandomSlug(slugs: string[]) {
-        const slugsToChooseFrom = this.visitedSlugs
-          ? slugs.filter((slug) => !this.visitedSlugs?.includes(slug))
-          : slugs;
-        if (slugsToChooseFrom.length === 0) {
-          this.visitedSlugs = [];
-          localStorage.setItem(
-            "visitedLanguages",
-            JSON.stringify(this.visitedSlugs),
-          );
-          return slugs[Math.floor(Math.random() * slugs.length)];
-        }
-        return slugsToChooseFrom[
-          Math.floor(Math.random() * slugsToChooseFrom.length)
-        ];
+        navigate(`/${this.nextSlug.replace("en/", "")}`);
       }
     }
     customElements.define("random-language-button", RandomLanguageButton);
