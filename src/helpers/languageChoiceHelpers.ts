@@ -18,5 +18,5 @@ export function reorderSlugs(slugs: string[]): string[] {
 export function getNextSlug(slugs: string[], currentSlug: string): string {
   const currentIndex = slugs.indexOf(currentSlug);
   const nextIndex = (currentIndex + 1) % slugs.length;
-  return slugs[nextIndex];
+  return slugs[nextIndex].replace("en/", "");
 }
