@@ -47,7 +47,7 @@ const t = useTranslations(locale as Locales);
 ---
 
 <Fragment slot="prefetch">
-  <link rel="prefetch" href={nextSlug} as="document" />
+  <link rel="prefetch" href={`/${nextSlug}`} as="document" />
 </Fragment>
 
 <section
