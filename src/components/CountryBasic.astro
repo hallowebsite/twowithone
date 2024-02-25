@@ -46,6 +46,10 @@ const backgorundImageUrl = await getImage({
 const t = useTranslations(locale as Locales);
 ---
 
+<Fragment slot="prefetch">
+  <link rel="prefetch" href={nextSlug} as="document" />
+</Fragment>
+
 <section
   class="container max-w-screen-xl mx-auto my-2 md:my-8 flex flex-col gap-8 items-center"
 >
