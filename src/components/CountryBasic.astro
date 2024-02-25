@@ -5,7 +5,8 @@ import { getAbsoluteLocaleUrl } from "astro:i18n";
 import { Locales } from "@/i18n/ui";
 import { useTranslations } from "@/i18n/utils";
 import type { ImageMetadata } from "astro";
-import RandomLanguageButton from "@/components/RandomLanguageButton.astro";
+import { getCollection } from "astro:content";
+import { reorderSlugs, getNextSlug } from "@/helpers/languageChoiceHelpers";
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/images/*.{jpeg,jpg,png,gif}",
@@ -17,8 +18,20 @@ interface Props {
 const { language } = Astro.props;
 const { Content } = await language.render();
 
+const englishLanguages = await getCollection("languages", ({ id }) => {
+  return id.startsWith("en/");
+});
+const germanLanguages = await getCollection("languages", ({ id }) => {
+  return id.startsWith("de/");
+});
+
 // Split the slug into locale and slugWithoutPath
 const [locale, slugWithoutPath] = language.slug.split("/");
+
+const languages = locale === Locales.de ? germanLanguages : englishLanguages;
+const allLanguagesSlugs = languages.map((entry) => entry.slug);
+const orderOfSlugsForToday = reorderSlugs(allLanguagesSlugs);
+const nextSlug = getNextSlug(orderOfSlugsForToday, language.slug);
 
 const imagePath = `/src/images/${slugWithoutPath}.jpg`;
 
@@ -83,7 +96,12 @@ const t = useTranslations(locale as Locales);
       <span>{t("card.literally")}</span>
       <p class="text-2xl">{language.data.meaning}</p>
       <div class="card-actions">
-        <RandomLanguageButton currentSlug={language.slug} />
+        <a
+          role="button"
+          id="randomLanguage"
+          class="btn mb-4 mt-2 btn-primary btn-block btn-lg"
+          href={`/${nextSlug}`}>{t("random.button")}</a
+        >
       </div>
     </div>
   </div>
@@ -140,4 +158,3 @@ const t = useTranslations(locale as Locales);
     background-blend-mode: difference;
   }
 </style>
-
