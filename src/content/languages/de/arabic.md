@@ -15,6 +15,10 @@ modifiedDate: 2024-02-20
 
 This was suggested as used in Lebanon.
 
+---
+
 _Informationen über das Bild:_
 
 Ibis on a wooden base, [Metropolitan Museum](https://www.metmuseum.org/art/collection/search/552995), Public Domain
+
+---
