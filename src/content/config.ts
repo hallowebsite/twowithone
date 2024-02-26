@@ -12,7 +12,7 @@ const languagesCollection = defineCollection({
     tags: z.array(z.string()),
     image: z.string().optional(),
     imageAlt: z.string().optional(),
-    location: z.array(z.number()).optional(),
+    locations: z.array(z.tuple([z.number(), z.number()])).optional(),
     pubDate: z.date(),
     modifiedDate: z.date(),
   }),

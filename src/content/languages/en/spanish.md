@@ -6,6 +6,9 @@ imageAlt: "Giovanni Domenico Tiepolo Punchinellos Hunting Waterfowl, c. 1800"
 tags:
   - birds
   - hunting
+locations:
+  - [40.2501, -3.4212]
+  - [4.4240, -74.420]
 pubDate: 2024-02-20
 modifiedDate: 2024-02-20
 ---

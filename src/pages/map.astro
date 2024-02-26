@@ -1,9 +1,40 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import LeafletMap from "@/components/LeafletMap.astro";
+import { getCollection } from "astro:content";
+
+const englishLanguages = await getCollection("languages", ({ id }) => {
+  return id.startsWith("en/");
+});
+// create list of unuique tags togehter with a count of posts
+const locations: [number, number][] = englishLanguages.flatMap(
+  (language) => language.data?.locations ?? [],
+);
 ---
 
 <Layout title="To kill two birds with one stone - Explore on a map">
-  <section class="overflow-x-auto container mt-12 max-w-screen-md mx-auto">
-    <h1 class="text-2xl mb-8 text-center font-bold">Map</h1>
-  </section>
+  <main>
+    <section>
+      <h1 class="text-2xl mb-8 text-center font-bold">Map</h1>
+      <div class="leaflet-container">
+        <LeafletMap
+          container="leafletmap"
+          latitude={17.06}
+          longitude={22.68}
+          zoom={2}
+          markers={JSON.stringify(locations)}
+          tileLayer="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution="© <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
+          containerstyle="width: 100%; height: 100%"
+        />
+      </div>
+    </section>
+  </main>
 </Layout>
+
+<style>
+  .leaflet-container {
+    width: 100vw;
+    height: 80vh;
+  }
+</style>

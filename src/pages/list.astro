@@ -11,43 +11,45 @@ export const prerender = true;
 ---
 
 <Layout title="To kill two birds with one stone - list of all languages">
-  <section class="overflow-x-auto container mt-12 max-w-screen-md mx-auto">
-    <h1 class="text-2xl mb-8 text-center font-bold">
-      To kill two birds with one stone - list of all languages
-    </h1>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Language</th>
-          <th>Saying</th>
-          <th>Meaning</th>
-          <th>Link</th>
-        </tr>
-      </thead>
-      <tbody>
-        {
-          englishLanguages.map((language) => (
-            <tr class="hover">
-              <td>{language.data.languageName}</td>
-              <td class="flex flex-col">
-                {language.data.original}
-                {language.data.transliteration && (
-                  <span class="text-sm">{language.data.transliteration}</span>
-                )}
-              </td>
-              <td>{language.data.meaning}</td>
-              <td>
-                <a
-                  class="link link-hover"
-                  href={`${getRelativeLocaleUrl("en", language.slug.split("/")[1])}`}
-                >
-                  link
-                </a>
-              </td>
-            </tr>
-          ))
-        }
-      </tbody>
-    </table>
-  </section>
+  <main class="container p-4 mx-auto">
+    <section class="overflow-x-auto container mt-12 max-w-screen-md mx-auto">
+      <h1 class="text-2xl mb-8 text-center font-bold">
+        To kill two birds with one stone - list of all languages
+      </h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Language</th>
+            <th>Saying</th>
+            <th>Meaning</th>
+            <th>Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            englishLanguages.map((language) => (
+              <tr class="hover">
+                <td>{language.data.languageName}</td>
+                <td class="flex flex-col">
+                  {language.data.original}
+                  {language.data.transliteration && (
+                    <span class="text-sm">{language.data.transliteration}</span>
+                  )}
+                </td>
+                <td>{language.data.meaning}</td>
+                <td>
+                  <a
+                    class="link link-hover"
+                    href={`${getRelativeLocaleUrl("en", language.slug.split("/")[1])}`}
+                  >
+                    link
+                  </a>
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </section>
+  </main>
 </Layout>
