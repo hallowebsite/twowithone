@@ -7,9 +7,19 @@ const englishLanguages = await getCollection("languages", ({ id }) => {
   return id.startsWith("en/");
 });
 // create list of unuique tags togehter with a count of posts
-const locations: [number, number][] = englishLanguages.flatMap(
-  (language) => language.data?.locations ?? [],
-);
+const locations: [number, number][] = englishLanguages.flatMap((language) => {
+  if (language.data?.locations) {
+    const locations = language.data.locations.map((location) => {
+      return {
+        title: language.data.languageName,
+        location,
+      };
+    });
+    return locations;
+  } else {
+    return [];
+  }
+});
 ---
 
 <Layout title="To kill two birds with one stone - Explore on a map">

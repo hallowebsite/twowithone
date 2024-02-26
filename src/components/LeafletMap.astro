@@ -59,8 +59,11 @@ const {
         }).addTo(map);
         const markers = JSON.parse(this.dataset.markers);
         markers.forEach((marker) => {
-          const [lat, long] = marker;
-          L.marker([Number(lat), Number(long)]).addTo(map);
+          console.log(marker);
+          const [lat, long] = marker.location;
+          L.marker([Number(lat), Number(long)], { title: marker.title }).addTo(
+            map,
+          );
         });
       }
     }
