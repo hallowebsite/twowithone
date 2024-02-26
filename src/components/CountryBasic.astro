@@ -40,8 +40,10 @@ const languages = locale === Locales.de ? germanLanguages : englishLanguages;
 const allLanguagesSlugs = languages.map((entry) => entry.slug);
 const orderOfSlugsForToday = reorderSlugs(allLanguagesSlugs);
 const nextSlug = getNextSlug(orderOfSlugsForToday, language.slug);
+const [_, nextSllugWithoutPath] = nextSlug.split("/");
 
 const imagePath = `/src/images/${slugWithoutPath}.jpg`;
+const imagePathNext = `/src/images/${nextSllugWithoutPath}.jpg`;
 
 // Check if the image exists in the images object
 const imageExists = images.hasOwnProperty(imagePath);
@@ -51,11 +53,23 @@ const backgorundImageUrl = await getImage({
   height: 1000,
 });
 
+const imageForPreload = await getImage({
+  src: images[imagePathNext](),
+  sizes: "(max-width: 600px) 100vw, 630px",
+  widths: [630, 1260, 1890, 2520],
+  formats: ["webp", "avif", "jpeg"],
+});
+
 const t = useTranslations(locale as Locales);
 ---
 
 <Fragment slot="prefetch">
   <link rel="prefetch" href={`/${nextSlug}`} as="document" />
+  {
+    imageForPreload.srcSet.values.map((image) => (
+      <link rel="prefetch" href={image.url} as="image" />
+    ))
+  }
 </Fragment>
 
 <section
