@@ -21,5 +21,7 @@ const page = Astro.props;
 ---
 
 <Layout title={`Two with one - ${page.data.languageName}`}>
-  <CountryBasic language={page} />
+  <main class="container p-4 mx-auto">
+    <CountryBasic language={page} />
+  </main>
 </Layout>

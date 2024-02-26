@@ -25,10 +25,14 @@ const t = useTranslations(Locales.de);
 ---
 
 <Layout title="Motives">
-  <section class="overflow-x-auto container p-2 mt-12 max-w-screen-md mx-auto">
-    <h1 class="text-2xl text-center">Motives</h1>
-    <div class="mt-8 p-8">
-      <Motives tags={uniqueTagsWithCount} />
-    </div>
-  </section>
+  <main class="container p-4 mx-auto">
+    <section
+      class="overflow-x-auto container p-2 mt-12 max-w-screen-md mx-auto"
+    >
+      <h1 class="text-2xl text-center">Motives</h1>
+      <div class="mt-8 p-8">
+        <Motives tags={uniqueTagsWithCount} />
+      </div>
+    </section>
+  </main>
 </Layout>
