@@ -14,6 +14,12 @@ pubDate: 2024-02-27
 modifiedDate: 2024-02-27
 ---
 
+Apparently coined by Dr. John Bramhall, Bishop of Derry, in a 1646 letter to Thomas Hobbes, later published in 1656.
+
+See: [wiktionary](https://en.wiktionary.org/wiki/kill_two_birds_with_one_stone)
+
+---
+
 _Information about the image:_
 
 Title: The American National Game of Base Ball: Grand Match for the Championship at the Elysian Fields, Hoboken, N. J.
