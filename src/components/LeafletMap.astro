@@ -1,16 +1,10 @@
 ---
-import type { Marker } from "leaflet";
 import "leaflet/dist/leaflet.css";
 export interface Props {
   latitude: number;
   longitude: number;
   zoom: number;
   /** the DOM ID of a <div> element */
-  container: string;
-  /** https://leafletjs.com/reference.html#tilelayer */
-  tileLayer: string;
-  /** Most tile servers require attribution. */
-  attribution: string;
   containerstyle?: string;
   markers?: string;
 }
@@ -19,9 +13,6 @@ const {
   latitude,
   longitude,
   zoom,
-  container,
-  tileLayer,
-  attribution,
   containerstyle = "height: 61.8vh",
   markers = [],
 } = Astro.props;
@@ -31,15 +22,15 @@ const {
   data-latitude={latitude}
   data-longitude={longitude}
   data-zoom={zoom}
-  data-container={container}
-  data-tiles={tileLayer}
-  data-attribution={attribution}
   data-containerstyle={containerstyle}
   data-markers={markers}
 >
-  <div id={container} style={containerstyle}></div>
+  <div id="leafletMap" style={containerstyle}></div>
   <script>
     import L from "leaflet";
+    const tileLayer = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+    const attribution =
+      "© <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors";
 
     class LeafletMap extends HTMLElement {
       constructor() {
@@ -50,15 +41,14 @@ const {
           Number(this.dataset.longitude),
         ];
 
-        const map = L.map(this.dataset.container, { minZoom: 3 }).setView(
-          latlng,
-          Number(this.dataset.zoom),
-        );
-        L.tileLayer(this.dataset.tiles, {
-          attribution: this.dataset.attribution,
+        const map = L.map("leafletMap", {
+          minZoom: 3,
+        }).setView(latlng, Number(this.dataset.zoom));
+        L.tileLayer(tileLayer, {
+          attribution: attribution,
         }).addTo(map);
-        const markers = JSON.parse(this.dataset.markers);
-        markers.forEach((marker) => {
+        const markers = JSON.parse(this.dataset.markers || "[]");
+        markers.forEach((marker: any) => {
           const divIcon = L.divIcon({
             html: `<span>${marker.title}</span>`,
             className: "badge badge-primary flex",
