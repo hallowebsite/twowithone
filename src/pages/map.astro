@@ -7,7 +7,7 @@ const englishLanguages = await getCollection("languages", ({ id }) => {
   return id.startsWith("en/");
 });
 // create list of unuique tags togehter with a count of posts
-const locations: [number, number][] = englishLanguages.flatMap((language) => {
+const locations = englishLanguages.flatMap((language) => {
   if (language.data?.locations) {
     const locations = language.data.locations.map((location) => {
       return {
