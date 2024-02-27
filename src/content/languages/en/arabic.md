@@ -4,6 +4,8 @@ original: عصفورين بحجر واحد
 transliteration: ʿṣfūrīn bḥǧr wāḥd
 textDirection: rtl
 meaning: to kill two birds with one stone
+locations:
+  - [33.898316, 35.505696]
 tags:
   - birds
   - hunting

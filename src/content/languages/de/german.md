@@ -2,6 +2,8 @@
 languageName: Deutsch
 original: Zwei Fliegen mit einer Klappe schlagen
 meaning: Zwei Fliegen mit einer Klappe schlagen
+locations:
+  - [50.4632, 6.0501]
 tags:
   - Insekten
   - Fliegen

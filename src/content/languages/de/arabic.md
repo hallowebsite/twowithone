@@ -4,6 +4,8 @@ original: عصفورين بحجر واحد
 transliteration: ʿṣfūrīn bḥǧr wāḥd
 textDirection: rtl
 meaning: Zwei Vögel mit einen Stein töten
+locations:
+  - [33.8983, 35.5057]
 tags:
   - Vögel
   - Jagen

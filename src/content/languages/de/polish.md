@@ -3,6 +3,8 @@ languageName: Polnisch
 original: Upiec dwie pieczenie na jednym ogniu
 meaning: Zwei Vögel auf einem Feuer zu braten
 imageAlt: "Wnętrze kuchni, unbekannter Autor"
+locations:
+  - [52.1348, 21.0040]
 tags:
   - Fleisch
   - Essen

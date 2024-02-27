@@ -3,6 +3,9 @@ languageName: Spanisch
 original: Matar dos pajaros con un tiro
 meaning: Zwei Vögel mit einem Schuss zu töten
 imageAlt: "Giovanni Domenico Tiepolo Punchinellos Hunting Waterfowl, c. 1800"
+locations:
+  - [40.2501, -3.4212]
+  - [4.4240, -74.420]
 tags:
   - Vögel
   - Jagen

@@ -3,6 +3,8 @@ languageName: German
 original: Zwei Fliegen mit einer Klappe schlagen
 meaning: To hit two flies with one swatter
 imageAlt: "Joris Hoefnagel, Plate 68: Seven Bees and Flies, c. 1575/1580"
+locations:
+  - [50.4632, 6.0501]
 tags:
   - insects
   - flies

@@ -3,6 +3,8 @@ languageName: Französich
 original: Faire d'une pierre deux coups
 meaning: Zwei mal mit einem Stein werfen
 imageAlt: "The Stoning of Saint Stephen in a Historiated Initial 'A' or 'C' from a Gradual"
+locations:
+  - [48.5124, 2.218]
 tags:
   - Vögel
   - Jagen

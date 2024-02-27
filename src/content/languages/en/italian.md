@@ -3,6 +3,8 @@ languageName: Italian
 original: Due piccioni con una fava
 meaning: Two pigeons with one broad bean
 imgageAlt: A square; a large column left with figures sitting at its base; pigeons flying in the air. 1879/80 Etching, © The Trustees of the British Museum, Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
+locations:
+  - [41.5336, 12.2858]
 tags:
   - birds
   - feeding

@@ -3,6 +3,8 @@ languageName: French
 original: Faire d'une pierre deux coups
 meaning: To make two shots with one stone
 imageAlt: "The Stoning of Saint Stephen in a Historiated Initial 'A' or 'C' from a Gradual"
+locations:
+  - [48.5124, 2.218]
 tags:
   - birds
   - hunting

@@ -3,6 +3,8 @@ languageName: Italienisch
 original: Due piccioni con una fava
 meaning: Zwei Tauben mit einer Saubohne
 imgageAlt: A square; a large column left with figures sitting at its base; pigeons flying in the air. 1879/80 Etching, © The Trustees of the British Museum, Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
+locations:
+  - [41.5336, 12.2858]
 tags:
   - Vögel
   - Fütterung
