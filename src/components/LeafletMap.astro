@@ -50,7 +50,7 @@ const {
           Number(this.dataset.longitude),
         ];
 
-        var map = L.map(this.dataset.container).setView(
+        const map = L.map(this.dataset.container, { minZoom: 3 }).setView(
           latlng,
           Number(this.dataset.zoom),
         );
@@ -59,11 +59,15 @@ const {
         }).addTo(map);
         const markers = JSON.parse(this.dataset.markers);
         markers.forEach((marker) => {
-          console.log(marker);
+          const divIcon = L.divIcon({
+            html: `<span>${marker.title}</span>`,
+            className: "badge badge-primary flex",
+          });
           const [lat, long] = marker.location;
-          L.marker([Number(lat), Number(long)], { title: marker.title }).addTo(
-            map,
-          );
+          L.marker([Number(lat), Number(long)], {
+            icon: divIcon,
+            title: marker.title,
+          }).addTo(map);
         });
       }
     }
