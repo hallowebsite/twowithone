@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 
   return uniqueTags.map((tag) => {
     const filteredPosts = englishLanguages.filter((post) =>
-      post.data.tags.includes(tag)
+      post.data.tags.includes(tag),
     );
     return {
       params: { motive: tag },
@@ -48,5 +48,9 @@ const { posts } = Astro.props;
         }
       </ul>
     </section>
+    <a
+      class="text-2xl link link-hover text-center mx-auto my-8 block"
+      href="/de/motives">← see all motvies</a
+    >
   </main>
 </Layout>
