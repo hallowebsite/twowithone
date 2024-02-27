@@ -24,18 +24,15 @@ const locations = englishLanguages.flatMap((language) => {
 
 <Layout title="To kill two birds with one stone - Explore on a map">
   <main>
-    <section>
-      <h1 class="text-2xl mb-8 text-center font-bold">Map</h1>
-      <div class="leaflet-container">
-        <LeafletMap
-          latitude={17.06}
-          longitude={22.68}
-          zoom={2}
-          markers={JSON.stringify(locations)}
-          containerstyle="width: 100%; height: 100%"
-        />
-      </div>
-    </section>
+    <div class="leaflet-container">
+      <LeafletMap
+        latitude={17.06}
+        longitude={22.68}
+        zoom={2}
+        markers={JSON.stringify(locations)}
+        containerstyle="width: 100%; height: 100%"
+      />
+    </div>
   </main>
 </Layout>
 
