@@ -15,6 +15,6 @@ _Informationen über das Bild:_
 
 Still Life with Asparagus, Adriaen Coorte, 1697
 
-[Rijks Museum](Still Life with Asparagus, Adriaen Coorte, 1697)
+[Rijks Museum](https://hdl.handle.net/10934/RM0001.COLLECT.8161)
 
 Public Domain
