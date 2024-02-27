@@ -148,13 +148,8 @@ const t = useTranslations(locale as Locales);
         class="mx-auto w-full prose md:prose-lg xl:prose-xl dark:prose-invert"
       >
         <hr />
-        {
-          language.body.length > 10 && (
-            <>
-              <Content />
-            </>
-          )
-        }
+        {language.body.length > 10 && <Content />}
+        <hr />
         <p class="text-sm">
           {
             t(
@@ -169,7 +164,6 @@ const t = useTranslations(locale as Locales);
             )
           }
         </p>
-        <hr />
         <p class="text-sm">
           {t("card.permalink")}
           <a href={getAbsoluteLocaleUrl(locale, slugWithoutPath)}>
