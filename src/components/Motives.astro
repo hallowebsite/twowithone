@@ -9,9 +9,10 @@ export interface Props {
 const url = Astro.url;
 const locale = getLangFromUrl(url);
 const { tags } = Astro.props;
+
 ---
 
-<ul class="flex flex-row flex-wrap gap-2 lg:px-4 xl:px-0">
+<ul class="flex flex-row align-center justify-center flex-wrap gap-2 lg:px-4 xl:px-0">
   {
     Object.keys(tags).map((tag) => (
       <li class="badge badge-accent badge-lg">
@@ -26,3 +27,4 @@ const { tags } = Astro.props;
     ))
   }
 </ul>
+
