@@ -1,11 +1,44 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import LeafletMap from "@/components/LeafletMap.astro";
+import { getCollection } from "astro:content";
+
+const germanLanguages = await getCollection("languages", ({ id }) => {
+  return id.startsWith("de/");
+});
+// create list of unuique tags togehter with a count of posts
+const locations = germanLanguages.flatMap((language) => {
+  if (language.data?.locations) {
+    const locations = language.data.locations.map((location) => {
+      return {
+        title: language.data.languageName,
+        location,
+      };
+    });
+    return locations;
+  } else {
+    return [];
+  }
+});
 ---
 
 <Layout title="To kill two birds with one stone - Explore on a map">
-  <main class="container p-4 mx-auto">
-    <section class="overflow-x-auto container mt-12 max-w-screen-md mx-auto">
-      <h1 class="text-2xl mb-8 text-center font-bold">Map</h1>
-    </section>
+  <main>
+    <div class="leaflet-container">
+      <LeafletMap
+        latitude={17.06}
+        longitude={22.68}
+        zoom={2}
+        markers={JSON.stringify(locations)}
+        containerstyle="width: 100%; height: 100%"
+      />
+    </div>
   </main>
 </Layout>
+
+<style>
+  .leaflet-container {
+    width: 100vw;
+    height: 80vh;
+  }
+</style>
