@@ -6,10 +6,10 @@ imageAlt: "The American National Game of Base Ball: Grand Match for the Champion
 locations:
   - [-33.5204, 151.1236]
   - [51.3026, 0.739]
-  - [-38.5417, 77.0059]
+  - [38.5417, -77.0059]
 tags:
-  - birds
-  - stones
+  - Vögel
+  - Steine
 pubDate: 2024-02-27
 modifiedDate: 2024-02-27
 ---
