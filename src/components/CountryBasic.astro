@@ -143,7 +143,13 @@ const t = useTranslations(locale as Locales);
     <div
       class="px-8 py-8 lg:py-16 max-w-screen-md shadow-xl bg-success-content mx-auto flex flex-col gap-12"
     >
-      <Motives tags={motives} />
+      <div class="flex flex-wrap justify-between gap-4">
+        <Motives tags={motives} />
+        <a
+          class="link link-hover text-center"
+          href={getAbsoluteLocaleUrl(locale, "/motives")}>{t('card.motives')} →</a
+        >
+      </div>
       <article
         class="mx-auto w-full prose md:prose-lg xl:prose-xl dark:prose-invert"
       >

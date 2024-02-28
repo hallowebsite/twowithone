@@ -44,6 +44,7 @@ export const ui: Record<Locales, LanguageStrings> = {
     "card.literally": "which means literally:",
     "card.publishedOn": "Published on: [[placeholder]]",
     "card.imageAlt": "Information about the image:",
+    "card.motives": "see all motives",
     "card.permalink": "Permalink to this saying:",
     "form.title": "Contact us",
     "form.explanation":
@@ -89,6 +90,7 @@ export const ui: Record<Locales, LanguageStrings> = {
     "card.literally": "was wörtlich bedeutet:",
     "card.publishedOn": "Auf [[placeholder]] veröffentlicht",
     "card.imageAlt": "Informationen zum Bild:",
+    "card.motives": "alle Motive anzeigen",
     "card.permalink": "Link zu diesem Ausdruck:",
     "form.title": "Kontaktiere uns",
     "form.explanation":
