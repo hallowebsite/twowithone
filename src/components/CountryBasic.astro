@@ -126,6 +126,7 @@ const t = useTranslations(locale as Locales);
         <a
           role="button"
           id="randomLanguage"
+          data-astro-prefetch="load"
           class="btn mb-4 mt-2 btn-primary btn-block btn-lg"
           href={`/${nextSlug}`}>{t("random.button")}</a
         >
