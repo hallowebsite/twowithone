@@ -15,7 +15,9 @@ pubDate: 2024-02-20
 modifiedDate: 2024-02-20
 ---
 
-This was suggested as used in Lebanon.
+Arabic is spoken over huge area of the world, I would imagine that things
+like this kind of syings can differ accross region.
+This particular usage was reported by a native arabic speakier coming from Lebanon.
 
 ---
 

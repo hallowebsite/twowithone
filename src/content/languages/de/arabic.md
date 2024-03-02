@@ -15,7 +15,9 @@ pubDate: 2024-02-20
 modifiedDate: 2024-02-20
 ---
 
-This was suggested as used in Lebanon.
+Arabisch wird in einem riesigen Gebiet der Welt gesprochen, und ich könnte mir vorstellen, dass Dinge
+diese Art von Silben in den verschiedenen Regionen unterschiedlich sein können.
+Diese besondere Verwendung wurde von einem arabischen Muttersprachler aus dem Libanon berichtet.
 
 ---
 
