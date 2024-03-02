@@ -3,7 +3,7 @@ languageName: Vietnamese
 original: Một mũi tên trúng hai đích
 meaning: Kill two birds with one arrow
 locations:
-  - [21.00, 10585]
+  - [21.00, 105.85]
 tags:
   - birds
   - hunting

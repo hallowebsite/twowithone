@@ -3,7 +3,7 @@ languageName: Vietnamesisch
 original: Một mũi tên trúng hai đích
 meaning: Zwei Vögel mit einem Pfeil erlegen
 locations:
-  - [21.00, 10585]
+  - [21.00, 105.85]
 tags:
   - Vögel
   - Jagen
