@@ -12,6 +12,7 @@ interface Props {
   imageSlug?: string;
 }
 const url = Astro.url;
+const site = Astro.site;
 const locale = getLangFromUrl(url);
 const t = useTranslations(locale as Locales);
 
@@ -51,10 +52,7 @@ const { title, imageSlug = "turkish" } = Astro.props;
       });
     </script>
     <meta name="description" content={t("meta.description")} />
-    <meta
-      property="og:image"
-      content={`https://two-birds.hadora.xyz/og/${imageSlug}.png`}
-    />
+    <meta property="og:image" content={`${site}og/${imageSlug}.png`} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <slot name="prefetch" />
