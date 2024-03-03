@@ -2,6 +2,7 @@
   "name": "twowithone",
   "type": "module",
   "version": "0.0.1",
+  "platform": "node",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
