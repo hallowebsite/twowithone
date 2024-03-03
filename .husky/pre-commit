@@ -2,5 +2,6 @@ SRC_PATTERN="src/images/"
 if git diff --cached --name-only | grep --quiet "$SRC_PATTERN"
 then
   npm run buildOgImages
+  npm run generateLqip
   git add public/og
 fi

@@ -8,6 +8,7 @@ import type { ImageMetadata } from "astro";
 import { getCollection } from "astro:content";
 import { reorderSlugs, getNextSlug } from "@/helpers/languageChoiceHelpers";
 import Motives from "@/components/Motives.astro";
+import lqipJson from "/images.json";
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/images/*.{jpeg,jpg,png,gif}",
@@ -44,6 +45,7 @@ const nextSlugWithoutPath = nextSlug.replace("de/", "");
 
 const imagePath = `/src/images/${slugWithoutPath}.jpg`;
 const imagePathNext = `/src/images/${nextSlugWithoutPath}.jpg`;
+const lqip = lqipJson[slugWithoutPath];
 
 // Check if the image exists in the images object
 const imageExists = images.hasOwnProperty(imagePath);
@@ -82,6 +84,7 @@ const t = useTranslations(locale as Locales);
         imageExists && (
           <Picture
             pictureAttributes={{ style: "height: 100%; width:100%" }}
+            style={`background-image: url(${lqip})`}
             class="main-image h-full object-cover object-center w-full"
             sizes="(max-width: 600px) 100vw, 630px"
             widths={[630, 1260, 1890, 2520]}
@@ -147,7 +150,8 @@ const t = useTranslations(locale as Locales);
         <Motives tags={motives} />
         <a
           class="link link-hover text-center"
-          href={getAbsoluteLocaleUrl(locale, "/motives")}>{t('card.motives')} →</a
+          href={getAbsoluteLocaleUrl(locale, "/motives")}
+          >{t("card.motives")} →</a
         >
       </div>
       <article
@@ -182,6 +186,10 @@ const t = useTranslations(locale as Locales);
 </section>
 
 <style>
+  .main-image {
+    background-size: cover;
+    background-position: center;
+  }
   .image-bg {
     padding: 2rem;
     background-size: cover;
