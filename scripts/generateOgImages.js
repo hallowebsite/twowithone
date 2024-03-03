@@ -25,7 +25,7 @@ fs.readdir(inputDirectory, (err, files) => {
 
       Jimp.read(inputPath)
         .then((image) => {
-          return image.resize(desiredWidth, desiredHeight);
+          return image.cover(desiredWidth, desiredHeight);
         })
         .then((resizedImage) => {
           return resizedImage.write(outputPath);
