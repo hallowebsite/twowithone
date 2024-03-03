@@ -3,7 +3,7 @@ import path from "node:path";
 import lqip from "lqip-modern";
 
 const inputDirectory = "src/images/"; // Change this to your input directory
-const outputJsonPath = "./images.json"; // Replace with your desired output JSON file path
+const outputJsonPath = "src/images.json"; // Replace with your desired output JSON file path
 
 const output = {};
 
