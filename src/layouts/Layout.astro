@@ -51,7 +51,7 @@ const { title, imageSlug = "turkish" } = Astro.props;
       });
     </script>
     <meta name="description" content={t("meta.description")} />
-    <meta property="og:image" content={`/open-graph/${imageSlug}.png`} />
+    <meta property="og:image" content={`/og/${imageSlug}.png`} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <slot name="prefetch" />
