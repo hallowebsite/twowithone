@@ -176,7 +176,7 @@ const t = useTranslations(locale as Locales);
         </p>
         <p class="text-sm">
           {t("card.permalink")}
-          <a href={getAbsoluteLocaleUrl(locale, slugWithoutPath)}>
+          <a data-astro-prefetch="load" href={getAbsoluteLocaleUrl(locale, slugWithoutPath)}>
             {`${getAbsoluteLocaleUrl(locale, slugWithoutPath)}`}
           </a>
         </p>
