@@ -68,7 +68,7 @@ const t = useTranslations(locale as Locales);
 <Fragment slot="prefetch">
   {
     imageForPreload.srcSet.values.map((image) => (
-      <link rel="prefetch" href={image.url} as="image" />
+      <link rel="prefetch" href={image.url} as="image" fetchpriority="high"/>
     ))
   }
 </Fragment>
