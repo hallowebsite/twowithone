@@ -68,7 +68,7 @@ const t = useTranslations(locale as Locales);
 <Fragment slot="prefetch">
   {
     imageForPreload.srcSet.values.map((image) => (
-      <link rel="prefetch" href={image.url} as="image" fetchpriority="high"/>
+      <link rel="prefetch" href={image.url} as="image" fetchpriority="high" />
     ))
   }
 </Fragment>
@@ -78,19 +78,20 @@ const t = useTranslations(locale as Locales);
 >
   <div class="card lg:card-side lg:grid lg:grid-cols-2 bg-base-100 shadow-xl">
     <div
-      class="bg-base-100 aspect-square overflow-hidden flex items-center w-full max-h-48 md:max-h-56 lg:max-h-full"
+      class="main-image-bg aspect-square overflow-hidden flex items-center w-full max-h-48 md:max-h-56 lg:max-h-full"
+      style={`background-image: url(${lqip})`}
     >
       {
         imageExists && (
           <Picture
             pictureAttributes={{ style: "height: 100%; width:100%" }}
-            style={`background-image: url(${lqip})`}
             class="main-image h-full object-cover object-center w-full"
             sizes="(max-width: 600px) 100vw, 630px"
             widths={[630, 1260, 1890, 2520]}
             formats={["webp", "avif", "jpeg"]}
             src={images[imagePath]()}
             alt={language.data.imageAlt || ""}
+            onload="this.style.opacity=1"
           />
         )
       }
@@ -127,7 +128,6 @@ const t = useTranslations(locale as Locales);
       <p class="text-2xl">{language.data.meaning}</p>
       <div class="card-actions">
         <a
-          role="button"
           id="randomLanguage"
           data-astro-prefetch="load"
           class="btn mb-4 mt-2 btn-primary btn-block btn-lg"
@@ -176,7 +176,10 @@ const t = useTranslations(locale as Locales);
         </p>
         <p class="text-sm">
           {t("card.permalink")}
-          <a data-astro-prefetch="load" href={getAbsoluteLocaleUrl(locale, slugWithoutPath)}>
+          <a
+            data-astro-prefetch="load"
+            href={getAbsoluteLocaleUrl(locale, slugWithoutPath)}
+          >
             {`${getAbsoluteLocaleUrl(locale, slugWithoutPath)}`}
           </a>
         </p>
@@ -186,9 +189,13 @@ const t = useTranslations(locale as Locales);
 </section>
 
 <style>
-  .main-image {
+  .main-image-bg {
     background-size: cover;
     background-position: center;
+  }
+  .main-image {
+    opacity: 0;
+    transition: all 500ms ease;
   }
   .image-bg {
     padding: 2rem;
