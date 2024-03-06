@@ -2,8 +2,6 @@
 import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Motives from "@/components/Motives.astro";
-import { useTranslations } from "@/i18n/utils.ts";
-import { Locales } from "@/i18n/ui";
 
 export const prerender = true;
 
@@ -21,7 +19,6 @@ const uniqueTagsWithCount = englishLanguages
     }
     return acc;
   }, {});
-const t = useTranslations(Locales.de);
 ---
 
 <Layout title="Motives">
@@ -29,8 +26,8 @@ const t = useTranslations(Locales.de);
     <section
       class="overflow-x-auto container p-2 mt-12 max-w-screen-md mx-auto"
     >
-      <h1 class="text-2xl text-center">Motives</h1>
-      <div class="mt-8 p-8">
+      <h1 class="text-4xl font-bold">Motives</h1>
+      <div class="mt-8">
         <Motives tags={uniqueTagsWithCount} />
       </div>
     </section>

@@ -11,15 +11,15 @@ export const prerender = true;
 <Layout title="To kill two birds with one stone - list of all languages">
   <main class="container p-4 mx-auto">
     <section class="overflow-x-auto container mt-12 max-w-screen-md mx-auto">
-      <h1 class="text-2xl mb-8 text-center font-bold">
+      <h1 class="text-4xl mb-8 font-bold">
         To kill two birds with one stone - Liste aller Sprachen
       </h1>
       <table class="table">
         <thead>
           <tr>
-            <th>Language</th>
-            <th>Saying</th>
-            <th>Meaning</th>
+            <th>Sprache</th>
+            <th>Ausdruck</th>
+            <th>Bedeuting</th>
             <th>Link</th>
           </tr>
         </thead>
@@ -36,7 +36,9 @@ export const prerender = true;
                 </td>
                 <td>{language.data.meaning}</td>
                 <td>
-                  <a href={`/${language.slug}`}>link</a>
+                  <a class="link link-hover" href={`/${language.slug}`}>
+                    Mehr
+                  </a>
                 </td>
               </tr>
             ))
