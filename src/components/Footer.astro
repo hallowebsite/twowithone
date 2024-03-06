@@ -23,7 +23,7 @@ const t = useTranslations(locale as Locales);
       <span>{t("nav.claim")}</span>
     </aside>
     <nav>
-      <h6 class="footer-title">{t("nav.languages")}:</h6>
+      <h6 class="footer-title opacity-100">{t("nav.languages")}:</h6>
       <a class="link link-hover" href={getRelativeLocaleUrl(locale, "/")}
         >{t("nav.home")} {t("nav.home.explanation")}</a
       >
@@ -44,7 +44,7 @@ const t = useTranslations(locale as Locales);
       >
     </nav>
     <nav>
-      <h6 class="footer-title">{t("nav.about")}:</h6>
+      <h6 class="footer-title opacity-100">{t("nav.about")}:</h6>
       <a class="link link-hover" href={getRelativeLocaleUrl(locale, "/about")}
         >{t("nav.about")}</a
       >
@@ -60,7 +60,7 @@ const t = useTranslations(locale as Locales);
       <a class="link link-hover" href="https://github.com">Code</a>
     </nav>
     <div>
-      <h6 class="footer-title">{t("nav.preferences")}</h6>
+      <h6 class="footer-title opacity-100">{t("nav.preferences")}</h6>
       <div class="js-only mb-2">
         <ThemeSwap />
       </div>
