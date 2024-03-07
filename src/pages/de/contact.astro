@@ -8,7 +8,13 @@ const locale = getLangFromUrl(url);
 const t = useTranslations(locale);
 if (Astro.request.method === "POST") {
   const data = await Astro.request.formData();
-  console.log(data);
+  const sendToVAl = await fetch(import.meta.env.VAL_URl, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${import.meta.env.VAL_KEY}`,
+    },
+    body: data,
+  });
   const thankYouUrl = getRelativeLocaleUrl(locale, "/thank-you");
   return Astro.redirect(thankYouUrl, 303);
 }
