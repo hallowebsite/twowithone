@@ -188,6 +188,25 @@ const t = useTranslations(locale as Locales);
   </div>
 </section>
 
+<section class="container w-full max-w-screen-xl mx-auto my-24">
+  <div
+    style={`background-image: url(${backgorundImageUrl.src})`}
+    class="image-bg image-bg-second shadow-xl bg-accent"
+  >
+    <div
+      class="px-8 py-8 lg:py-16 max-w-screen-md shadow-xl bg-success-content mx-auto flex flex-col gap-12"
+    >
+      <p class="text">
+        {t("card.contact")}
+
+        <a class="link" href={`${getAbsoluteLocaleUrl(locale, "/contact")}`}>
+          {t("card.contactForm")}
+        </a>
+      </p>
+    </div>
+  </div>
+</section>
+
 <style>
   .main-image-bg {
     background-size: cover;
@@ -202,5 +221,8 @@ const t = useTranslations(locale as Locales);
     background-size: cover;
     background-position: center;
     background-blend-mode: difference;
+  }
+  .image-bg-second {
+    background-blend-mode: color-burn;
   }
 </style>
