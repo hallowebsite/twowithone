@@ -8,7 +8,7 @@ const locale = getLangFromUrl(url);
 const t = useTranslations(locale);
 if (Astro.request.method === "POST") {
   const data = await Astro.request.formData();
-  const sendToVAl = await fetch(import.meta.env.VAL_URl, {
+  const sendToVAl = await fetch(import.meta.env.VAL_URL, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${import.meta.env.VAL_KEY}`,
