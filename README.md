@@ -77,4 +77,7 @@ No database, no costs and no publicly eposed email addresses :)
 Made with love in Aachen by:
 
 [{hallowebsite}](https://hallowebsite.de)
+
 Webdesign aus Aachen
+
+![Logo of hallowebsite](https://avatars.githubusercontent.com/u/116652193?s=400&u=12b0821b87eb6ee412d8d694da5aa6924d63ffa2&v=4)
