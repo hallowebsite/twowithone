@@ -7,13 +7,16 @@ const url = Astro.url;
 const locale = getLangFromUrl(url);
 const t = useTranslations(locale);
 if (Astro.request.method === "POST") {
+  var jsonObject = {};
   const data = await Astro.request.formData();
+  data.forEach((value, key) => (jsonObject[key] = value));
+  var json = JSON.stringify(jsonObject);
   const sendToVAl = await fetch(import.meta.env.VAL_URL, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${import.meta.env.VAL_KEY}`,
     },
-    body: data,
+    body: json,
   });
   const thankYouUrl = getRelativeLocaleUrl(locale, "/thank-you");
   return Astro.redirect(thankYouUrl, 303);
