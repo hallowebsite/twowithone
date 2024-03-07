@@ -3,17 +3,12 @@ import Layout from "@/layouts/Layout.astro";
 import { useTranslations, getLangFromUrl } from "@/i18n/utils";
 import { getRelativeLocaleUrl } from "astro:i18n";
 
-type EnvType = {
-  VAL_URL: string;
-  VAL_KEY: string;
-};
-
 const url = Astro.url;
 const locale = getLangFromUrl(url);
 const t = useTranslations(locale);
 if (Astro.request.method === "POST") {
   const data = await Astro.request.formData();
-  const sendToVAl = await fetch(import.meta.env.VAL_URl, {
+  const sendToVAl = await fetch(import.meta.env.VAL_URL, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${import.meta.env.VAL_KEY}`,
