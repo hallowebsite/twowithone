@@ -56,9 +56,12 @@ export const ui: Record<Locales, LanguageStrings> = {
     "form.email": "Your email",
     "form.email.explanation":
       "We will not share it with anyone nor send you any emails, fill it in only if you expect an answer from us",
-    "form.message": "Your message",
+    "form.message": "Your message *",
     "form.message.explanation":
       "If you want to suggest a saying, please provide links to examples of usage or explanations, thank you :)",
+    "form.antispam": "Prove you are not a bot *",
+    "form.antispamInstruction":
+      "Fill in a missing word, no interpunction. In English we say: Two birds with one...",
     "form.send": "Send",
     "motives.title": "Sayings with a motive of [[placeholder]]",
   },
@@ -105,9 +108,12 @@ export const ui: Record<Locales, LanguageStrings> = {
     "form.email": "Deine E-Mail-Adresse",
     "form.email.explanation":
       "Wir werden sie mit niemandem teilen und dir auch keine E-Mails senden, fülle sie nur aus, wenn du eine Antwort von uns erwartest",
-    "form.message": "Deine Nachricht",
+    "form.message": "Deine Nachricht *",
     "form.message.explanation":
       "Wenn du einen Ausdruck vorschlagen möchtest, gib bitte Links zu Beispielen oder Erklärungen an, danke :)",
+    "form.antispam": "Zeige, dass du kein Bot bist *",
+    "form.antispamInstruction":
+      "Fülle ein fehlendes Wort aus, keine Unterbrechungen. Auf Englisch sagen wir: Two birds with one...",
     "form.send": "Senden",
     "motives.title": "Sprichwörter mit dem Motiv [[placeholder]]",
   },
