@@ -2,7 +2,7 @@
 languageName: Italian
 original: Due piccioni con una fava
 meaning: Two pigeons with one broad bean
-imgageAlt: A square; a large column left with figures sitting at its base; pigeons flying in the air. 1879/80 Etching, © The Trustees of the British Museum, Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
+imgageAlt: Woman feeds pigeons in St Mark's Square in Venice
 locations:
   - [41.5336, 12.2858]
 tags:
@@ -19,6 +19,10 @@ so innocent as it sounds.
 
 _Information about the image:_
 
-A square; a large column left with figures sitting at its base; pigeons flying in the air. 1879/80 Etching
-© The Trustees of the British Museum, Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
-[British Museum](https://www.britishmuseum.org/collection/image/51485001)
+Woman feeds pigeons in St Mark's Square in Venice
+
+Part of Photo album by a French amateur photographer featuring sights in France, Switzerland and Italy.
+
+[Rijks Museum](http://hdl.handle.net/10934/RM0001.COLLECT.583185)
+
+Public Domain
