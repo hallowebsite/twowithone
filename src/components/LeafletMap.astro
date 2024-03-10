@@ -85,17 +85,23 @@ const {
     border: none;
   }
   .popup {
-    display: flex;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: 100px auto;
+    gap: 0.5rem;
   }
 
   .popup-content {
     display: flex;
+    height: 100%;
     flex-direction: column;
     gap: 0.5rem;
   }
   .popup-original {
     font-weight: 700;
+  }
+
+  .popup .link {
+    margin-top: auto;
   }
   .popup img {
     width: 100px;
