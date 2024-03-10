@@ -50,8 +50,8 @@ const {
         const markers = JSON.parse(this.dataset.markers || "[]");
         markers.forEach((marker: any) => {
           const divIcon = L.divIcon({
-            html: `<span>${marker.title}</span>`,
-            className: "badge badge-primary flex",
+            html: `<p class="badge badge-primary">${marker.title}</p>`,
+            className: "remove-leaflet-icon-styles",
           });
           const [lat, long] = marker.location;
           L.marker([Number(lat), Number(long)], {
@@ -65,3 +65,9 @@ const {
     customElements.define("leaflet-map", LeafletMap);
   </script>
 </leaflet-map>
+
+<style>
+  .remove-leaflet-icon-styles {
+    border: none;
+  }
+</style>
