@@ -53,11 +53,25 @@ const {
             html: `<p class="badge badge-primary">${marker.title}</p>`,
             className: "remove-leaflet-icon-styles",
           });
+          const popupHtml = `
+      <div class="popup">
+      <img src="${marker.image}"/>
+      <div class="popup-content">
+        <span class="popup-original">${marker.original}</span>
+    ${marker.transliteration ? `<span>${marker.transliteration}</span>` : ""}
+        <span>${marker.meaning}</span>
+          <a href="${marker.link}" class="link">${marker.title}</a>
+      </div>
+      </div>
+    `;
+          const popup = L.popup().setContent(popupHtml);
           const [lat, long] = marker.location;
           L.marker([Number(lat), Number(long)], {
             icon: divIcon,
             title: marker.title,
-          }).addTo(map);
+          })
+            .bindPopup(popup)
+            .addTo(map);
         });
       }
     }
@@ -66,8 +80,26 @@ const {
   </script>
 </leaflet-map>
 
-<style>
+<style is:global>
   .remove-leaflet-icon-styles {
     border: none;
+  }
+  .popup {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .popup-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .popup-original {
+    font-weight: 700;
+  }
+  .popup img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
   }
 </style>

@@ -2,16 +2,46 @@
 import Layout from "@/layouts/Layout.astro";
 import LeafletMap from "@/components/LeafletMap.astro";
 import { getCollection } from "astro:content";
+import { getImage } from "astro:assets";
+import { getAbsoluteLocaleUrl } from "astro:i18n";
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/images/*.{jpeg,jpg,png,gif}",
+);
+const imagesSources = await Promise.all(
+  Object.keys(images).map(async (image) => {
+    const slug = image.replace("/src/images/", "").replace(/\.[^/.]+$/, "");
+    const imageObject = await getImage({
+      src: images[image](),
+      width: 200,
+      height: 200,
+    });
+    const src = imageObject.src;
+    return {
+      slug,
+      src,
+    };
+  }),
+);
 
 const germanLanguages = await getCollection("languages", ({ id }) => {
   return id.startsWith("de/");
 });
 // create list of unuique tags togehter with a count of posts
 const locations = germanLanguages.flatMap((language) => {
-  if (language.data?.locations) {
-    const locations = language.data.locations.map((location) => {
+  const sourceLocations = language.data.locations || [];
+  if (sourceLocations.length > 0) {
+    const [locale, slugWithoutPath] = language.slug.split("/");
+    const image = imagesSources.find((image) => image.slug === slugWithoutPath);
+    const link = getAbsoluteLocaleUrl(locale, slugWithoutPath);
+    const locations = sourceLocations.map((location) => {
       return {
         title: language.data.languageName,
+        original: language.data.original,
+        textDirection: language.data.textDirection,
+        meaning: language.data.meaning,
+        image: image?.src || "",
+        link,
         location,
       };
     });
@@ -22,7 +52,9 @@ const locations = germanLanguages.flatMap((language) => {
 });
 ---
 
-<Layout title="To kill two birds with one stone - Explore on a map">
+<Layout
+  title="Zwei Fliegen mit einer Klappe schlagen - Erkundung auf einer Karte"
+>
   <main>
     <div class="leaflet-container">
       <LeafletMap
