@@ -14,8 +14,11 @@ export async function GET(context: any): Promise<Response> {
       title: language.data.languageName.toUpperCase(),
       pubDate: language.data.pubDate,
       content: `In ${language.slug.replace("en/", "")} we say:
-${language.data.original}${language.data.transliteration !== undefined && language.data.transliteration !== "" ? ` (${language.data.transliteration})` : ""}
+&lt;br&gt;
+${language.data.original}${language.data.transliteration !== undefined && language.data.transliteration !== "" ? ` (${language.data.transliteration})` : ""},
+&lt;br&gt;
 which means literally:
+&lt;br&gt;
 ${language.data.meaning}`,
       link: `/${language.slug}/`,
     })),
