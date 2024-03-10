@@ -4,4 +4,5 @@ then
   npm run buildOgImages
   npm run generateLqip
   git add public/og
+  git add src/images.json
 fi
