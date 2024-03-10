@@ -44,7 +44,6 @@ const nextSlug = getNextSlug(orderOfSlugsForToday, language.slug);
 const nextSlugWithoutPath = nextSlug.replace("de/", "");
 
 const imagePath = `/src/images/${slugWithoutPath}.jpg`;
-const imagePathNext = `/src/images/${nextSlugWithoutPath}.jpg`;
 const lqip = lqipJson[slugWithoutPath as keyof typeof lqipJson];
 
 // Check if the image exists in the images object
@@ -55,23 +54,8 @@ const backgorundImageUrl = await getImage({
   height: 1000,
 });
 
-const imageForPreload = await getImage({
-  src: images[imagePathNext](),
-  sizes: "(max-width: 600px) 100vw, 630px",
-  widths: [630, 1260, 1890, 2520],
-  formats: ["webp", "avif", "jpeg"],
-});
-
 const t = useTranslations(locale as Locales);
 ---
-
-<Fragment slot="prefetch">
-  {
-    imageForPreload.srcSet.values.map((image) => (
-      <link rel="prefetch" href={image.url} as="image" fetchpriority="high" />
-    ))
-  }
-</Fragment>
 
 <section
   class="container max-w-screen-xl mx-auto my-2 md:my-8 flex flex-col gap-8 items-stretch"
