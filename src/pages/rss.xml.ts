@@ -10,17 +10,22 @@ export async function GET(context: any): Promise<Response> {
     title: `To kill two birds wih one stone`,
     description: "Variants of the saying in different languages",
     site: context.site,
-    items: englishLanguages.map((language) => ({
-      title: language.data.languageName.toUpperCase(),
-      pubDate: language.data.pubDate,
-      content: `In ${language.slug.replace("en/", "")} we say:
+    items: englishLanguages.map((language) => {
+      let languageName = language.slug.replace("en/", "");
+      languageName =
+        languageName.charAt(0).toUpperCase() + languageName.slice(1);
+      return {
+        title: language.data.languageName.toUpperCase(),
+        pubDate: language.data.pubDate,
+        content: `In ${languageName} we say:
 &lt;br&gt;
 ${language.data.original}${language.data.transliteration !== undefined && language.data.transliteration !== "" ? ` (${language.data.transliteration})` : ""},
 &lt;br&gt;
 which means literally:
 &lt;br&gt;
 ${language.data.meaning}`,
-      link: `/${language.slug}/`,
-    })),
+        link: `/${language.slug}/`,
+      };
+    }),
   });
 }
