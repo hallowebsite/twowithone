@@ -176,7 +176,8 @@ const { title, imageSlug = "turkish" } = Astro.props;
               <li>
                 <a
                   class="link link-hover"
-                  href={getRelativeLocaleUrl(locale, "/add")}>{t("nav.add")}</a
+                  href={getRelativeLocaleUrl(locale, "/add")}
+                  >{t("nav.contact")}</a
                 >
               </li>
               <li>
@@ -196,3 +197,10 @@ const { title, imageSlug = "turkish" } = Astro.props;
     </div>
   </body>
 </html>
+
+<style>
+  .drawer-side {
+    /* to keep above leaflet map */
+    z-index: 10000;
+  }
+</style>
