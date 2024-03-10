@@ -24,7 +24,7 @@ ${language.data.original}${language.data.transliteration !== undefined && langua
 which means literally:
 &lt;br&gt;
 ${language.data.meaning}`,
-        link: `/${language.slug}/`,
+        link: `/${language.slug.replace("en/", "")}/`,
       };
     }),
   });
