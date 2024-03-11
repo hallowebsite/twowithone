@@ -15,7 +15,7 @@ export default defineConfig({
     tailwind(),
     mdx(),
     sitemap({
-      i18: {
+      i18n: {
         defaultLocale: "en",
         locales: {
           en: "en",
