@@ -4,6 +4,9 @@ const robotsTxt = `
 User-agent: *
 Allow: /
 
+User-agent: facebookexternalhit
+Allow: /
+
 Sitemap: ${new URL("sitemap-index.xml", import.meta.env.SITE).href}
 `.trim();
 
