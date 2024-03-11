@@ -21,7 +21,7 @@ export const ui: Record<Locales, LanguageStrings> = {
     "nav.openSidebr": "Open sidebar",
     "nav.closeSidebar": "Close sidebar",
     "nav.home": "Home",
-    "nav.home.explanation": "(shows random language)",
+    "nav.home.explanation": "(shows a random language)",
     "nav.claim": "Made with love in Aachen, Germany",
     "nav.about": "About",
     "nav.motives": "Motives",
