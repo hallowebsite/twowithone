@@ -1,8 +1,9 @@
 import { defineConfig } from "astro/config";
 import cloudflare from "@astrojs/cloudflare";
 import tailwind from "@astrojs/tailwind";
-
 import mdx from "@astrojs/mdx";
+
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,7 +11,19 @@ export default defineConfig({
   adapter: cloudflare({
     imageService: "cloudflare",
   }),
-  integrations: [tailwind(), mdx()],
+  integrations: [
+    tailwind(),
+    mdx(),
+    sitemap({
+      i18: {
+        defaultLocale: "en",
+        locales: {
+          en: "en-US",
+          de: "de-DE",
+        },
+      },
+    }),
+  ],
   site: "https://twowithone.com/",
   i18n: {
     defaultLocale: "en",
