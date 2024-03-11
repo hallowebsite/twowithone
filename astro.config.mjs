@@ -18,13 +18,13 @@ export default defineConfig({
       i18: {
         defaultLocale: "en",
         locales: {
-          en: "en-US",
-          de: "de-DE",
+          en: "en",
+          de: "de",
         },
       },
     }),
   ],
-  site: "https://twowithone.com/",
+  site: "https://twowithone.com",
   i18n: {
     defaultLocale: "en",
     locales: ["en", "de"],
