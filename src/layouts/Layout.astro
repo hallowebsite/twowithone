@@ -114,12 +114,12 @@ const { title, imageSlug = "turkish" } = Astro.props;
                 ></a
               >
             </div>
-            <h1 class="flex flex-col gap-1">
+            <span class="flex flex-col gap-1">
               <span class="text-xl bold font-serif">{t("header.title")}</span>
               <span class="text-sm hidden md:inline"
                 >{t("header.subline", length)}</span
               >
-            </h1>
+            </span>
           </div>
           <div class="flex-none hidden lg:block">
             <Search />
