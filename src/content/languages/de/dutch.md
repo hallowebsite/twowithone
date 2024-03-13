@@ -6,7 +6,7 @@ imageAlt: "Still Life with Asparagus, Adriaen Coorte, 1697"
 locations:
   - [52.2222, 4.5337]
 tags:
-  - money
+  - Geld
 pubDate: 2024-02-27
 modifiedDate: 2024-02-27
 ---

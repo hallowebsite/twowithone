@@ -7,8 +7,8 @@ imageAlt: "Visiting a Friend in a Waterside Pavilion"
 locations:
   - [39.5424, 116.2351]
 tags:
-  - birds
-  - stones
+  - Vögel
+  - Steine
 pubDate: 2024-02-27
 modifiedDate: 2024-02-27
 ---
