@@ -13,6 +13,10 @@ pubDate: 2024-02-27
 modifiedDate: 2024-02-27
 ---
 
+Saying kindy provided by [Yankang LI](https://yankang.li/)
+
+---
+
 _Information about the image:_
 
 Visiting a Friend in a Waterside Pavilion

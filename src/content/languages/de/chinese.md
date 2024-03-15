@@ -13,7 +13,11 @@ pubDate: 2024-02-27
 modifiedDate: 2024-02-27
 ---
 
-_Information about the image:_
+Der Spruch wurde freundlicherweise zur Verfügung gestellt von [Yankang LI](https://yankang.li/)
+
+---
+
+_Informationen über das Bild:_
 
 Visiting a Friend in a Waterside Pavilion
 
