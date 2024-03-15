@@ -4,6 +4,8 @@ original: Да убиеш с един куршум два заека
 transliteration: Da ubiesh s edin kurshum dva zaeka
 meaning: To kill two hares with one shot
 imageAlt: Beaker with birds and animals, ca. 4th century BCE, Thrace
+locations:
+  - [42.70, 23.33]
 tags:
   - hunting
   - shooting
