@@ -6,8 +6,8 @@ imageAlt: Two Fishermen beside a Boat, Michael Ancher
 locations:
   - [55.4034, 12.3406]
 tags:
-  - Insects
-  - Flies
+  - insects
+  - flies
 pubDate: 2024-03-15
 modifiedDate: 2024-03-15
 ---
