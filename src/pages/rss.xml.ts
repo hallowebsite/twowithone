@@ -17,14 +17,13 @@ export async function GET(context: any): Promise<Response> {
       return {
         title: language.data.languageName.toUpperCase(),
         pubDate: language.data.pubDate,
-        content: `![CDATA[In ${languageName} we say:
+        content: `In ${languageName} we say:
 <br/>
-${language.data.original}${language.data.transliteration !== undefined && language.data.transliteration !== "" ? ` (${language.data.transliteration})` : ""},
+<b>${language.data.original}${language.data.transliteration !== undefined && language.data.transliteration !== "" ? ` (${language.data.transliteration})` : ""}</b>,
 <br/>
 which means literally:
 <br/>
-]]
-${language.data.meaning}`,
+<b>${language.data.meaning}</b>`,
         link: `/${language.slug.replace("en/", "")}/`,
       };
     }),
