@@ -1,5 +1,5 @@
 ---
-languageName: Romanian
+languageName: Rumänisch
 original: A împuşca doi iepuri dintr-un foc
 meaning: Zwei Kaninchen mit einer Kugel zu erschießen
 imageAlt: Schwarz-Weiß-Malerei (oder Zeichnung) von zwei Katzen - beide liegend, eine weiß, eine von der Sorte tobby
