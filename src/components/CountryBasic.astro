@@ -41,7 +41,6 @@ const languages = locale === Locales.de ? germanLanguages : englishLanguages;
 const allLanguagesSlugs = languages.map((entry) => entry.slug);
 const orderOfSlugsForToday = reorderSlugs(allLanguagesSlugs);
 const nextSlug = getNextSlug(orderOfSlugsForToday, language.slug);
-const nextSlugWithoutPath = nextSlug.replace("de/", "");
 
 const imagePath = `/src/images/${slugWithoutPath}.jpg`;
 const lqip = lqipJson[slugWithoutPath as keyof typeof lqipJson];
