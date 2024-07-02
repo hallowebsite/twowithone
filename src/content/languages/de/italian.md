@@ -10,6 +10,7 @@ tags:
   - Fütterung
 pubDate: 2024-02-20
 modifiedDate: 2024-02-20
+image: de/italian
 ---
 
 Der Zusammenhang ist offensichtlich, dass die Vögel angelockt werden sollen, um sie zu fangen (und zu fressen), also ist es nicht ganz

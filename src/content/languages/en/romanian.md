@@ -11,6 +11,7 @@ tags:
   - shooting
 pubDate: 2024-06-15
 modifiedDate: 2024-06-15
+image: en/romanian
 ---
 
 _Information about the image:_

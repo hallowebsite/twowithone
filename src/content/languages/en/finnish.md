@@ -10,6 +10,7 @@ tags:
   - flies
 pubDate: 2024-03-13
 modifiedDate: 2024-03-13
+image: en/finnish
 ---
 
 _Information about the image:_

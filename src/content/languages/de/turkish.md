@@ -10,6 +10,7 @@ tags:
   - Steine
 pubDate: 2024-02-27
 modifiedDate: 2024-02-27
+image: de/turkish
 ---
 
 _Informationen über das Bild:_

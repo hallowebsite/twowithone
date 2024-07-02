@@ -12,6 +12,7 @@ tags:
   - Steine
 pubDate: 2024-02-27
 modifiedDate: 2024-02-27
+image: de/english
 ---
 
 _Informationen über das Bild:_

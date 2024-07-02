@@ -12,6 +12,7 @@ tags:
   - stones
 pubDate: 2024-02-27
 modifiedDate: 2024-02-27
+image: en/english
 ---
 
 Apparently coined by Dr. John Bramhall, Bishop of Derry, in a 1646 letter to Thomas Hobbes, later published in 1656.

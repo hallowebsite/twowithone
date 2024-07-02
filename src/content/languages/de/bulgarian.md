@@ -12,6 +12,7 @@ tags:
   - Hasen
 pubDate: 2024-03-15
 modifiedDate: 2024-03-15
+image: de/bulgarian
 ---
 
 _Informationen über das Bild:_

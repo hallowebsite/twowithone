@@ -11,6 +11,7 @@ tags:
   - stones
 pubDate: 2024-02-27
 modifiedDate: 2024-02-27
+image: en/chinese
 ---
 
 Saying kindy provided by [Yankang LI](https://yankang.li/)

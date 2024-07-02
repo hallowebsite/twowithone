@@ -9,6 +9,7 @@ tags:
   - Geld
 pubDate: 2024-02-27
 modifiedDate: 2024-02-27
+image: de/dutch
 ---
 
 _Informationen über das Bild:_

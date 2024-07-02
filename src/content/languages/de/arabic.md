@@ -13,14 +13,9 @@ tags:
 imageAlt: Ibis on a wooden base, https://www.metmuseum.org/art/collection/search/552995, Public Domain
 pubDate: 2024-02-20
 modifiedDate: 2024-02-20
+image: de/arabic
 ---
 
 Arabisch wird in einem riesigen Gebiet der Welt gesprochen, und ich könnte mir vorstellen, dass Dinge
 diese Art von Silben in den verschiedenen Regionen unterschiedlich sein können.
 Diese besondere Verwendung wurde von einem arabischen Muttersprachler aus dem Libanon berichtet.
-
----
-
-_Informationen über das Bild:_
-
-Ibis on a wooden base, [Metropolitan Museum](https://www.metmuseum.org/art/collection/search/552995), Public Domain

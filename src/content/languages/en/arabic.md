@@ -13,14 +13,9 @@ tags:
 imageAlt: Ibis on a wooden base, Public Domain
 pubDate: 2024-02-20
 modifiedDate: 2024-02-20
+image: en/arabic
 ---
 
 Arabic is spoken over huge area of the world, I would imagine that things
 like this kind of syings can differ accross region.
 This particular usage was reported by a native arabic speakier coming from Lebanon.
-
----
-
-_Information about the image:_
-
-Ibis on a wooden base, [Metropolitan Museum](https://www.metmuseum.org/art/collection/search/552995), Public Domain

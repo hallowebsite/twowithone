@@ -11,6 +11,7 @@ tags:
   - Steine
 pubDate: 2024-02-20
 modifiedDate: 2024-02-20
+image: de/french
 ---
 
 _Informationen über das Bild:_

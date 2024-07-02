@@ -5,9 +5,10 @@ import { getAbsoluteLocaleUrl } from "astro:i18n";
 import { Locales } from "@/i18n/ui";
 import { useTranslations } from "@/i18n/utils";
 import type { ImageMetadata } from "astro";
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 import { reorderSlugs, getNextSlug } from "@/helpers/languageChoiceHelpers";
 import Motives from "@/components/Motives.astro";
+import ImageMeta from "@/components/ImageMeta.astro";
 import lqipJson from "@/images.json";
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
@@ -53,6 +54,9 @@ const backgorundImageUrl = await getImage({
   height: 1000,
 });
 
+const referencedImageData = language.data.image;
+const referencedImage = await getEntry(referencedImageData);
+
 const t = useTranslations(locale as Locales);
 ---
 
@@ -73,7 +77,7 @@ const t = useTranslations(locale as Locales);
             widths={[630, 1260, 1890, 2520]}
             formats={["webp", "avif", "jpeg"]}
             src={images[imagePath]()}
-            alt={language.data.imageAlt || ""}
+            alt={referencedImage?.data.imageAlt || ""}
             onload="this.style.opacity=1"
           />
         )
@@ -137,36 +141,45 @@ const t = useTranslations(locale as Locales);
           >{t("card.motives")} →</a
         >
       </div>
-      <article
-        class="mx-auto w-full prose md:prose-lg xl:prose-xl dark:prose-invert"
-      >
-        <hr />
-        {language.body.length > 10 && <Content />}
-        <hr />
-        <p class="text-sm">
-          {
-            t(
-              "card.publishedOn",
-              language.data.pubDate
-                .toLocaleDateString(locale, {
-                  year: "numeric",
-                  month: "short",
-                  day: "numeric",
-                })
-                .toString(),
-            )
-          }
-        </p>
-        <p class="text-sm">
-          {t("card.permalink")}
-          <a
-            data-astro-prefetch="load"
-            href={getAbsoluteLocaleUrl(locale, slugWithoutPath)}
-          >
-            {`${getAbsoluteLocaleUrl(locale, slugWithoutPath)}`}
-          </a>
-        </p>
-      </article>
+      {
+        language.body.length > 10 && (
+          <article class="mx-auto w-full prose md:prose-lg xl:prose-xl dark:prose-invert">
+            <Content />
+          </article>
+        )
+      }
+      {
+        referencedImage && (
+          <>
+            <hr />
+            <ImageMeta image={referencedImage} />
+          </>
+        )
+      }
+      <hr />
+      <p class="text-sm">
+        {
+          t(
+            "card.publishedOn",
+            language.data.pubDate
+              .toLocaleDateString(locale, {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              })
+              .toString(),
+          )
+        }
+      </p>
+      <p class="text-sm">
+        {t("card.permalink")}
+        <a
+          data-astro-prefetch="load"
+          href={getAbsoluteLocaleUrl(locale, slugWithoutPath)}
+        >
+          {`${getAbsoluteLocaleUrl(locale, slugWithoutPath)}`}
+        </a>
+      </p>
     </div>
   </div>
 </section>

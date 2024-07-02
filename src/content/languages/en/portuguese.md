@@ -9,6 +9,7 @@ tags:
   - rabbits
 pubDate: 2024-06-15
 modifiedDate: 2024-06-15
+image: en/portuguese
 ---
 
 _Information about the image:_

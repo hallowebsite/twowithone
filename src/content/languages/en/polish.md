@@ -12,6 +12,7 @@ pubDate: 2024-02-20
 locations:
   - [52.1348, 21.0040]
 modifiedDate: 2024-02-20
+image: en/polish
 ---
 
 _Information about the image:_

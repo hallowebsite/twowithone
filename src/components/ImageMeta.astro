@@ -1,0 +1,23 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  image: CollectionEntry<"images">;
+}
+const { image } = Astro.props;
+---
+
+<div class="py-4 flex flex-col gap-1">
+  <h4 class="mt-0 text-lg font-bold">Information about the image</h4>
+  <span class="text">{image.data.title}</span>
+  <span class="text">{image.data.author}</span>
+  <span class="text">{image.data.date}</span>
+  {
+    image.data.geographicalOrigin && (
+      <span class="text">{image.data.geographicalOrigin}</span>
+    )
+  }
+  {image.data.description && <span class="text">{image.data.description}</span>}
+  <span class="text">{image.data.copyright}</span>
+  <a href={image.data.sourceUrl} class="text">{image.data.source}</a>
+</div>

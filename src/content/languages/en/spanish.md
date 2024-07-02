@@ -11,6 +11,7 @@ locations:
   - [4.4240, -74.420]
 pubDate: 2024-02-20
 modifiedDate: 2024-02-20
+image: en/spanish
 ---
 
 _Information about the image:_

@@ -10,6 +10,7 @@ tags:
   - Steine
 pubDate: 2024-02-28
 modifiedDate: 2024-02-28
+image: de/yoruba
 ---
 
 Verfasst von einem Muttersprachler der Sprache Yoruba aus Nigeria

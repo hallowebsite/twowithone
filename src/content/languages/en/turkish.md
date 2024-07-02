@@ -10,6 +10,7 @@ tags:
   - stones
 pubDate: 2024-02-27
 modifiedDate: 2024-02-27
+image: en/turkish
 ---
 
 _Information about the image:_

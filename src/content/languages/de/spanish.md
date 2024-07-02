@@ -11,6 +11,7 @@ tags:
   - Jagen
 pubDate: 2024-02-20
 modifiedDate: 2024-02-20
+image: de/spanish
 ---
 
 _Informationen über das Bild:_

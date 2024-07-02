@@ -11,6 +11,7 @@ tags:
   - stones
 pubDate: 2024-02-20
 modifiedDate: 2024-02-20
+image: en/french
 ---
 
 _Information about the image:_
