@@ -1,10 +1,9 @@
 ---
-title: "Plate 68: Seven Bees and Flies, Animalia Rationalia et Insecta (Ignis): Plate LXVIII"
-author: Joris Hoefnagel
-date: c. 1575/1580
-source: National Gallery of Art
-sourceUrl: "https://www.nga.gov/collection/art-object-page.69734.html"
-imageAlt: Drawing showing a few insects sitting on a piece of paper inside a pale yellow circle
-description: "watercolor and gouache, with oval border in gold, on vellum"
+title: "Two Fishermen beside a Boat"
+author: Michael Ancher
+date: 1889
+source: SMK
+sourceUrl: "https://open.smk.dk/en/artwork/image/KMS1360?q=two&page=1&filters=image_hq%3Atrue%7Cpublic_domain%3Atrue%7Ccreator_nationality%3Adanish"
+imageAlt: Two bearded men in black rain coats and rain caps lean against the edge of a wooden fishing boat lying on the beach and look thoughtfully into the distance
 copyright: Public Domain
 ---

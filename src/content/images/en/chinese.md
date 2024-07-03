@@ -1,10 +1,10 @@
 ---
-title: "Plate 68: Seven Bees and Flies, Animalia Rationalia et Insecta (Ignis): Plate LXVIII"
-author: Joris Hoefnagel
-date: c. 1575/1580
-source: National Gallery of Art
-sourceUrl: "https://www.nga.gov/collection/art-object-page.69734.html"
-imageAlt: Drawing showing a few insects sitting on a piece of paper inside a pale yellow circle
-description: "watercolor and gouache, with oval border in gold, on vellum"
+title: "Visiting a Friend in a Waterside Pavilion"
+author: Manner of Wang E 王諤
+date: active late 15th century - early 16th century
+source: The Hardward Art Museum
+sourceUrl: "https://hvrd.art/o/206493"
+imageAlt: Black and white drawing showing water body, mountains, trees, house
+geographicalOrigin: China
 copyright: Public Domain
 ---

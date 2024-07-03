@@ -10,7 +10,6 @@ tags:
   - Vögel
   - Jagen
   - Steine
-imageAlt: Ibis on a wooden base, https://www.metmuseum.org/art/collection/search/552995, Public Domain
 pubDate: 2024-02-20
 modifiedDate: 2024-02-20
 image: de/arabic
