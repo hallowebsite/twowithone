@@ -1,10 +1,10 @@
 ---
-title: "Plate 68: Seven Bees and Flies, Animalia Rationalia et Insecta (Ignis): Plate LXVIII"
-author: Joris Hoefnagel
-date: c. 1575/1580
-source: National Gallery of Art
-sourceUrl: "https://www.nga.gov/collection/art-object-page.69734.html"
-imageAlt: Drawing showing a few insects sitting on a piece of paper inside a pale yellow circle
-description: "watercolor and gouache, with oval border in gold, on vellum"
+title: "Beaker with birds and animals"
+author: unkown
+date: ca. 4th century BCE
+source: Metropolitan Museum
+sourceUrl: "https://www.metmuseum.org/art/collection/search/324029"
+imageAlt: Silver baker decorated with birds and animals low relief
+geographicalOrigin: Thrace
 copyright: Public Domain
 ---
