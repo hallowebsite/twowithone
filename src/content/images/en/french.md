@@ -1,10 +1,9 @@
 ---
-title: "Plate 68: Seven Bees and Flies, Animalia Rationalia et Insecta (Ignis): Plate LXVIII"
-author: Joris Hoefnagel
-date: c. 1575/1580
-source: National Gallery of Art
-sourceUrl: "https://www.nga.gov/collection/art-object-page.69734.html"
-imageAlt: Drawing showing a few insects sitting on a piece of paper inside a pale yellow circle
-description: "watercolor and gouache, with oval border in gold, on vellum"
+title: "The Stoning of Saint Stephen in a Historiated Initial 'A' or 'C' from a Gradual"
+author: circle of the Master of Jacques de Besançon or the Master of Morgan 85
+date: c. 1500
+source: Art Institute Chicago
+sourceUrl: "https://www.artic.edu/artworks/7579/the-stoning-of-saint-stephen-in-a-historiated-initial-a-or-c-from-a-gradual"
+imageAlt: Medieval painting showing two men preparing to throw stones at a priest kneeling between them
 copyright: Public Domain
 ---
