@@ -56,6 +56,8 @@ const backgorundImageUrl = await getImage({
 
 const referencedImageData = language.data.image;
 const referencedImage = await getEntry(referencedImageData);
+const referencedImageSlug = referencedImage.slug;
+const [_, referencedImageSlugWithoutPath] = referencedImageSlug.split("/");
 
 const t = useTranslations(locale as Locales);
 ---
@@ -70,16 +72,25 @@ const t = useTranslations(locale as Locales);
     >
       {
         imageExists && (
-          <Picture
-            pictureAttributes={{ style: "height: 100%; width:100%" }}
-            class="main-image h-full object-cover object-center w-full"
-            sizes="(max-width: 600px) 100vw, 630px"
-            widths={[630, 1260, 1890, 2520]}
-            formats={["webp", "avif", "jpeg"]}
-            src={images[imagePath]()}
-            alt={referencedImage?.data.imageAlt || ""}
-            onload="this.style.opacity=1"
-          />
+          <a
+            class="block w-full h-full"
+            href={getAbsoluteLocaleUrl(
+              locale,
+              `images/${referencedImageSlugWithoutPath}`,
+            )}
+            title={t("image.seeFullSize")}
+          >
+            <Picture
+              pictureAttributes={{ style: "height: 100%; width:100%" }}
+              class="main-image h-full object-cover object-center w-full"
+              sizes="(max-width: 600px) 100vw, 630px"
+              widths={[630, 1260, 1890, 2520]}
+              formats={["webp", "avif", "jpeg"]}
+              src={images[imagePath]()}
+              alt={referencedImage?.data.imageAlt || ""}
+              onload="this.style.opacity=1"
+            />
+          </a>
         )
       }
     </div>
