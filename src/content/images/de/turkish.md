@@ -1,10 +1,9 @@
 ---
-title: "Plate 68: Seven Bees and Flies, Animalia Rationalia et Insecta (Ignis): Plate LXVIII"
-author: Joris Hoefnagel
-date: c. 1575/1580
-source: National Gallery of Art
-sourceUrl: "https://www.nga.gov/collection/art-object-page.69734.html"
-imageAlt: Drawing showing a few insects sitting on a piece of paper inside a pale yellow circle
-description: "watercolor and gouache, with oval border in gold, on vellum"
-copyright: Public Domain
+title: "Illustrated Manuscript of Tarjama-i Tarikh-i Yangi Dunya (Translation of the History of the New World)"
+author: unbekannt
+date: "1805"
+source: The Harvard Art Museum
+sourceUrl: "https://harvardartmuseums.org/collections/object/213112"
+imageAlt: Rotes, weißes und gelbes, blumiges Ornament auf einem Buchdeckel
+copyright: Gemaingut
 ---

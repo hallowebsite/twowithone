@@ -1,10 +1,10 @@
 ---
-title: "Plate 68: Seven Bees and Flies, Animalia Rationalia et Insecta (Ignis): Plate LXVIII"
-author: Joris Hoefnagel
-date: c. 1575/1580
-source: National Gallery of Art
-sourceUrl: "https://www.nga.gov/collection/art-object-page.69734.html"
-imageAlt: Drawing showing a few insects sitting on a piece of paper inside a pale yellow circle
-description: "watercolor and gouache, with oval border in gold, on vellum"
-copyright: Public Domain
+title: "Double Ducks Jar"
+author: unkown
+date: 1400s
+source: The Cleveland Museum of Art
+sourceUrl: "https://www.clevelandart.org/art/1989.357"
+imageAlt: A Porcelain bowl with two bird heads
+description: "Porcelain with underglaze blue and iron spots; overall: 6.7 cm (2 5/8 in.). The Cleveland Museum of Art, Bequest of Mrs. Severance A. Millikin 1989.357"
+copyright: Public domain
 ---
