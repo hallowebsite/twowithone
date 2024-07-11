@@ -1,10 +1,9 @@
 ---
-title: "Plate 68: Seven Bees and Flies, Animalia Rationalia et Insecta (Ignis): Plate LXVIII"
-author: Joris Hoefnagel
-date: c. 1575/1580
-source: National Gallery of Art
-sourceUrl: "https://www.nga.gov/collection/art-object-page.69734.html"
-imageAlt: Drawing showing a few insects sitting on a piece of paper inside a pale yellow circle
-description: "watercolor and gouache, with oval border in gold, on vellum"
+title: "Two Jack Russell terriers chasing a rabbit into a burrow."
+author: Harrington Bird
+date: "1904"
+source: Wellcomecollection
+sourceUrl: "https://wellcomecollection.org/works/up3a4yx9"
+imageAlt: Black and white drawing showing tow Jack Russel terriers chasing a rabbit that is just jumping into a burrow
 copyright: Public Domain
 ---

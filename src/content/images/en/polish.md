@@ -1,10 +1,10 @@
 ---
-title: "Plate 68: Seven Bees and Flies, Animalia Rationalia et Insecta (Ignis): Plate LXVIII"
-author: Joris Hoefnagel
-date: c. 1575/1580
-source: National Gallery of Art
-sourceUrl: "https://www.nga.gov/collection/art-object-page.69734.html"
-imageAlt: Drawing showing a few insects sitting on a piece of paper inside a pale yellow circle
-description: "watercolor and gouache, with oval border in gold, on vellum"
+title: "Wnętrze kuchni"
+author: unkown
+date: "second half of XIXth century"
+source: "Muzeum Narodowe w Krakowie"
+sourceUrl: "https://zbiory.mnk.pl/en/search-result/catalog/155760"
+imageAlt: "A detailed illustration of a rustic kitchen interior. A wood-fired stove, various pottery and cookware. The floor is tiled in pink and blue. The scene is framed by a brown border."
+description: "Material: gouache, ink, ribbed paper"
 copyright: Public Domain
 ---

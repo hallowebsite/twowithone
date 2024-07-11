@@ -1,10 +1,9 @@
 ---
-title: "Plate 68: Seven Bees and Flies, Animalia Rationalia et Insecta (Ignis): Plate LXVIII"
-author: Joris Hoefnagel
-date: c. 1575/1580
-source: National Gallery of Art
-sourceUrl: "https://www.nga.gov/collection/art-object-page.69734.html"
-imageAlt: Drawing showing a few insects sitting on a piece of paper inside a pale yellow circle
-description: "watercolor and gouache, with oval border in gold, on vellum"
-copyright: Public Domain
+title: "Pisici"
+author: Nina Arbore
+date: "1935"
+source: WikiArt
+sourceUrl: "https://www.wikiart.org/en/nina-arbore/nina-arbore-pisici-1935"
+imageAlt: "Black and white painting (or drawing) of two cats - both laying, one white one of a tobby type"
+copyright: Gemaingut
 ---
