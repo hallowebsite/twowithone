@@ -12,6 +12,8 @@ interface Props {
 }
 const { language } = Astro.props;
 const [locale, slugWithoutPath] = language.slug.split("/");
+const referencedImageData = language.data.image;
+const referencedImage = await getEntry(referencedImageData);
 
 const imagePath = `/src/images/${slugWithoutPath}.jpg`;
 ---
@@ -29,7 +31,7 @@ const imagePath = `/src/images/${slugWithoutPath}.jpg`;
       widths={[150, 300, 450]}
       formats={["webp", "avif", "jpeg"]}
       src={images[imagePath]()}
-      alt={language.data.imageAlt || ""}
+      alt={referencedImage.data.imageAlt || ""}
     />
   </figure>
   <div class="card-body">
