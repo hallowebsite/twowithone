@@ -1,25 +1,30 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { useTranslations } from "@/i18n/utils";
+import { Locales } from "@/i18n/ui";
 
 interface Props {
   image: CollectionEntry<"images">;
 }
 const { image } = Astro.props;
+const [locale, _] = image.slug.split("/");
+
+const t = useTranslations(locale as Locales);
 ---
 
 <div class="py-4 flex flex-col gap-1">
   <h4 class="mt-0 text-lg font-bold">Information about the image</h4>
   <dl>
-    <dt class="text-sm font-semibold">Title</dt>
+    <dt class="text-sm font-semibold">{t("image.title")}</dt>
     <dd class="text-sm">{image.data.title}</dd>
-    <dt class="text-sm font-semibold">Author</dt>
+    <dt class="text-sm font-semibold">{t("image.author")}</dt>
     <dl class="text-sm">{image.data.author}</dl>
-    <dt class="text-sm font-semibold">Date</dt>
+    <dt class="text-sm font-semibold">{t("image.date")}</dt>
     <dl class="text-sm">{image.data.date}</dl>
     {
       image.data.geographicalOrigin && (
         <>
-          <dt class="text-sm font-semibold">Geographical origin</dt>
+          <dt class="text-sm font-semibold">{t("image.geographicalOrigin")}</dt>
           <dl class="text-sm">{image.data.geographicalOrigin}</dl>
         </>
       )
@@ -27,14 +32,14 @@ const { image } = Astro.props;
     {
       image.data.description && (
         <>
-          <dt class="text-sm font-semibold">Description</dt>
+          <dt class="text-sm font-semibold">{t("image.description")}</dt>
           <dl class="text-sm">{image.data.description}</dl>
         </>
       )
     }
-    <dt class="text-sm font-semibold">Copyright</dt>
+    <dt class="text-sm font-semibold">{t("image.copyright")}</dt>
     <dd class="text-sm">{image.data.copyright}</dd>
-    <dt class="text-sm font-semibold">Source</dt>
+    <dt class="text-sm font-semibold">{t("image.source")}</dt>
     <dd class="text-sm">
       <a href={image.data.sourceUrl} class="link">{image.data.source}</a>
     </dd>

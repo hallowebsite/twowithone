@@ -49,6 +49,14 @@ export const ui: Record<Locales, LanguageStrings> = {
     "card.contact":
       "Noticed an error? Want to add version in your languge? Use our",
     "card.contactForm": "contact form.",
+    "image.seeFullSize": "See the image in full size",
+    "image.title": "Title",
+    "image.author": "Author",
+    "image.date": "Date",
+    "image.copyright": "Copyright",
+    "image.description": "Description",
+    "image.source": "Source",
+    "image.geographicalOrigin": "Geographical origin",
     "form.title": "Contact us",
     "form.explanation":
       "You did not find a saying in your language? You noticed an error or want to suggest a change?",
@@ -101,6 +109,14 @@ export const ui: Record<Locales, LanguageStrings> = {
     "card.contact":
       "Haben Sie einen Fehler bemerkt? Möchten Sie die Version in Ihrer Sprache hinzufügen? Gehen Sie zum ",
     "card.contactForm": "Kontaktformular.",
+    "image.seeFullSize": "Bild in voller Größe anzeigen",
+    "image.title": "Titel",
+    "image.author": "Autor",
+    "image.date": "Datum",
+    "image.copyright": "Urheberrecht",
+    "image.description": "Beschreibung",
+    "image.source": "Quelle",
+    "image.geographicalOrigin": "Geografische Herkunft",
     "form.title": "Kontaktiere uns",
     "form.explanation":
       "Hast du keinen Ausdruck in deiner Sprache gefunden? Du hast einen Fehler bemerkt oder möchtest eine Änderung vorschlagen?",
