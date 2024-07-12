@@ -42,7 +42,7 @@ const imagePath = `/src/images/${slugWithoutPath}.jpg`;
       alt={page?.data.imageAlt || ""}
       onload="this.style.opacity=1"
     />
-    <div class="flex flex-col gap-1 container mx-auto mb-6">
+    <div class="flex flex-col gap-1 container mx-auto mb-6 px-10">
       <ImageMeta image={page} />
       <a
         href={getAbsoluteLocaleUrl(locale, slugWithoutPath)}
