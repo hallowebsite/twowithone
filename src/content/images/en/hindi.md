@@ -9,4 +9,4 @@ description: "Collage and pen and ink on paper 2.5 x 3.0 in."
 copyright: By THL India, CC BY-SA 2.0,
 ---
 
-CC BY-SA 2.0 Lizenz: [https://commons.wikimedia.org/w/index.php?curid=106058341](https://commons.wikimedia.org/w/index.php?curid=106058341)
+CC BY-SA 2.0 license: [https://commons.wikimedia.org/w/index.php?curid=106058341](https://commons.wikimedia.org/w/index.php?curid=106058341)
