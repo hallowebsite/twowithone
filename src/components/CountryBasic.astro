@@ -56,7 +56,7 @@ const backgorundImageUrl = await getImage({
 
 const referencedImageData = language.data.image;
 const referencedImage = await getEntry(referencedImageData);
-const referencedImageSlug = referencedImage.slug;
+const referencedImageSlug = referencedImage?.slug || "";
 const [_, referencedImageSlugWithoutPath] = referencedImageSlug.split("/");
 
 const t = useTranslations(locale as Locales);
