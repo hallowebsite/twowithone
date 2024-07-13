@@ -11,5 +11,5 @@ tags:
   - Steine
 pubDate: 2024-07-13
 modifiedDate: 2024-07-13
-image: en/kannada
+image: de/kannada
 ---
