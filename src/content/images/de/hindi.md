@@ -6,7 +6,6 @@ source: THL India
 sourceUrl: "https://www.flickr.com/photos/189116622@N04/50059375622/"
 imageAlt: Eine Collage auf bräunlichem Papier, die ein scheinbar großes Huhn mit zwei kleinen Küken zeigt
 description: "Collage and pen and ink on paper 2.5 x 3.0 in."
-geographicalOrigin: From Egypt
 copyright: By THL India, CC BY-SA 2.0
 ---
 
