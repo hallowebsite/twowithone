@@ -88,6 +88,7 @@ const t = useTranslations(locale as Locales);
               formats={["webp", "avif", "jpeg"]}
               src={images[imagePath]()}
               alt={referencedImage?.data.imageAlt || ""}
+              loading="eager"
               onload="this.style.opacity=1"
             />
           </a>
