@@ -66,7 +66,6 @@ const t = useTranslations(locale as Locales);
 
       input.addEventListener("change", (e) => {
         const isChecked = (e.target as HTMLInputElement).checked;
-        console.log(isChecked, "is checked");
         if (isChecked) {
           document.documentElement.setAttribute("data-theme", "forest");
           localStorage.setItem("theme", "forest");
