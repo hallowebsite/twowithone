@@ -16,7 +16,7 @@ export async function GET(context: any): Promise<Response> {
     imagesData.map(async (image) => {
       const imagePath = `/src/images/${image.slug.replace("en/", "")}.jpg`;
       const imageObject = await images[imagePath]();
-      const imageSource = await getImage({ src: imageObject.default, format: "jpg", width: 800, height: 800 });
+      const imageSource = await getImage({ src: imageObject.default, format: "jpeg", width: 800, height: 800 });
       return {
         lang: image.slug.replace("en/", ""),
         source: imageSource.src,
