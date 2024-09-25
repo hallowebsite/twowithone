@@ -30,7 +30,7 @@ export async function GET(context: any): Promise<Response> {
 
   const generateContent = (language: any, imageSource: string | undefined, imageData: any, languageName: string) => `
     <section>
-${imageSource && `<img src="${imageSource}" width="800" height="800" alt="${imageData?.imageAlt}"/>`}
+${imageSource && `<img src="https://twowithone.com${imageSource}" width="800" height="800" alt="${imageData?.imageAlt}"/>`}
       <h1>In ${languageName} we say:</h1>
       <p>
         <b>${language.data.original}${language.data.transliteration ? ` (${language.data.transliteration})` : ""}</b>,
