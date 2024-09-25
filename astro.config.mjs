@@ -22,6 +22,17 @@ export default defineConfig({
           de: "de",
         },
       },
+      filter: (page) => {
+        // exclude motives en pages if the slug is capitalizsed
+        if (page.locale === "en" && page.slug.match(/[A-Z]/)) {
+          return false;
+        }
+        // exclude motives de pages if the slug is not capitalizsed
+        if (page.locale === "de" && !page.slug.match(/[A-Z]/)) {
+          return false;
+        }
+        return true;
+      },
     }),
   ],
   site: "https://twowithone.com",
