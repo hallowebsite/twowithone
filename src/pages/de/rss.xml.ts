@@ -29,6 +29,7 @@ export async function GET(context: any): Promise<Response> {
   };
 
   const generateContent = (language: any, imageSource: string | undefined, imageData: any, languageName: string) => `
+<article>
     <section>
 ${imageSource && `<img src="https://twowithone.com${imageSource}" width="800" height="800" alt="${imageData?.imageAlt}"/>`}
       <h1>Auf ${languageName} sagen wir:</h1>
@@ -48,6 +49,7 @@ ${imageSource && `<img src="https://twowithone.com${imageSource}" width="800" he
       <p><b>Quelle:</b> <a href="${imageData?.sourceUrl}">${imageData?.source}</a></p>
       <p><b>Urheberrecht:</b> ${imageData?.copyright}</p>
     </section>
+</article>
   `;
 
   return await rss({
