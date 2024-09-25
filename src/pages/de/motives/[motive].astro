@@ -8,15 +8,13 @@ import { Locales } from "@/i18n/ui";
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const germanLanguages = await getCollection("languages", ({ id }) => {
-    return id.startsWith("de/");
-  });
+  const languages = await getCollection("languages");
   const uniqueTags = [
-    ...new Set(germanLanguages.map((post) => post.data.tags).flat()),
+    ...new Set(languages.map((post) => post.data.tags).flat()),
   ];
 
   return uniqueTags.map((tag) => {
-    const filteredPosts = germanLanguages.filter((post) =>
+    const filteredPosts = languages.filter((post) =>
       post.data.tags.includes(tag),
     );
     return {
