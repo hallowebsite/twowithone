@@ -1,30 +1,70 @@
 import rss from "@astrojs/rss";
+import { getImage } from "astro:assets";
 import { getCollection } from "astro:content";
 
-// add type
+function capitalize(word: string) {
+  if (!word) return '';
+  return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+}
+
 export async function GET(context: any): Promise<Response> {
-  const englishLanguages = await getCollection("languages", ({ id }) => {
-    return id.startsWith("en/");
-  });
+  const englishLanguages = await getCollection("languages", ({ id }) => id.startsWith("en/"));
+  const imagesData = await getCollection("images", ({ id }) => id.startsWith("en/"));
+  const images = import.meta.glob<{ default: ImageMetadata }>("/src/images/*.{jpeg,jpg,png,gif}");
+
+  const imageSources = await Promise.all(
+    imagesData.map(async (image) => {
+      const imagePath = `/src/images/${image.slug.replace("en/", "")}.jpg`;
+      const imageObject = await images[imagePath]();
+      const imageSource = await getImage({ src: imageObject.default, format: "jpg", width: 800, height: 800 });
+      return {
+        lang: image.slug.replace("en/", ""),
+        source: imageSource.src,
+      };
+    })
+  );
+
+  const formatLanguageName = (slug: string) => {
+    return slug.replace("en/", "");
+  };
+
+  const generateContent = (language: any, imageSource: string | undefined, imageData: any, languageName: string) => `
+    <section>
+${imageSource && `<img src="${imageSource}" width="800" height="800" alt="${imageData?.imageAlt}"/>`}
+      <h1>In ${languageName} we say:</h1>
+      <p>
+        <b>${language.data.original}${language.data.transliteration ? ` (${language.data.transliteration})` : ""}</b>,
+      </p>
+      <p>which means literally:
+        <b>${language.data.meaning}</b>
+      </p>
+    </section>
+    <section>
+      <h2>Information about the image:</h2>
+      <p><b>Title:</b> ${imageData?.title}</p>
+      <p><b>Author:</b> ${imageData?.author}</p>
+      <p><b>Date:</b> ${imageData?.date}</p>
+      <p><b>Description:</b> ${imageData?.description}</p>
+      <p><b>Geographical origin:</b> ${imageData?.geographicalOrigin}</p>
+      <p><b>Source:</b> <a href="${imageData?.sourceUrl}">${imageData?.source}</a></p>
+      <p><b>Copyright:</b> ${imageData?.copyright}</p>
+    </section>
+  `;
+
   return await rss({
-    title: `To kill two birds wih one stone`,
+    title: `To kill two birds with one stone`,
     description: "Variants of the saying in different languages",
     site: context.site,
     items: englishLanguages.map((language) => {
-      let languageName = language.slug.replace("en/", "");
-      languageName =
-        languageName.charAt(0).toUpperCase() + languageName.slice(1);
+      const languageName = formatLanguageName(language.slug);
+      const imageSource = imageSources.find((image) => image.lang === languageName)?.source;
+      const imageData = imagesData.find((image) => image.slug === language.slug)?.data;
+
       return {
-        title: language.data.languageName.toUpperCase(),
+        title: capitalize(language.data.languageName),
         pubDate: language.data.pubDate,
-        content: `In ${languageName} we say:
-<br/>
-<b>${language.data.original}${language.data.transliteration !== undefined && language.data.transliteration !== "" ? ` (${language.data.transliteration})` : ""}</b>,
-<br/>
-which means literally:
-<br/>
-<b>${language.data.meaning}</b>`,
         link: `/${language.slug.replace("en/", "")}/`,
+        content: generateContent(language, imageSource, imageData, languageName),
       };
     }),
   });
