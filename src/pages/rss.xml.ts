@@ -46,7 +46,7 @@ ${imageSource && `<img src="https://twowithone.com${imageSource}" width="800" he
       <p><b>Author:</b> ${imageData?.author}</p>
       <p><b>Date:</b> ${imageData?.date}</p>
       <p><b>Description:</b> ${imageData?.description}</p>
-      <p><b>Geographical origin:</b> ${imageData?.geographicalOrigin}</p>
+      ${imageData.geographicalOrigin && `<p><b>Geographical origin:</b> ${imageData?.geographicalOrigin}</p>`}
       <p><b>Source:</b> <a href="${imageData?.sourceUrl}">${imageData?.source}</a></p>
       <p><b>Copyright:</b> ${imageData?.copyright}</p>
     </section>
