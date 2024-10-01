@@ -41,4 +41,9 @@ export default defineConfig({
     locales: ["en", "de"],
     prefixDefault: false,
   },
+  vite: {
+    define: {
+      "process.env": process.env,
+    },
+  },
 });
