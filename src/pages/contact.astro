@@ -22,7 +22,6 @@ if (Astro.request.method === "POST") {
   const thankYouUrl = getRelativeLocaleUrl(locale, "/thank-you");
   return Astro.redirect(thankYouUrl, 303);
 }
-console.log(import.meta.env);
 ---
 
 <Layout title="To kill two birds with one stone - add your language">
