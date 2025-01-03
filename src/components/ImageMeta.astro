@@ -46,7 +46,7 @@ const t = useTranslations(locale as Locales);
     </dd>
   </dl>
   {
-    image.body.length > 10 && (
+    image.body && image.body.length > 10 && (
       <article class="text-sm prose">
         <Content />
       </article>
