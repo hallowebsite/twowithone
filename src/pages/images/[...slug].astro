@@ -27,11 +27,6 @@ const page = Astro.props;
 const [locale, slugWithoutPath] = page.slug.split("/");
 const imagePath = `/src/images/${slugWithoutPath}.jpg`;
 const lqip = lqipJson[slugWithoutPath as keyof typeof lqipJson];
-const backgorundImageUrl = await getImage({
-  src: images[imagePath](),
-  width: 1000,
-  height: 1000,
-});
 ---
 
 <Layout
