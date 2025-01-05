@@ -24,12 +24,13 @@ const imagePath = `/src/images/${slugWithoutPath}.jpg`;
 >
   <figure>
     <Picture
-      class="image h-full object-cover aspect-square object-center w-full"
+      class="image opacity-0 h-full object-cover aspect-square object-center w-full"
       sizes="150px"
       width="150"
       height="150"
       widths={[150, 300, 450]}
       formats={["webp", "avif", "jpeg"]}
+      onload="this.style.opacity=1"
       src={images[imagePath]()}
       alt={referencedImage.data.imageAlt || ""}
     />
