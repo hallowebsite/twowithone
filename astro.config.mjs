@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
 import cloudflare from "@astrojs/cloudflare";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 import mdx from "@astrojs/mdx";
 
 import sitemap from "@astrojs/sitemap";
@@ -12,7 +12,6 @@ export default defineConfig({
     imageService: "cloudflare",
   }),
   integrations: [
-    tailwind(),
     mdx(),
     sitemap({
       i18n: {
@@ -45,5 +44,6 @@ export default defineConfig({
     define: {
       "process.env": process.env,
     },
+    plugins: [tailwindcss()],
   },
 });
