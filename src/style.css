@@ -1,7 +1,20 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
 @plugin "daisyui" {
-  themes: cmyk --default, forest --prefersdark;
+  themes:
+    cmyk --default,
   logs: true;
   base: true;
   root: ":root";
+}
+@plugin "daisyui/theme" {
+  name: "forest";
+  prefersdark: true;
+  --radius-field: "0.5rem";
+}
+
+@theme {
+  --font-sans: "Helvetica", "sans-serif";
+  --font-serif: "Georgia", "serif";
 }
