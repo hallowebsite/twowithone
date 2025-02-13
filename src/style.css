@@ -2,16 +2,19 @@
 @plugin "@tailwindcss/forms";
 @plugin "@tailwindcss/typography";
 @plugin "daisyui" {
-  themes:
-    cmyk --default,
-  logs: true;
-  base: true;
   root: ":root";
+  logs: true;
 }
+
 @plugin "daisyui/theme" {
   name: "forest";
   prefersdark: true;
   --radius-field: "0.5rem";
+}
+
+@plugin "daisyui/theme" {
+  name: "cmyk";
+  default: true;
 }
 
 @theme {
