@@ -12,6 +12,7 @@
     "astro": "astro",
     "buildOgImages": "node ./scripts/generateOgImages.js",
     "generateLqip": "node ./scripts/generateLqip.js",
+    "lint": "eslint",
     "prepare": "husky"
   },
   "dependencies": {
