@@ -8,7 +8,7 @@ const outputJsonPath = "src/images.json"; // Replace with your desired output JS
 const output = {};
 
 const files = await fs.readdir(inputDirectory);
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+ 
 async function processFiles() {
   for (const fileName of files) {
     try {

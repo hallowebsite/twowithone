@@ -6,8 +6,8 @@ import SearchResult from "@/components/SearchResult.astro";
 import type { CollectionEntry } from "astro:content";
 import Fuse, { type FuseResult } from "fuse.js";
 
-type SearchResult = FuseResult<CollectionEntry<"languages">>;
-const searchResults: SearchResult[] = [];
+type SearchResultType = FuseResult<CollectionEntry<"languages">>;
+const searchResults: SearchResultType[] = [];
 if (Astro.request.method === "POST") {
   try {
     const germanLanguages = await getCollection("languages", ({ id }) => {

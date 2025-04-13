@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
+ 
+ 
 import fs from "node:fs/promises";
 import sharp from "sharp";
 import path from "node:path";

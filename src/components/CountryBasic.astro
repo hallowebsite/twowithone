@@ -47,7 +47,7 @@ const imagePath = `/src/images/${slugWithoutPath}.jpg`;
 const lqip = lqipJson[slugWithoutPath as keyof typeof lqipJson];
 
 // Check if the image exists in the images object
-const imageExists = images.hasOwnProperty(imagePath);
+const imageExists = Object.prototype.hasOwnProperty.call(images, imagePath);
 const backgorundImageUrl = await getImage({
   src: images[imagePath](),
   width: 1000,
@@ -57,7 +57,7 @@ const backgorundImageUrl = await getImage({
 const referencedImageData = language.data.image;
 const referencedImage = await getEntry(referencedImageData);
 const referencedImageSlug = referencedImage?.slug || "";
-const [_, referencedImageSlugWithoutPath] = referencedImageSlug.split("/");
+const [, referencedImageSlugWithoutPath] = referencedImageSlug.split("/");
 
 const t = useTranslations(locale as Locales);
 ---
@@ -155,7 +155,7 @@ const t = useTranslations(locale as Locales);
       </div>
       {
         language.body && language.body.length > 10 && (
-          <article class="mx-auto w-full mx-0 prose md:prose-lg xl:prose-xl dark:prose-invert">
+          <article class="w-full mx-0 prose md:prose-lg xl:prose-xl dark:prose-invert">
             <Content />
           </article>
         )

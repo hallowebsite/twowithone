@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
+ 
 import { ui, defaultLang, type Locales } from "./ui";
 
 export function getLangFromUrl(url: URL): Locales {

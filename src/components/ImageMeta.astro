@@ -7,7 +7,7 @@ interface Props {
   image: CollectionEntry<"images">;
 }
 const { image } = Astro.props;
-const [locale, _] = image.slug.split("/");
+const [locale] = image.slug.split("/");
 const { Content } = await image.render();
 
 const t = useTranslations(locale as Locales);

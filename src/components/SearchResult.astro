@@ -2,6 +2,7 @@
 import { Picture } from "astro:assets";
 import { getEntry, type CollectionEntry } from "astro:content";
 import { getAbsoluteLocaleUrl } from "astro:i18n";
+import type { ImageMetadata } from "astro";
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/images/*.{jpeg,jpg,png,gif}",
