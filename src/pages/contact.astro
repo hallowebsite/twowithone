@@ -9,18 +9,16 @@ const t = useTranslations(locale);
 if (Astro.request.method === "POST") {
   const data = await Astro.request.formData();
   if (data.get("question")?.toString().toLowerCase().trim() !== "stone") {
-    const thankYouBotUrl = getRelativeLocaleUrl(locale, "/thank-you-bot");
-    return Astro.redirect(thankYouBotUrl, 303);
+    return Astro.redirect(getRelativeLocaleUrl(locale, "/thank-you-bot"), 303);
   }
-  const sendToVAl = await fetch(import.meta.env.VAL_URL, {
+  await fetch(import.meta.env.VAL_URL, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${import.meta.env.VAL_KEY}`,
     },
     body: data,
   });
-  const thankYouUrl = getRelativeLocaleUrl(locale, "/thank-you");
-  return Astro.redirect(thankYouUrl, 303);
+  return Astro.redirect(getRelativeLocaleUrl(locale, "/thank-you"), 303);
 }
 ---
 
