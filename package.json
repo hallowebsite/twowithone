@@ -13,6 +13,7 @@
     "buildOgImages": "node ./scripts/generateOgImages.js",
     "generateLqip": "node ./scripts/generateLqip.js",
     "lint": "eslint",
+    "preview-cloudflare": "wrangler pages dev ./dist",
     "prepare": "husky"
   },
   "dependencies": {
