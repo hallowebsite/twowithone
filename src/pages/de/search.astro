@@ -60,7 +60,7 @@ if (Astro.request.method === "POST") {
       <SearchBlock />
       <ul class="mt-8 flex flex-col gap-8 p-8">
         {
-          searchResults.map((result: SearchResult) => (
+          searchResults.map((result: SearchResultType) => (
             <li>
               <SearchResult language={result.item} />
             </li>
