@@ -35,42 +35,10 @@ Design-wise site uses fantastic Forest and Cmyk themes from [daisy ui](https://d
 
 Unless we get a really good written source, we try to verify all sayings with native speakers.
 
-If you notice an error or would like to add your own language, make a PR or use the [contact form](https://twowithone.com/contact)
-
 ## Images
 
 All used images are works of art available in public domain. When possible we try to find and art work
 that is connected with the saying and geographically close to the area where the given language is spoken.
-
-### Contact form
-
-Trick used for a low tech and no cost form accepting solution is to use
-a [val.town](https://val.town) service. It is something like a [zapier](https://zapier.com)
-but with code - you can expose to internet simple functions that can, for example, accept form
-data and send emails.
-
-The simple val we use:
-
-```
-<import { email } from "https://esm.town/v/std/email?v=9";
-
-export async function handle(req: Request) {
-  (async () => {
-    const body = await req.formData();
-    const text = `
-    Message from Two With One form:
-    name: ${body.get("name")},
-    email: ${body.get("email")},
-    message: ${body.get("message")}`;
-    await email({ text });
-  })();
-  return Response.json({ ok: true });
-}
-```
-
-which accepts form data and sends it as an email to us.
-
-No database, no costs and no publicly eposed email addresses :)
 
 ---
 

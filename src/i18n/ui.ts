@@ -26,7 +26,6 @@ export const ui: Record<Locales, LanguageStrings> = {
     "nav.motives": "Motives",
     "nav.map": "Explore on a map",
     "nav.list": "List of languages",
-    "nav.contact": "Contat us",
     "nav.dataProtection": "Data protection and cookies",
     "nav.languages": "Languages",
     "nav.preferences": "Preferences",
@@ -43,9 +42,6 @@ export const ui: Record<Locales, LanguageStrings> = {
     "card.imageAlt": "Information about the image:",
     "card.motives": "see all motives",
     "card.permalink": "Permalink to this saying:",
-    "card.contact":
-      "Noticed an error? Want to add version in your languge? Use our",
-    "card.contactForm": "contact form.",
     "image.seeFullSize": "See the image in full size",
     "image.infoLabel": "Information about the image",
     "image.title": "Title",
@@ -55,20 +51,6 @@ export const ui: Record<Locales, LanguageStrings> = {
     "image.description": "Description",
     "image.source": "Source",
     "image.geographicalOrigin": "Geographical origin",
-    "form.title": "Contact us",
-    "form.explanation":
-      "You did not find a saying in your language? You noticed an error or want to suggest a change?",
-    "form.name": "Your name",
-    "form.email": "Your email",
-    "form.email.explanation":
-      "We will not share it with anyone nor send you any emails, fill it in only if you expect an answer from us",
-    "form.message": "Your message *",
-    "form.message.explanation":
-      "If you want to suggest a saying, please provide links to examples of usage or explanations, thank you :)",
-    "form.antispam": "Prove you are not a bot *",
-    "form.antispamInstruction":
-      "Fill in a missing word, no interpunction. In English we say: Two birds with one...",
-    "form.send": "Send",
     "motives.title": "Sayings with a motive of [[placeholder]]",
   },
   [Locales.de]: {
@@ -84,7 +66,6 @@ export const ui: Record<Locales, LanguageStrings> = {
     "nav.motives": "Motive",
     "nav.map": "Erkunde auf einer Karte",
     "nav.list": "Liste der Sprachen",
-    "nav.contact": "Kontaktiere uns",
     "nav.dataProtection": "Datenschutz und Cookies",
     "nav.languages": "Sprachen",
     "nav.preferences": "Einstellungen",
@@ -101,9 +82,6 @@ export const ui: Record<Locales, LanguageStrings> = {
     "card.imageAlt": "Informationen zum Bild:",
     "card.motives": "alle Motive anzeigen",
     "card.permalink": "Link zu diesem Ausdruck:",
-    "card.contact":
-      "Haben Sie einen Fehler bemerkt? Möchten Sie die Version in Ihrer Sprache hinzufügen? Gehen Sie zum ",
-    "card.contactForm": "Kontaktformular.",
     "image.seeFullSize": "Bild in voller Größe anzeigen",
     "image.infoLabel": "Informationen zum Bild",
     "image.title": "Titel",
@@ -113,20 +91,6 @@ export const ui: Record<Locales, LanguageStrings> = {
     "image.description": "Beschreibung",
     "image.source": "Quelle",
     "image.geographicalOrigin": "Geografische Herkunft",
-    "form.title": "Kontaktiere uns",
-    "form.explanation":
-      "Hast du keinen Ausdruck in deiner Sprache gefunden? Du hast einen Fehler bemerkt oder möchtest eine Änderung vorschlagen?",
-    "form.name": "Dein Name",
-    "form.email": "Deine E-Mail-Adresse",
-    "form.email.explanation":
-      "Wir werden sie mit niemandem teilen und dir auch keine E-Mails senden, fülle sie nur aus, wenn du eine Antwort von uns erwartest",
-    "form.message": "Deine Nachricht *",
-    "form.message.explanation":
-      "Wenn du einen Ausdruck vorschlagen möchtest, gib bitte Links zu Beispielen oder Erklärungen an, danke :)",
-    "form.antispam": "Zeige, dass du kein Bot bist *",
-    "form.antispamInstruction":
-      "Fülle ein fehlendes Wort aus, keine Unterbrechungen. Auf Englisch sagen wir: Two birds with one...",
-    "form.send": "Senden",
     "motives.title": "Sprichwörter mit dem Motiv [[placeholder]]",
   },
 } as const;
