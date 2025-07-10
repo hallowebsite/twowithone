@@ -21,7 +21,6 @@ export const ui: Record<Locales, LanguageStrings> = {
     "nav.openSidebr": "Open sidebar",
     "nav.closeSidebar": "Close sidebar",
     "nav.home": "Home",
-    "nav.home.explanation": "(shows a random language)",
     "nav.claim": "Made with love in Aachen, Germany",
     "nav.about": "About",
     "nav.motives": "Motives",
@@ -37,9 +36,7 @@ export const ui: Record<Locales, LanguageStrings> = {
     "themeSwap.label": "Dark/Light mode",
     "themeSwap.explanation":
       "If you change this option, we will store information about your choice on your device",
-    "random.button": "Go to a random language",
-    "random.option":
-      "Avoid duplicates (we will need to store information about languages you visited on your device)",
+    "random.button": "Next",
     "card.inXWeSay": "in [[placeholder]] we say:",
     "card.literally": "which means literally:",
     "card.publishedOn": "Published on: [[placeholder]]",
@@ -82,7 +79,6 @@ export const ui: Record<Locales, LanguageStrings> = {
     "nav.openSidebr": "Seitenleiste öffnen",
     "nav.closeSidebar": "Seitenleiste schließen",
     "nav.home": "Hauptseite",
-    "nav.home.explanation": "(zeigt zufällige Sprache an)",
     "nav.claim": "In Aachen mit Liebe gemacht",
     "nav.about": "Projekt",
     "nav.motives": "Motive",
@@ -98,9 +94,7 @@ export const ui: Record<Locales, LanguageStrings> = {
     "themeSwap.label": "Dunkel-/Hellmodus",
     "themeSwap.explanation":
       "Wenn du diese Option änderst, speichern wir Informationen über deine Wahl auf deinem Gerät",
-    "random.button": "Zu einer zufälligen Sprache",
-    "random.option":
-      "Duplikate vermeiden (wir müssen Informationen über die von dir besuchten Sprachen auf deinem Gerät speichern)",
+    "random.button": "Nächster",
     "card.inXWeSay": "auf [[placeholder]] sagt man:",
     "card.literally": "was wörtlich bedeutet:",
     "card.publishedOn": "Auf [[placeholder]] veröffentlicht",
