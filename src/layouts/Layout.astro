@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
 import { getRelativeLocaleUrl } from "astro:i18n";
-import Search from "@/components/Search.astro";
 import Footer from "@/components/Footer.astro";
 import { Locales } from "@/i18n/ui";
 import { useTranslations, getLangFromUrl } from "@/i18n/utils";
@@ -123,9 +122,6 @@ const { title, imageSlug = "turkish" } = Astro.props;
               >
             </span>
           </div>
-          <div class="flex-none hidden lg:block">
-            <Search />
-          </div>
         </header>
         <!-- Page content here -->
         <slot />
@@ -153,13 +149,6 @@ const { title, imageSlug = "turkish" } = Astro.props;
                       d="M19 21H5a1 1 0 0 1-1-1v-9H1l10.327-9.388a1 1 0 0 1 1.346 0L23 11h-3v9a1 1 0 0 1-1 1M6 19h12V9.157l-6-5.454l-6 5.454z"
                     ></path></svg
                   >{t("nav.home")}</a
-                >
-              </li>
-              <li>
-                <a
-                  class="link link-hover"
-                  href={getRelativeLocaleUrl(locale, "/search")}
-                  >{t("search.title")}</a
                 >
               </li>
               <li>

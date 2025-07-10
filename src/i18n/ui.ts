@@ -29,9 +29,6 @@ export const ui: Record<Locales, LanguageStrings> = {
     "nav.dataProtection": "Data protection and cookies",
     "nav.languages": "Languages",
     "nav.preferences": "Preferences",
-    "search.title": "Search",
-    "search.placeholder": "for example: Spanish",
-    "search.go": "Go",
     "themeSwap.label": "Dark/Light mode",
     "themeSwap.explanation":
       "If you change this option, we will store information about your choice on your device",
@@ -69,9 +66,6 @@ export const ui: Record<Locales, LanguageStrings> = {
     "nav.dataProtection": "Datenschutz und Cookies",
     "nav.languages": "Sprachen",
     "nav.preferences": "Einstellungen",
-    "search.title": "Suche",
-    "search.placeholder": "zum Beispiel: Spanisch",
-    "search.go": "Los",
     "themeSwap.label": "Dunkel-/Hellmodus",
     "themeSwap.explanation":
       "Wenn du diese Option änderst, speichern wir Informationen über deine Wahl auf deinem Gerät",
